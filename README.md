@@ -2,7 +2,7 @@
 
 This Project offers a sample SpringBoot project to send messages to a RabbitMQ servers Queue using code buit using best practices
  
-##Free Open Source FOS with the License based on GPL Version 3
+## Free Open Source FOS with the License based on GPL Version 3
 
 This project is Free Open Source code FOS
 

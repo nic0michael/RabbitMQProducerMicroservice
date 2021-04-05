@@ -23,6 +23,8 @@ public class MessageQueueController {
 			produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE }, 
 			consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
 	public SendToQueueResponse sendToMessageQueue(@RequestBody SendToQueueRequest request) {
+		
+		log.debug("sendToMessageQueue called");
 		return manager.sendToMessageQueue(request);
 	}
 

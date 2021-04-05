@@ -1,8 +1,11 @@
-package za.co.nico.rabbitmq.poc.managers;
+package za.co.nico.rabbitmq.poc.utils;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,22 +15,39 @@ import za.co.nico.rabbitmq.poc.dtos.SendToQueueRequest;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueResponse;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusCodes;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusMessages;
-import za.co.nico.rabbitmq.poc.enums.TestType;
-import za.co.nico.rabbitmq.poc.services.MessageQueueService;
 import za.co.nico.rabbitmq.poc.services.impl.MockMessageQueueServiceImpl;
 
 @RunWith(SpringRunner.class)
-public class ServiceManagerTest {
-
+public class UtilsTest {
+	
 	@Test
-	public void passingTest() {
-		MessageQueueService messageQueueService = new MockMessageQueueServiceImpl(TestType.PASSING_TEST);
+	public void dateTodayStringTest() {
+		String pattern = "yyyy-MM-dd_HH:mm:ss";
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+		String expectedDateString = simpleDateFormat.format(new Date());
+		
+		String dateString = Utils.dateTodayString(pattern);
+		assertThat(dateString, is(notNullValue()));
+		assertThat(dateString, is(expectedDateString));
+	}
+	
+	@Test
+	public void generateMessageIdTest() {
+		String pattern = "yyyy-MM-dd_HH:mm:ss";
+		String expectedDateString = Utils.dateTodayString(pattern);		
+		String tempString = Utils.generateMessageId(pattern);
+		assertThat(tempString, is(notNullValue()));
+		String dateString=tempString.substring(0,19);
+		assertThat(dateString, is(expectedDateString));
+	}
+	
+	@Test
+	public void makeSendToQueueResponseTest() {
 		String expectedResponseStatusCode = ResponseStatusCodes.OK.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.OK.getResponseStatusMessage();
 
-		ServiceManager manager = new ServiceManager(messageQueueService);
-		SendToQueueRequest request = makeSendToQueueRequest();
-		SendToQueueResponse response = manager.sendToMessageQueue(request);
+		SendToQueueRequest request = Utils.makeSendToQueueTestRequest();
+		SendToQueueResponse response = Utils.makeSendToQueueResponse(request);
 
 		assertThat(response, is(notNullValue()));
 
@@ -36,17 +56,15 @@ public class ServiceManagerTest {
 		assertThat(responseStatusCode, is(expectedResponseStatusCode));
 		assertThat(responseStatusMessage, is(expectedResponseStatusMessage));
 
-	}
-	
+	}	
+
 	@Test
-	public void failingTest() {
-		MessageQueueService messageQueueService = new MockMessageQueueServiceImpl(TestType.FAILING_TEST);
+	public void makeMqSendFailureResponseTest() {
 		String expectedResponseStatusCode = ResponseStatusCodes.MQ_FAILURE.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.MQ_FAILURE.getResponseStatusMessage();
 
-		ServiceManager manager = new ServiceManager(messageQueueService);
-		SendToQueueRequest request = makeSendToQueueRequest();
-		SendToQueueResponse response = manager.sendToMessageQueue(request);
+		SendToQueueRequest request = Utils.makeSendToQueueTestRequest();
+		SendToQueueResponse response = Utils.makeMqSendFailureResponse(request);
 
 		assertThat(response, is(notNullValue()));
 
@@ -59,14 +77,12 @@ public class ServiceManagerTest {
 
 	
 	@Test
-	public void exceptionThrowingTest() {
-		MessageQueueService messageQueueService = new MockMessageQueueServiceImpl(TestType.THROWS_EXCEPTION);
+	public void makeSystemFailureResponseTest() {
 		String expectedResponseStatusCode = ResponseStatusCodes.SYSTEM_FAILURE.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.SYSTEM_FAILURE.getResponseStatusMessage();
 
-		ServiceManager manager = new ServiceManager(messageQueueService);
-		SendToQueueRequest request = makeSendToQueueRequest();
-		SendToQueueResponse response = manager.sendToMessageQueue(request);
+		SendToQueueRequest request = Utils.makeSendToQueueTestRequest();
+		SendToQueueResponse response = Utils.makeSystemFailureResponse(request);
 
 		assertThat(response, is(notNullValue()));
 
@@ -75,16 +91,5 @@ public class ServiceManagerTest {
 		assertThat(responseStatusCode, is(expectedResponseStatusCode));
 		assertThat(responseStatusMessage, is(expectedResponseStatusMessage));
 
-	}
-
-	private SendToQueueRequest makeSendToQueueRequest() {
-		SendToQueueRequest request = new SendToQueueRequest();
-		request.setMessageDescription("dummy_value");
-		request.setMessageType("dummy_value");
-		request.setTransaction("dummy_value");
-		request.setTransactionId("dummy_value");
-		request.setTransactionType("dummy_value");
-		request.setSenderSystemId("dummy_value");
-		return request;
 	}
 }

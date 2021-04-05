@@ -11,4 +11,27 @@ It is provided free of charge and subject to the terms and license of this proje
 As this project is Free Opensource you are welcome to make a fork of this project for comercial use   
 However please give the author of this project credit in your MD file
 
- 
+## REST REquest 
+
+### PostMan test : MyTest /NicosQueueProducer
+
+### URL
+http://localhost:9080/rabbitmq/rlpty/qproducer/send
+
+### Parameters
+Key             Value
+Accept          application/json
+Content-Type    application/json
+
+### Body
+{
+    "messageId":"NOT REQUIRED",
+	"messageType":"dummy_messageType",
+	"messageDescription":"dummy_messageDescription",
+	"transactionId":"dummy_transactionId",
+	"transactionType":"dummy_transactionType",
+	"transaction":"dummy_transaction",
+	"targetSystemId":"dummy_targetSystemId",
+	"senderSystemId":"dummy_senderSystemId",
+	"senderId":"dummy_senderId"
+}

@@ -23,12 +23,15 @@ public class RequestValidator {
 	private SendToQueueResponse failedToSendToQueueResponse;
 	
 	public SendToQueueResponse validateSendToQueueRequest(SendToQueueRequest request) {
+		log.info("validateSendToQueueRequest called");
 		validateRequest(request);
 		SendToQueueResponse response =makeSendToQueueResponse(request);
+		log.info("validateSendToQueueRequest | response : "+response);
 		return response;
 	}
 
 	private void validateRequest(SendToQueueRequest request) {
+		log.info("validateRequest called");
 		if(request==null) {
 			responseStatusCode=ResponseStatusCodes.BAD_REQUEST.getResponseStatusCode();
 			responseStatusMessage=ResponseStatusMessages.BAD_REQUEST.getResponseStatusMessage();

@@ -20,7 +20,7 @@ public class QueueProducerImpl implements QueueProducer{
 	
 	@Override
 	public void sendToInputQueue(String exchange2, String routingKey2, String json) throws AmqpConnectException,ConnectException  {
-		log.debug("sendToInputQueue called");
+		log.info("sendToInputQueue called");
 		amqpTemplate.convertAndSend(exchange2, routingKey2, json);
 		log.info("sendToInputQueue | Sent message to Queue");
 	}

@@ -25,13 +25,13 @@ public class ServiceManager {
 	public ServiceManager() {}
 	
 	public ServiceManager(MessageQueueService messageQueueService) {
-		log.debug("Overridden constructor called");
+		log.info("Overridden constructor called");
 		validator=new RequestValidator();
 		this.messageQueueService=messageQueueService;
 	}
 
 	public SendToQueueResponse sendToMessageQueue(SendToQueueRequest request) {
-		log.debug("sendToMessageQueue called");		
+		log.info("sendToMessageQueue called");		
 		
 		request.setMessageId(Utils.generateMessageId("yyyy-MM-dd_HH:mm:ss"));
 		response = validator.validateSendToQueueRequest(request);

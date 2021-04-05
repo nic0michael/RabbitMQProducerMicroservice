@@ -45,7 +45,7 @@ public class QueueProducerManagerImpl implements QueueProducerManager{
 	
 	@Override
 	public SendToQueueResponse sendToMessageQueueService(SendToQueueRequest request) {
-		log.debug("sendToMessageQueueService called");
+		log.info("sendToMessageQueueService called");
 		SendToQueueResponse response=null;
 		ObjectMapper objectMapper = new ObjectMapper();
 		SendToQueueDto dto=new SendToQueueDto(request);

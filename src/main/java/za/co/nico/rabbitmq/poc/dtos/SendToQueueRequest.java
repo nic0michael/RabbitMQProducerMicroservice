@@ -126,7 +126,7 @@ public class SendToQueueRequest {
 	public String toString() {
 		return "SendToQueueRequest [messageId=" + messageId + ", messageType=" + messageType + ", messageDescription="
 				+ messageDescription + ", transactionId=" + transactionId + ", transactionType=" + transactionType
-				+ ", transaction=" + transaction + ", targetSystemId=" + targetSystemId + ", senderSystemId="
+				+ ", transaction= HIDDEN FROM LOGS" +  ", targetSystemId=" + targetSystemId + ", senderSystemId="
 				+ senderSystemId + ", senderId=" + senderId + "]";
 	}
 }

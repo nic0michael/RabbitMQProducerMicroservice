@@ -49,10 +49,11 @@ public class Utils {
 		response.setMessageDescription(request.getMessageDescription());
 		response.setMessageId(request.getMessageId());
 		response.setMessageType(request.getMessageType());
-		response.setSenderId(request.getSenderId());
 		response.setTransactionId(request.getTransactionId());
 		response.setTransactionType(request.getTransactionType());
-		response.setSenderSystemId(request.getTargetSystemId());
+		response.setTargetSystemId(request.getTargetSystemId());
+		response.setSenderSystemId(request.getSenderSystemId());
+		response.setSenderId(request.getSenderId());
 		
 		return response;
 	}

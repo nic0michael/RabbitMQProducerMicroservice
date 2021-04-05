@@ -1,4 +1,4 @@
-# RabbitMQProducerMicroservice
+# RabbitMQ Queue Producer SpringBoot Microservice
 
 This Project offers a sample SpringBoot project to send messages to a RabbitMQ servers Queue using code buit using best practices
  

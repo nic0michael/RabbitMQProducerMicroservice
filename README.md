@@ -11,7 +11,7 @@ It is provided free of charge and subject to the terms and license of this proje
 As this project is Free Opensource you are welcome to make a fork of this project for comercial use   
 However please give the author of this project credit in your MD file
 
-## REST REquest 
+## REST Request and Response
 
 ### PostMan test : MyTest /NicosQueueProducer
 

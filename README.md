@@ -102,4 +102,28 @@ Content-Type    application/json
 2021-04-05 15:04:24.892  INFO 33349 --- [nio-9080-exec-5] z.c.n.r.poc.validators.RequestValidator  : validateSendToQueueRequest | response : SendToQueueResponse [responseStatusCode=408, responseStatusMessage=The Request is invalid : Transaction is missing, messageId=null, messageType=null, messageDescription=null, transactionId=null, transactionType=null, targetSystemId=null, senderSystemId=null, senderId=null]
 ^C2021-04-05 15:05:32.639  INFO 33349 --- [      Thread-50] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
 
+# Installing RabbitMQ as a Docker Container
+
+### Run the following commands in a Terminal
+
+sudo docker run -d --hostname RabbitMQSvr --name rabbit-mq-mgr -p 15672:15672 rabbitmq:3-management
+
+### Open Browser
+
+[http://localhost:15672/](http://localhost:15672/)
+
+### Login credentials:
+
+User Id : guest
+
+Password : guest
+
+
+This user is an Administrator with Unsecure credentials
+Create another Administrator user and delete this user
+
+### Open the Docker instance in Portainer
+
+[http://localhost:9000](http://localhost:9000)
+
 

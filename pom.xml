@@ -23,6 +23,7 @@
 		<serenity.version>1.9.3</serenity.version>
 		<slf4jVersion>1.6.1</slf4jVersion>
 		<sonar.exclusions>
+			file:**/rabbitmq/poc/controllers/**,
 			file:**/rabbitmq/poc/dtos/**,
 			file:**/rabbitmq/poc/exceptions/**
 		</sonar.exclusions>

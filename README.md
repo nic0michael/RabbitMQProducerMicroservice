@@ -118,6 +118,24 @@ User Id : guest
 
 Password : guest
 
+### In order to administrate this create a admin user
+In Portainer open the rabbit-mq-mgr Docker container in the terminal and run these commands:
+
+rabbitmqctl add_user admin YourPassword
+
+rabbitmqctl set_user_tags admin administrator
+
+rabbitmqctl change_password user strongpassword
+
+sudo rabbitmqctl add_vhost /nico_vhost
+
+sudo rabbitmqctl set_permissions -p /nico_vhost admin ".*" ".*" ".*"
+
+sudo rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
+
+
+
+
 
 This user is an Administrator with Unsecure credentials
 Create another Administrator user and delete this user
@@ -126,4 +144,21 @@ Create another Administrator user and delete this user
 
 [http://localhost:9000](http://localhost:9000)
 
+## Installing RabbitMQ on Ubuntu Server
 
+[https://computingforgeeks.com/how-to-install-latest-erlang-on-ubuntu-linux/](https://computingforgeeks.com/how-to-install-latest-erlang-on-ubuntu-linux/)
+
+
+[https://computingforgeeks.com/how-to-install-latest-rabbitmq-server-on-ubuntu-linux/](https://computingforgeeks.com/how-to-install-latest-rabbitmq-server-on-ubuntu-linux/)
+
+## Creating Exchange the Queues and Bindings using Exchange and Routing keys
+
+Exchange : rabbitmq.in.x
+
+Queue : rabbitmq.in.rlpty.q
+
+Deadletter Queue : rabbitmq.dead.in.rlpty.q
+
+Queue Routing Key : rabbitmq.rlpty.r
+
+Deadletter Queue Routing Key : rabbitmq.dead.rlpty.r

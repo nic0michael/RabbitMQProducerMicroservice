@@ -1,0 +1,3 @@
+#!/bin/bash
+echo starting Rabbit MQ POC
+/system/projects_folder/STS_Projects/NewWorkSpace/RabbitMqPoc/runPoc.sh

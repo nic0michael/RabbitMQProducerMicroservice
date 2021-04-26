@@ -1,6 +1,12 @@
 # RabbitMQ Queue Producer SpringBoot Microservice
 
 This Project offers a sample SpringBoot project to send messages to a RabbitMQ servers Queue using code buit using best practices
+
+## Servers supported
+This project runs with both a RabbitMQ Docker instance as well as on an Ubuntu Server with RabbitMQ server installed on it.  
+  
+Instructione for both installations are provided here
+
  
 ## Free Open Source FOS with the License based on GPL Version 3
 
@@ -146,6 +152,7 @@ Create another Administrator user and delete this user
 [http://localhost:9000](http://localhost:9000)
 
 ## Installing RabbitMQ on Ubuntu Server
+For Enterprise or business applications you way want install RabbitMQ server in a Ubuntu Server
 
 [https://computingforgeeks.com/how-to-install-latest-erlang-on-ubuntu-linux/](https://computingforgeeks.com/how-to-install-latest-erlang-on-ubuntu-linux/)
 

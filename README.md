@@ -36,7 +36,7 @@ Content-Type    application/json
 	"senderId":"dummy_senderId"
 }
 
-### Response
+### Success Response
 {
     "responseStatusCode": "200",
     "responseStatusMessage": "OK : Message delivered to RabbitMQ",
@@ -71,7 +71,7 @@ Content-Type    application/json
 	"senderId":"dummy_senderId"
 }
 
-### Response
+### Failed Response
 {
     "responseStatusCode": "408",
     "responseStatusMessage": "The Request is invalid : Transaction is missing",
@@ -106,7 +106,7 @@ Content-Type    application/json
 
 ### Run the following commands in a Terminal
 
-sudo docker run -d --hostname RabbitMQSvr --name rabbit-mq-mgr -p 15672:15672 rabbitmq:3-management
+sudo docker run -d --hostname RabbitMQSvr --name rabbit-mq-mgr2 -p 15672:15672 -p 5672:5672 rabbitmq:3-management
 
 ### Open Browser
 
@@ -119,6 +119,7 @@ User Id : guest
 Password : guest
 
 ### In order to administrate this create a admin user
+
 In Portainer open the rabbit-mq-mgr Docker container in the terminal and run these commands:
 
 rabbitmqctl add_user admin YourPassword
@@ -127,11 +128,11 @@ rabbitmqctl set_user_tags admin administrator
 
 rabbitmqctl change_password user strongpassword
 
-sudo rabbitmqctl add_vhost /nico_vhost
+rabbitmqctl add_vhost /nico_vhost
 
-sudo rabbitmqctl set_permissions -p /nico_vhost admin ".*" ".*" ".*"
+rabbitmqctl set_permissions -p /nico_vhost admin ".*" ".*" ".*"
 
-sudo rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
+rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
 
 
 

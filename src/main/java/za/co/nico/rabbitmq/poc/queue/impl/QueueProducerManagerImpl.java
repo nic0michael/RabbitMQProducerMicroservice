@@ -23,9 +23,10 @@ import za.co.nico.rabbitmq.poc.utils.Utils;
 
 @Component
 public class QueueProducerManagerImpl implements QueueProducerManager{
+	
 	private static final Logger log = LoggerFactory.getLogger(QueueProducerManagerImpl.class);
 
-
+	
 	@Value("${rabbitmq.exchange.input}")
 	private String exchange;
 	
@@ -68,8 +69,9 @@ public class QueueProducerManagerImpl implements QueueProducerManager{
 			log.error("sendToMessageQueueService | Failed to connect to queue",e);
 			response=Utils.makeMqSendFailureResponse(request);
 		}  catch (Exception e) {
-			log.error("sendToMessageQueueService | Unknown failere  to connect to queue",e);
+			log.error("sendToMessageQueueService | Unknown failure  to connect to queue");
 			response=Utils.makeSystemFailureResponse(request);
+			e.printStackTrace();
 		} 
 		
 		return response;

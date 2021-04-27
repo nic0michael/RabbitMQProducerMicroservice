@@ -26,9 +26,6 @@ import za.co.nico.rabbitmq.poc.queue.QueueProducer;
 @Component
 public class QueueProducerImpl implements QueueProducer{
 	private static final Logger log = LoggerFactory.getLogger(QueueProducerImpl.class);
-
-	@Value("${spring.rabbitmq.virtual.host}") // /nico_vhost
-	private String virtualHost;
 	
 	@Value("${spring.rabbitmq.username}") 
 	private String userName;	
@@ -41,6 +38,16 @@ public class QueueProducerImpl implements QueueProducer{
 	
 	@Value("${spring.rabbitmq.port}")
 	private String port;
+	
+	@Value("${spring.rabbitmq.virtual.host}")  // /nico_vhost
+	private String virtualHost;
+	
+
+	@Value("${rabbitmq.exchange.input}")
+	private String exchange;
+	
+	@Value("${rabbitmq.rlpty.routingkey}") 
+	private String rlptyRoutingKey;		
 
 	@Autowired
 	private AmqpTemplate amqpTemplate;

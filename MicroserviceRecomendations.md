@@ -34,3 +34,5 @@ Please refer to our Microservice Design Pattern where we make Unit Testing TDD a
 [Have a look at our Design Pattern documentation](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md)  
 
 [Dave Farley's Continuous Delivery YouTube Channel](https://www.youtube.com/channel/UCCfqyGl3nq_V0bo64CjZh8g)
+
+[Dave Farley's Blog](https://www.davefarley.net/)

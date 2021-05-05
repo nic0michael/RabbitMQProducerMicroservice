@@ -3,7 +3,7 @@
 ## What will be Demonstrated
 
 ### Running on a Linux Server
-We will be demonstrating This Microvervice running on a Linux server
+We will be demonstrating This Microservice running on a Linux server
 
 Connecting to a RabbitMQ Server running running on the same Linux server
 
@@ -20,7 +20,7 @@ Postman will be used to send Messages to the Queues of this RabbitMQ Server
 
 **Please note a different command is used to create and start this Docker Instance with a  RabbitMQ Server and not what you fine on the Internet**
 
-## After that we will look at the Testing stratergy and Design Pattern for this Microvervice 
+## After that we will look at the Testing strategy and Design Pattern for this Microservice 
 
 ## Demo of RabbitMQ Docker instance
 ```
@@ -98,5 +98,5 @@ Run Postman
 ## Now show the following documents:
 [Microservice Recomendations](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceRecomendations.md)
 [Microservice Design Pattern](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md) 
-
+If I have time we will look at the code in the IDE
   

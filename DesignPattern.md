@@ -18,9 +18,9 @@ Later Nico Michael(DVT) introduced the use of Mock Classes for Unit Testing to f
 Recently the Class that decouples the  Controller Classes from the Service Classes was given the name "ServiceManager".
 
 ## Testing Strategy
-Our Testing strategy is to only write unit tests for Classes with methods that are data changing or have any other logic.
+We only write unit tests for Classes with methods, that are data changing, or have other logic.
 
-So POJOs , DTOs, Entity Classes, and Controller Classes are not Unit tested tested.
+**So POJOs , DTOs, Entity Classes, Custom Exceptions, and Controller Classes are not Unit tested tested**.
 
 If we use only Pass-Through methods in our Controller Classes then there is no logic to test so we don't test them.
 (this is explained below)

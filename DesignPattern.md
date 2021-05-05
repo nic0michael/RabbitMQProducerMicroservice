@@ -111,20 +111,23 @@ This is based on how these classes are instantiated.
 ```
     Scenario    : Trying to send a Transaction to the Message Queue
     Given       : An invalid transaction message is received
-    Then        : A response is received with an Error Message with a corresponding Error code
+    Then        : A response is received with an Error Message
+    And         : The response received has a corresponding Error code
 ```
 
 ### Destructive Negative Tests
 ```
     Scenario    : Trying to send a Transaction to the Message Queue
     Given       : A valid transaction message is received but cant be sent to the Message Queue
-    Then        : A response is received with an Error Message with a corresponding Error code
+    Then        : A response is received with an Error Message
+    And         : The response received has a corresponding Error code
 ```
 
 ### Positive Tests
 ```
     Scenario    : Trying to send a Transaction to the Message Queue
     Given       : A valid transaction message is received and it was successfully sent to the Message Queue
-    Then        : A response is received with a Success Message with a corresponding Success code
+    Then        : A response is received with a Success Message
+    And         : The response received has a corresponding Success code
 ```
 All these Scenarios can be tested with the same Mock classes used for UNIT Testing

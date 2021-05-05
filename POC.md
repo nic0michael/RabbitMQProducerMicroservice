@@ -43,7 +43,9 @@ ssh nico@10.154.2.88
 
 cd /system/projects_folder/STS_Projects/NewWorkSpace/RabbitMqPoc/
 
-./runPoc.sh &
+```
+
+> # ./runPoc.sh &
 
 sudo ls
 

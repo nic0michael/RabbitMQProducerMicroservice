@@ -25,11 +25,14 @@ However please give the author of this project credit in your MD file
 http://localhost:9080/rabbitmq/rlpty/qproducer/send
 
 ### Parameters
+```
 Key             Value
 Accept          application/json
 Content-Type    application/json
+```
 
 ### Body
+```
 {
     "messageId":"NOT REQUIRED",
 	"messageType":"dummy_messageType",
@@ -41,8 +44,10 @@ Content-Type    application/json
 	"senderSystemId":"dummy_senderSystemId",
 	"senderId":"dummy_senderId"
 }
+```
 
 ### Success Response
+```
 {
     "responseStatusCode": "200",
     "responseStatusMessage": "OK : Message delivered to RabbitMQ",
@@ -55,16 +60,20 @@ Content-Type    application/json
     "senderSystemId": "dummy_senderSystemId",
     "senderId": "dummy_senderId"
 }
+```
 
 ### In the Logs
+```
 2021-04-05 14:52:23.233  INFO 33349 --- [nio-9080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
 2021-04-05 14:52:23.238  INFO 33349 --- [nio-9080-exec-1] z.c.n.r.p.c.MessageQueueController       : sendToMessageQueue called
 2021-04-05 14:52:23.238  INFO 33349 --- [nio-9080-exec-1] z.c.n.r.poc.managers.ServiceManager      : sendToMessageQueue called
 2021-04-05 14:52:23.240  INFO 33349 --- [nio-9080-exec-1] z.c.n.r.p.q.i.QueueProducerManagerImpl   : sendToMessageQueueService called
 2021-04-05 14:52:23.242  INFO 33349 --- [nio-9080-exec-1] z.c.n.r.p.queue.impl.QueueProducerImpl   : sendToInputQueue called
 2021-04-05 14:52:23.242  INFO 33349 --- [nio-9080-exec-1] z.c.n.r.p.queue.impl.QueueProducerImpl   : sendToInputQueue | Sent message to Queue
+```
 
 ### Negative Test Body
+```
 {
     "messageId":"NOT REQUIRED",
 	"messageType":"dummy_messageType",
@@ -76,8 +85,10 @@ Content-Type    application/json
 	"senderSystemId":"dummy_senderSystemId",
 	"senderId":"dummy_senderId"
 }
+```
 
 ### Failed Response
+```
 {
     "responseStatusCode": "408",
     "responseStatusMessage": "The Request is invalid : Transaction is missing",
@@ -90,9 +101,10 @@ Content-Type    application/json
     "senderSystemId": null,
     "senderId": null
 }
-
+```
 
 ### In the Logs
+```
 2021-04-05 15:02:55.811  INFO 33349 --- [nio-9080-exec-2] z.c.n.r.p.c.MessageQueueController       : sendToMessageQueue called
 2021-04-05 15:02:55.811  INFO 33349 --- [nio-9080-exec-2] z.c.n.r.poc.managers.ServiceManager      : sendToMessageQueue called
 2021-04-05 15:02:55.812  INFO 33349 --- [nio-9080-exec-2] z.c.n.r.poc.validators.RequestValidator  : validateSendToQueueRequest called
@@ -107,12 +119,13 @@ Content-Type    application/json
 2021-04-05 15:04:24.892  INFO 33349 --- [nio-9080-exec-5] z.c.n.r.poc.validators.RequestValidator  : validateRequest called
 2021-04-05 15:04:24.892  INFO 33349 --- [nio-9080-exec-5] z.c.n.r.poc.validators.RequestValidator  : validateSendToQueueRequest | response : SendToQueueResponse [responseStatusCode=408, responseStatusMessage=The Request is invalid : Transaction is missing, messageId=null, messageType=null, messageDescription=null, transactionId=null, transactionType=null, targetSystemId=null, senderSystemId=null, senderId=null]
 ^C2021-04-05 15:05:32.639  INFO 33349 --- [      Thread-50] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-
+```
 # Installing RabbitMQ as a Docker Container
 
 ### Run the following commands in a Terminal
-
+```
 sudo docker run -d --hostname RabbitMQSvr --name rabbit-mq-mgr2 -p 15672:15672 -p 5672:5672 rabbitmq:3-management
+```
 
 ### Open Browser
 
@@ -128,6 +141,7 @@ Password : guest
 
 In Portainer open the rabbit-mq-mgr Docker container in the terminal and run these commands:
 
+```
 rabbitmqctl add_user admin YourPassword
 
 rabbitmqctl set_user_tags admin administrator
@@ -139,7 +153,7 @@ rabbitmqctl add_vhost /nico_vhost
 rabbitmqctl set_permissions -p /nico_vhost admin ".*" ".*" ".*"
 
 rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
-
+```
 
 
 
@@ -160,7 +174,7 @@ For Enterprise or business applications you way want install RabbitMQ server in 
 [https://computingforgeeks.com/how-to-install-latest-rabbitmq-server-on-ubuntu-linux/](https://computingforgeeks.com/how-to-install-latest-rabbitmq-server-on-ubuntu-linux/)
 
 ## Creating Exchange the Queues and Bindings using Exchange and Routing keys
-
+```
 Exchange : rabbitmq.in.x
 
 Queue : rabbitmq.in.rlpty.q
@@ -170,3 +184,4 @@ Deadletter Queue : rabbitmq.dead.in.rlpty.q
 Queue Routing Key : rabbitmq.rlpty.r
 
 Deadletter Queue Routing Key : rabbitmq.dead.rlpty.r
+```

@@ -6,7 +6,7 @@ Here focus given to TDD (Test Driven Development) and BDD (Behaviour Driven Deve
 ## The Problem of writing Microservices with Tightly coupled Classes
 Many developers do not decouple their Controller Classes from the Service Classes this has a few disadvantages:
 
-  * The design becomes rigid not giving the developer flexibility in the future.s
+  * The design becomes rigid not giving the developer flexibility in the future.
   * These Microservices become a challenge foe rapid unit testing (Google achieves 3 million tests in a few minutes).
   * This does not facilitate the use of Mock Service classes for TDD and BDD testing. 
 

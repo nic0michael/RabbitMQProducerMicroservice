@@ -101,7 +101,7 @@ Content-Type application/json
 }
 ```
 **Good Body:**
-
+```
 {
     "messageId":"NOT REQUIRED",
 	"messageType":"dummy_messageType",
@@ -113,8 +113,7 @@ Content-Type application/json
 	"senderSystemId":"dummy_senderSystemId",
 	"senderId":"dummy_senderId"
 }
-
- 
+```
 
 
 

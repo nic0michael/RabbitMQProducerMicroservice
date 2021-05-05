@@ -105,4 +105,4 @@ This is based on how these classes are instantiated.
   * We are able to do TDD and BDD tests with the infrastructure down this way Jenkins can still build and deploy   
   * This is achieved using Mock Classes and not making network calls to resources
   
-### We can now use the same Mock classes for doing BDD Testing and so simplifying the testing
+### We can now use the same Mock classes for also doing BDD Testing and so simplifying the testing

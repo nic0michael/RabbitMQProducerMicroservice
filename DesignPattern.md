@@ -3,7 +3,7 @@ This design pattern has matured over four years of its use to write Microservice
 
 Here focus given to TDD (Test Driven Development) and BDD (Behaviour Driven Development).
 
-## The Problem of writing Microservices with tightly coupled classes
+## The problem with writing Microservices that have tightly coupled classes
 Many developers do not decouple their Controller Classes from the Service Classes this has a few disadvantages:
 
   * The design becomes rigid not giving the developer flexibility in the future.

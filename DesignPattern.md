@@ -1,5 +1,14 @@
 # Our Microservice Design Pattern
-This design pattern have matured over four years of its use to write Microservices with focus given to TDD (Test Driven Development) and BDD (Behaviour Driven Development).
+This design pattern has matured over four years of its use to write Microservices   
+
+Here focus given to TDD (Test Driven Development) and BDD (Behaviour Driven Development).
+
+## The Problem of writing Microservices with Tightly coupled Classes
+Many developers do not decouple their Controller Classes from the Service Classes this has a few disadvantages:
+
+  * The design becomes rigid not giving the developer flexibility in the future.s
+  * These Microservices become a challenge foe rapid unit testing (Google achieves 3 million tests in a few minutes).
+  * This does not facilitate the use of Mock Service classes for TDD and BDD testing. 
 
 ## How this design pattern evolved 
 In 2017 Saurabh Agrawal(DVT) had recommended that one should decouple the Controller Classes from the Service Classes

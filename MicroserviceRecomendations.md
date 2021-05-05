@@ -14,20 +14,20 @@ This Microservice only delivers on task and that is to publish messages to a Rab
   * This Microservice provides a boundary for sending Transactions (Our Domain Object) to be transmitted to a Queue.
   * Our Port is the Controller Class : MessageQueueController.
   * Our Adapter is the QueueProducerManager class : QueueProducerManagerImpl which converts the SendToQueueRequest to JSON for sending to the Queue.
-  * You could introduce Encryption here
+  * You could introduce Encryption in the QueueProducerManagerImpl class.
 
 ## 4. Loosly coupled
 
   * This Microservice does not depend on the previous or next Microservice.
   * It ia also Loosly coupled internally.
   * It can be deploys interdependently.
-  * Additional decoupling to the next Microserviceis provided by a RabbitMQ Queue
+  * Additional decoupling to the next Microserviceis provided by a RabbitMQ Queue.
 
 ## 5. Autonomy
-This Microservice's implementation can be changed at any time provided we dont change its Interface
+This Microservice's implementation can be changed at any time provided we dont change its Interface.
 
 ## 6. Fast Tests
-Please refer to our [Microservice Design Pattern](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md) where we make Unit Testing TDD as well as BDD Testing simpler and faster 
+Please refer to our [Microservice Design Pattern](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md) where we make Unit Testing TDD as well as BDD Testing simpler and faster. 
 
 ## For more information
 

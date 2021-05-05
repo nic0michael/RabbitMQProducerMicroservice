@@ -11,6 +11,20 @@ The Class that decouples the  Controller Classes from the Service Classes was gi
 ## Testing Strategy
 Our Testing strategy is to only write unit tests for Classes with methods that have data changing logic
 
+### Getting SonarQube to ignore Classes we don't want to test
+
+```
+	<properties>
+		. . . 
+		. . .
+		<sonar.exclusions>
+			file:**/rabbitmq/poc/controllers/**,
+			file:**/rabbitmq/poc/dtos/**,
+			file:**/rabbitmq/poc/exceptions/**
+		</sonar.exclusions>
+	</properties>
+```
+
 ## Decoupling the Controller Classes from the Service Classes
 It is not uncommon to find the Controller Classes tightly coupled to the Service Classes this makes unit testing a challenge
 

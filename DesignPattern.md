@@ -29,8 +29,9 @@ This is done in the projects POM file (pom.xml) by adding the SonarQube Exclusio
 ## Decoupling the Controller Classes from the Service Classes
 It is not uncommon to find the Controller Classes tightly coupled to the Service Classes this makes unit testing a challenge.
 
-### We introduce a Service Manager Class between the Controller Classes from the Service Classes
-This decouples the Controller Classes from the Service Classes. 
+### We introduced a Service Manager Class between the Controller Classes from the Service Classes
+This decouples the Controller Classes from the Service Classes.   
+We also made the Service Classes implement Interfaces this further decouples the ServiceManager Class from the Service Classes
 
 ![MicroserviceDesignPattern](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPattern.JPG)
 

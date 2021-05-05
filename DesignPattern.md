@@ -32,6 +32,8 @@ It is not uncommon to find the Controller Classes tightly coupled to the Service
 ### We introduce a Service Manager Class between the Controller Classes from the Service Classes
 This decouples the Controller Classes from the Service Classes. 
 
+![MicroserviceDesignPattern](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPattern.JPG)
+
 ## We use "Pass-through Methods"
 In the Controller Classes all the methods that call the Service Manager Class do not "Modify Data" what they receive in their  parameters is passed directly to the methods of the Service Manager Class where we prefer to even have the methods with the same names as in the Controller Classes.
 
@@ -43,6 +45,8 @@ We write positive and Negative Unit tests for the Service Manager Class.
 These Service Interfaces are @Autowired to the Service Manager Class.
 
 ## We mock the Service Interfaces by implementing Mock Service Implementation classes in the Test Folder for Unit testing
+
+![MicroserviceDesignPatternTDDandBDD](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPatternTDDandBDD.JPG)
 
 By Mocking the Service classes we can control their behaviour to give us  Positive and Negative Unit tests.
   

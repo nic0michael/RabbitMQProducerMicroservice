@@ -12,7 +12,8 @@ The Class that decouples the  Controller Classes from the Service Classes was gi
 Our Testing strategy is to only write unit tests for Classes with methods that are data changing or have any other logic
 
 ### Getting SonarQube to ignore Classes we don't want to test
-This is done in the projects POM file by adding SonarQube Exclusions
+This is done in the projects POM file (pom.xml) by adding the SonarQube Exclusions to folders or classes
+
 ```
 	<properties>
 		. . . 

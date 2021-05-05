@@ -11,6 +11,11 @@ Recently the Class that decouples the  Controller Classes from the Service Class
 ## Testing Strategy
 Our Testing strategy is to only write unit tests for Classes with methods that are data changing or have any other logic.
 
+So POJOs , DTOs, Entity Classes, and Controller Classes are not Unit tested tested.
+
+If we use only Pass-Through methods in our Controller Classes then there is no logic to test so we don't test them.
+(this is explained below)
+
 ### Getting SonarQube to ignore Classes we don't want to test
 This is done in the projects POM file (pom.xml) by adding the SonarQube Exclusions to folders or classes :
 

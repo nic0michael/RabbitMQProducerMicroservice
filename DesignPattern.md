@@ -118,7 +118,7 @@ This is based on how these classes are instantiated.
 
 ### Destructive Negative Tests
 ```
-    Scenario    : Trying to send a Transaction unsuccessfully to the Message Queue
+    Scenario    : Trying to send a valid Transaction unsuccessfully to the Message Queue
 
     Given       : A valid transaction message is received 
     And         : It cant be sent to the Message Queue

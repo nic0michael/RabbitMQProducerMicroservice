@@ -4,7 +4,7 @@ This design pattern have matured over four years of its use to write Microservic
 ## How this design pattern evolved 
 4 years ago Saurabh Agrawal had recommended that one should decouple the Controller Classes from the Service Classes
 
-Nico Michael introduced the use of Mock Classes to facilitate TDD (Test Driven Development) and BDD (Behaviour Driven Development)
+Nico Michael introduced the use of Mock Classes for Unit Testing to facilitate TDD (Test Driven Development) and BDD (Behaviour Driven Development)
 
 The Class that decouples the  Controller Classes from the Service Classes was given the name "ServiceManager"
 

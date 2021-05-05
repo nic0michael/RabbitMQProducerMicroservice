@@ -2,11 +2,11 @@
 This design pattern have matured over four years of its use to write Microservices with focus given to TDD (Test Driven Development) and BDD (Behaviour Driven Development).
 
 ## How this design pattern evolved 
-4 years ago Saurabh Agrawal had recommended that one should decouple the Controller Classes from the Service Classes
+In 2017 Saurabh Agrawal had recommended that one should decouple the Controller Classes from the Service Classes
 
 Nico Michael introduced the use of Mock Classes for Unit Testing to facilitate TDD and BDD.
 
-The Class that decouples the  Controller Classes from the Service Classes was given the name "ServiceManager".
+Recently the Class that decouples the  Controller Classes from the Service Classes was given the name "ServiceManager".
 
 ## Testing Strategy
 Our Testing strategy is to only write unit tests for Classes with methods that are data changing or have any other logic.

@@ -109,7 +109,8 @@ This is based on how these classes are instantiated.
 
 ### Negative Tests
 ```
-    Scenario    : Trying to send a Transaction to the Message Queue
+    Scenario    : Trying to send a bad Transaction to the Message Queue
+
     Given       : An invalid transaction message is received
     Then        : A response is received with an Error Message
     And         : The response received has a corresponding Error code
@@ -117,16 +118,20 @@ This is based on how these classes are instantiated.
 
 ### Destructive Negative Tests
 ```
-    Scenario    : Trying to send a Transaction to the Message Queue
-    Given       : A valid transaction message is received but cant be sent to the Message Queue
+    Scenario    : Trying to send a Transaction unsuccessfully to the Message Queue
+
+    Given       : A valid transaction message is received 
+    And         : It cant be sent to the Message Queue
     Then        : A response is received with an Error Message
     And         : The response received has a corresponding Error code
 ```
 
 ### Positive Tests
 ```
-    Scenario    : Trying to send a Transaction to the Message Queue
-    Given       : A valid transaction message is received and it was successfully sent to the Message Queue
+    Scenario    : Trying to send a valid Transaction successfully to the Message Queue
+
+    Given       : A valid transaction message is received 
+    And         : It was successfully sent to the Message Queue
     Then        : A response is received with a Success Message
     And         : The response received has a corresponding Success code
 ```

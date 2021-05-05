@@ -106,3 +106,22 @@ This is based on how these classes are instantiated.
   * This is achieved using Mock Classes and not making network calls to resources
   
 ### We can now use the same Mock classes for also doing BDD Testing and so simplifying the testing
+
+```
+    Scenario    : Trying to send a Transaction to the Message Queue
+    Given       : An invalid transaction message is received
+    Then        : A response is received with an Error Message with a corresponding Error code
+```
+
+```
+    Scenario    : Trying to send a Transaction to the Message Queue
+    Given       : A valid transaction message is received but cant be sent to the Message Queue
+    Then        : A response is received with an Error Message with a corresponding Error code
+```
+
+```
+    Scenario    : Trying to send a Transaction to the Message Queue
+    Given       : A valid transaction message is received and it was successfully sent to the Message Queue
+    Then        : A response is received with a Success Message with a corresponding Success code
+```
+All these Scenarios can be tested with the same Mock classes used for UNIT Testing

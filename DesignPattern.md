@@ -9,10 +9,10 @@ Nico Michael introduced the use of Mock Classes for Unit Testing to facilitate T
 The Class that decouples the  Controller Classes from the Service Classes was given the name "ServiceManager"
 
 ## Testing Strategy
-Our Testing strategy is to only write unit tests for Classes with methods that have data changing logic
+Our Testing strategy is to only write unit tests for Classes with methods that are data changing or have any other logic
 
 ### Getting SonarQube to ignore Classes we don't want to test
-
+This is done in the projects POM file by adding SonarQube Exclusions
 ```
 	<properties>
 		. . . 

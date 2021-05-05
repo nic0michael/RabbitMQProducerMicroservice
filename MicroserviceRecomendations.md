@@ -2,32 +2,32 @@
 
 The talks of Dave Farley from the Continuous Delivery Channel provides valuable information on Microservices
 
-Here we show how we met his recommendations for this project
+**Here we show how we met his recommendations for this project:**
 
-## Small
-This is a small Microservice that could be replaced in about 3 days
+## 1. Small
+This is a small Microservice that could be replaced in about 3 days.
 
-## Focused on a single task
-This Microservice only delivers on task and that is to publish messages to a RabbitMQ server
+## 2. Focused on a single task
+This Microservice only delivers on task and that is to publish messages to a RabbitMQ server.
 
-## Aligned to a bounded context (Domain Driven Design)
-this Microservice provides a boundary for sending Transactions (Our Domain Object) to be transmitted to a Queue
+## 3. Aligned to a bounded context (Domain Driven Design)
+  * This Microservice provides a boundary for sending Transactions (Our Domain Object) to be transmitted to a Queue.
+  * Our Port is the Controller Class : MessageQueueController.
+  * Our Adapter is the QueueProducerManager class : QueueProducerManagerImpl which converts the SendToQueueRequest to JSON for sending to the Queue.
+  * You could introduce Encryption here
 
-Our Port is the Controller Class : MessageQueueController
+## 4. Loosly coupled
 
-Our Adapter is the QueueProducerManager class : QueueProducerManagerImpl which converts the SendToQueueRequest to JSON for sending to the Queue
+  * This Microservice does not depend on the previous or next Microservice.
+  * It ia also Loosly coupled internally.
+  * It can be deploys interdependently.
+  * Additional decoupling to the next Microserviceis provided by a RabbitMQ Queue
 
-## Loosly coupled
-This Microservice does not depend on the previous or next Microservice  
+## 5. Autonomy
+This Microservice's implementation can be changed at any time provided we dont change its Interface
 
-It can be deploys interdependently
-Additional decoupling to the next Microserviceis provided by a RabbitMQ Queue
-
-## Autonomy
-this Microservice's implementation can be changed at any time provided we dont change its Interface
-
-## Fast Tests
-Please refer to our Microservice Design Pattern where we make Unit Testing TDD as well as BDD Testing simpler and faster 
+## 6. Fast Tests
+Please refer to our [Microservice Design Pattern](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md) where we make Unit Testing TDD as well as BDD Testing simpler and faster 
 
 ## For more information
 

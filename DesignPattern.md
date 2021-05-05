@@ -100,7 +100,8 @@ This is based on how these classes are instantiated.
 
 ## The benefits of using Mock Service Implementation classes
   * We write unit tests that are not fragile 
-  * Using Mockito any changes in the Requests and responses will require debugging to fix broken unit tests
+  * Using Mockito produces brittle unit tests as any changes in the Requests and responses will require debugging to fix broken unit tests
   * Any changes in the Requests and responses will be easy to change in the Mock Service methods
+  * We are able to do TDD and BDD tests with the infrastructure down this way Jenkins can still build and deploy 
   
 ### We can now use the same Mock classes for doing BDD Testing and so simplifying the testing

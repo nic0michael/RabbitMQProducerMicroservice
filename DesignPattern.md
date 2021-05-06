@@ -95,7 +95,7 @@ The Purpose of the Service Manager Class is to be called by the Controllers and 
 This class will Orchestrate the process **keeping the Service Classes small and simple**, each having one primary function.
 
 In our design pattern we know that Micro Services have Controller Classes  and a few Service Classes.   
-we also know that we are introducing a Service Manager Class,and one or more Interfaces as well as one or more Mock Service Classes.   
+We also know that we are introducing a Service Manager Class, and one or more Interfaces as well as one or more Mock Service Classes.   
 
 ### 8.1 Step One Create Empty Classes and Interfaces
 We start by creating Empty Classes and empty Interfaces for the above.   

@@ -28,6 +28,8 @@ Start  the Microserver Instance
 ```
 ssh nico@10.154.2.88
 
+sudo ls
+
 cd /system/projects_folder/STS_Projects/NewWorkSpace/RabbitMqPoc/
 
 ./runPoc.sh &
@@ -41,9 +43,9 @@ After this demo stop the  RabbitMQ Server
 ```
 ssh nico@10.154.2.88
 
-cd /system/projects_folder/STS_Projects/NewWorkSpace/RabbitMqPoc/
-
 sudo ls
+
+cd /system/projects_folder/STS_Projects/NewWorkSpace/RabbitMqPoc/
 
 stop-rabbitmqServer
 ```

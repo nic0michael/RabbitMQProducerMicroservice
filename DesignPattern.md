@@ -118,7 +118,7 @@ In order for this unit test to pass you will have written code to pass the first
 
 **In this project this found the Validator Class called by the Service Manager Class**
 
-**You repeat this process until you have found all the code for your project making sure you have done both Positive and negative tests and passed the all**
+**You repeat this process until you have found all the code for your project making sure you have done both Positive and negative tests and passed them all**
 
 ## 9. We mock the Service classes by implementing Mock Service classes in the Test Folder for Unit testing
 By Mocking the Service classes we can control their behaviour to give us  Positive and Negative Unit tests.   

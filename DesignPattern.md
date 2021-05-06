@@ -92,7 +92,7 @@ We don't write the code and then do the unit tests. **This is only done when dev
 We would rather want **enough good unit tests**.   
 
 The Purpose of the Service Manager Class is to be called by the Controllers and to call one or more Service Class.   
-This class will Orchestrate the process keeping the Service Classes small and simple Each having one primary function.
+This class will Orchestrate the process **keeping the Service Classes small and simple**, each having one primary function.
 
 In our design pattern we know that Micro Services have Controller Classes  and a few Service Classes we also know that we are introducing a Service Manager Class,   
 and one or more Interfaces as well as one or more Mock Service Classes.   

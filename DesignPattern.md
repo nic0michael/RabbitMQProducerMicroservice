@@ -77,35 +77,63 @@ We add overloaded Constructors to the classes we want to test so that we can inj
 
 ![MicroserviceDesignPattern](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPattern.JPG)
 
-## 5. We use "Pass-through or Wrapper Methods" Making Façades of the Controllers
+## 6. We use "Pass-through or Wrapper Methods" Making Façades of the Controllers
 In the Controller Classes all the methods that call the Service Manager Class do not "Modify Data".   
 What they receive in their  parameters is passed directly to the methods of the Service Manager Class.   
 We prefer to have the methods there with the same names as in the Controller Classes.   
 As we do not have any logic and are not changing anything in the Controller Classes we don’t need to write unit tests for the Controller Classes.
 
-## 6. We decouple the Service Manager Class from the Service Classes by making the Service Classes implement an Interface
+## 7. We decouple the Service Manager Class from the Service Classes by making the Service Classes implement an Interface
 These Service Interfaces are @Autowired to the Service Manager Class.
 
-## 7. We mock the Service classes by implementing Mock Service classes in the Test Folder for Unit testing
+
+## 8. Using Test Driven Development to find the code for this project
+We don't write the code and then do the unit tests. This is only done when developers are forced to have high code coverage.   
+We would rather want enough good unit tests.   
+
+The Purpose of the Service Manager Class is to be called by the Controllers and to call one or more Service Class.   
+This class will Orchestrate the process keeping the Service Classes small and simple Each having one primary function.
+
+In our design pattern we know that Micro Services have Controller Classes  and a few Service Classes we also know that we are introducing a Service Manager Class,   
+and one or more Interfaces as well as one or more Mock Service Classes.   
+
+### 8.1 Step One Create Empty Classes and Interfaces
+We start by creating Empty Classes and empty Interfaces for the above.   
+We will use Test Driven Development to find the code in these empty Classes and Interfaces 
+
+### 8.2 Step Two Find the first method for the first Empty Classes and Interfaces (here we are using a valid request in our test)
+As we know in this project that we are expected to receive a request from another Microservice.   
+Now we start by writing the first unit test to test the Service Manager Class receiving a valid Transaction in the request.     
+This will find the code for the Controllers first method and the Service Managers first method as well as our Mock Service Classes first method.   
+In order for this unit test to pass you will have written code to pass the first methods
+
+### 8.3 Step Three Find more code for first method for the first Empty Classes and Interfaces (here we are using an invalid request in our Negative Unit Test)
+Now we start by writing the second unit test to test the Service Manager Class receiving an invalid Transaction in the request.   
+This will find more code for the Service Managers first method as well as our Mock Service Classes first method.   
+In order for this unit test to pass you will have written code to pass the first methods with invalid requests
+
+**You repeat this process until you have found all the code for your project making sure you have done both Positive and negative tests and passed the all**
+
+## 9. We mock the Service classes by implementing Mock Service classes in the Test Folder for Unit testing
 By Mocking the Service classes we can control their behaviour to give us  Positive and Negative Unit tests.   
 We add overloaded Constructors to the classes we want to test so that we can inject @Autowired fields and Objects as well as instances of the mocked Service classs 
 
 ![MicroserviceDesignPatternTDDandBDD](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPatternTDDandBDD.JPG)
 
-### 7.1 Positive Tests
+### 9.1 Positive Tests
 For Positive tests all the public methods of the Mock Service Classes will return the Expected values .
 
-### 7.2 Negative Tests
+### 9.2 Negative Tests
 For Negative tests all the public methods of the Mock Service Classes will return values representing failure  
   
 Now we can see that our code behaves with failures.
 
-### 7.3 Destructive Negative Tests
+### 9.3 Destructive Negative Tests
 For Destructive Negative Tests we make all the methods in the Mock Classes throw the expected Exceptions for serious  failure.
 
 This way we can test how our code handles crashing conditions.
 
-### 7.4 Giving our Mock Classes multiple behaviours (Schizophrenic Classes)
+### 9.4 Giving our Mock Classes multiple behaviours (Schizophrenic Classes)
 In Order to give our Mock Classes multiple behaviours this is done by :
 
   * Making the default constructor private.  
@@ -122,7 +150,8 @@ We write all our Mock Class methods in such a way that they have three behaviour
 
 This is based on how these classes are instantiated.
 
-## 8. The benefits of using Mock Service Implementation classes
+
+## 10. The benefits of using Mock Service Implementation classes
   * We write unit tests that are not fragile 
   * Using Mockito produces brittle unit tests as any changes in the Requests and responses will require debugging to fix broken unit tests
   * Any changes in the Requests and responses will be easy to change in the Mock Service methods
@@ -132,9 +161,9 @@ This is based on how these classes are instantiated.
   One of the companies I worked at would have Jenkins build failures in one of the services was down.   
 **We never had that where we used this technique of using Mock Classes.**
   
-## 9. We can now reuse the same Mock classes for simplifying BDD Testing
+## 11. We can now reuse the same Mock classes for simplifying BDD Testing
 
-### 9.1 Negative Test
+### 11.1 Negative Test
 ```
     Scenario    : Trying to send a invalid Transaction to the Message Queue for processing
 
@@ -143,7 +172,7 @@ This is based on how these classes are instantiated.
     And         : The response has a corresponding Error code
 ```
 
-### 9.2 Destructive Negative Test
+### 11.2 Destructive Negative Test
 ```
     Scenario    : Trying to send a valid Transaction unsuccessfully to the Message Queue for processing
 
@@ -152,7 +181,7 @@ This is based on how these classes are instantiated.
     And         : The response has a corresponding Error code
 ```
 
-### 9.3 Positive Test
+### 11.3 Positive Test
 ```
     Scenario    : Trying to send a valid Transaction successfully to the Message Queue for processing
 

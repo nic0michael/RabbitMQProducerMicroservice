@@ -3,7 +3,14 @@ This design pattern has matured over four years of its use to write Microservice
 
 Here focus given to TDD (Test Driven Development) and BDD (Behaviour Driven Development).
 
-## The problem with writing Microservices that have tightly coupled classes
+## Why do we want Unit testing
+Bad Software Engineering KILLED Cyberpunk 2077’s Release
+
+https://www.youtube.com/watch?v=E-jGEtqB4wU
+
+The approach if this Design Pattern is to simplify Unit Testing doing TDD (Test Driven Development) and BDD (Behaviour Driven Development) 
+
+## The problem with writing Microservices that have tightly coupled classes making Unit testing a challange
 Many developers do not decouple their Controller Classes from the Service Classes this has a few disadvantages:
 
   * The design becomes rigid not giving the developer flexibility in the future.

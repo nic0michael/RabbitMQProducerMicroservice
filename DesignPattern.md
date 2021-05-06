@@ -128,6 +128,7 @@ This is based on how these classes are instantiated.
   * Any changes in the Requests and responses will be easy to change in the Mock Service methods
   * We are able to do TDD and BDD tests with the infrastructure down this way Jenkins can still build and deploy   
   * This is achieved using Mock Classes and not making network calls to resources.   
+
   One of the companies I worked at would have Jenkins build failures in one of the services was down.   
 **We never had that where we used this technique of using Mock Classes.**
   

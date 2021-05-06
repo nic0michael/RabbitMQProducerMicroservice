@@ -132,7 +132,7 @@ This is based on how these classes are instantiated.
   One of the companies I worked at would have Jenkins build failures in one of the services was down.   
 **We never had that where we used this technique of using Mock Classes.**
   
-## 9. We can now use the same Mock classes for also doing BDD Testing and so simplifying the testing
+## 9. We can now reuse the same Mock classes for simplifying BDD Testing
 
 ### 9.1 Negative Test
 ```

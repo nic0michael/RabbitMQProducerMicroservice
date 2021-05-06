@@ -67,7 +67,7 @@ This is done in the projects POM file (pom.xml) by adding the SonarQube Exclusio
   * Simple DB queries checking predicates
   * Services that are high-risk
 
-## 5. Decoupling the Controller Classes from the Service Classes
+## 5. This Design Pattern works by Decoupling the Controller Classes from the Service Classes
 It is not uncommon to find the Controller Classes tightly coupled to the Service Classes this makes unit testing a challenge.
 
 ### 5.1 We introduced a Service Manager Class to decouple the Controller Classes from the Service Classes

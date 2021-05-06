@@ -97,17 +97,17 @@ This class will Orchestrate the process **keeping the Service Classes small and 
 In our design pattern we know that Micro Services have Controller Classes  and a few Service Classes.   
 We also know that we are introducing a Service Manager Class, and one or more Interfaces as well as one or more Mock Service Classes.   
 
-### 8.1 Step One Create Empty Classes and Interfaces
+### 8.1 Step One - Create Empty Classes and Interfaces
 We start by creating Empty Classes and empty Interfaces for the above.   
 We will use Test Driven Development to find the code in these empty Classes and Interfaces 
 
-### 8.2 Step Two Find the first method for the first Empty Classes and Interfaces (here we are using a valid request in our test)
+### 8.2 Step Two - Find the first method for the first Empty Classes and Interfaces (here we are using a valid request in our test)
 As we know in this project that we are expected to receive a request from another Microservice.   
 Now we start by writing the first unit test to test the Service Manager Class receiving a valid Transaction in the request.     
 This will find the code for the Controllers first method and the Service Managers first method as well as our Mock Service Classes first method.   
 In order for this unit test to pass you will have written code to pass the first methods
 
-### 8.3 Step Three Find more code for first method for the first Empty Classes and Interfaces (here we are using an invalid request in our Negative Unit Test)
+### 8.3 Step - Three Find more code for first method for the first Empty Classes and Interfaces (here we are using an invalid request in our Negative Unit Test)
 Now we start by writing the second unit test to test the Service Manager Class receiving an invalid Transaction in the request.   
 This will find more code for the Service Managers first method as well as our Mock Service Classes first method.   
 In order for this unit test to pass you will have written code to pass the first methods with invalid requests

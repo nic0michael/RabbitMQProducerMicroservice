@@ -28,43 +28,26 @@ Recently the Class that decouples the  Controller Classes from the Service Class
 We only write unit tests for Classes with methods, that are data changing, or have other logic.
 
 
-
 ### What not to Test
-**So POJOs , DTOs, Entity Classes, Custom Exceptions, and Controller Classes are not Unit tested tested**.
-
-If we use only Pass-Through methods in our Controller Classes then there is no logic to test so we don't test them.
-(this is explained below)
-
-Constructors or properties (if they just return variables). Test them only if they contain validations.
-
-Configurations like constants, read only fields, configs, enumerations, etc.
-
-Facades of just wrapping other frameworks or libraries
-
-Container service registrations
-
-Exception messages
-
-Private methods directly
-
-Complex SQL Queries (more than 3 joins or grouping, etc.). Better to test it with manual or some kind of system test against real DB.
-
-Complex multi-threading code (it is better to be tested with integration tests)
-
-Methods that call another public method
+  * So POJOs , DTOs, Entity Classes, Custom Exceptions, and Controller Classes are not Unit tested tested.
+  * If we use only Pass-Through methods in our Controller Classes then there is no logic to test so we don't test them. (this is explained below)
+  * Constructors or properties (if they just return variables). Test them only if they contain validations.
+  * Configurations like constants, read only fields, configs, enumerations, etc.
+  * Façades of just wrapping other frameworks or libraries
+  * Container service registrations
+  * Exception messages
+  * Private methods directly
+  * Complex SQL Queries (more than 3 joins or grouping, etc.). Better to test it with manual or some kind of system test against real DB.
+  * Complex multi-threading code (it is better to be tested with integration tests)
+  * Methods that call another public method
 
 ### What to Test
-Collections passed as parameter not changed in the method
-
-Algorithm Engines
-
-Utility methods
-
-Core business logic methods
-
-Simple DB queries checking predicates
-
-Services that are high-risk
+  * Collections passed as parameter not changed in the method
+  * Algorithm Engines
+  * Utility methods
+  * Core business logic methods
+  * Simple DB queries checking predicates
+  * Services that are high-risk
 
 ### Getting SonarQube to ignore Classes we don't want to test
 This is done in the projects POM file (pom.xml) by adding the SonarQube Exclusions to folders or classes :

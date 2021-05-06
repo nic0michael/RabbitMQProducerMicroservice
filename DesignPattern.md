@@ -28,7 +28,7 @@ Later Nico Michael(DVT) introduced the use of Mock Classes for Unit Testing to f
 Recently the Class that decouples the  Controller Classes from the Service Classes was given the name "ServiceManager".
 
 ## 4. Testing Strategy
-We only write unit tests where we need them.   
+**We only write unit tests where we need them.**   
 For Classes with methods, that are data changing, or have other logic.
 
 ### 4.1 What not to Test

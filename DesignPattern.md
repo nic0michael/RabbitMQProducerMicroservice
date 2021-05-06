@@ -44,15 +44,7 @@ For Classes with methods, that are data changing, or have other logic.
   * Complex multi-threading code (it is better to be tested with integration tests)
   * Methods that call another public method
 
-### 4.2 What to Test
-  * Utility methods
-  * Core business logic methods
-  * Collections passed as parameter not changed in the method
-  * Algorithm Engines
-  * Simple DB queries checking predicates
-  * Services that are high-risk
-
-### 4.3 Getting SonarQube to ignore Classes we don't want to test
+### 4.2 Getting SonarQube to ignore Classes we don't want to test
 This is done in the projects POM file (pom.xml) by adding the SonarQube Exclusions to folders or classes :
 
 ```
@@ -66,6 +58,14 @@ This is done in the projects POM file (pom.xml) by adding the SonarQube Exclusio
 		</sonar.exclusions>
 	</properties>
 ```
+
+### 4.3 What to Test
+  * Utility methods
+  * Core business logic methods
+  * Collections passed as parameter not changed in the method
+  * Algorithm Engines
+  * Simple DB queries checking predicates
+  * Services that are high-risk
 
 ## 5. Decoupling the Controller Classes from the Service Classes
 It is not uncommon to find the Controller Classes tightly coupled to the Service Classes this makes unit testing a challenge.

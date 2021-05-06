@@ -101,13 +101,17 @@ We also know that we are introducing a Service Manager Class, and one or more In
 We start by creating Empty Classes and empty Interfaces for the above.   
 We will use Test Driven Development to find the code in these empty Classes and Interfaces 
 
-### 8.2 Step Two - Find the first method for the first Empty Classes and Interfaces (here we are using a valid request in our test)
+### 8.2 Step Two - Find the first method for the first Empty Classes and Interfaces 
+**Here we are using a valid request in our test**
+
 As we know in this project that we are expected to receive a request from another Microservice.   
 Now we start by writing the first unit test to test the Service Manager Class receiving a valid Transaction in the request.     
 This will find the code for the Controllers first method and the Service Managers first method as well as our Mock Service Classes first method.   
 In order for this unit test to pass you will have written code to pass the first methods
 
-### 8.3 Step - Three Find more code for first method for the first Empty Classes and Interfaces (here we are using an invalid request in our Negative Unit Test)
+### 8.3 Step - Three Find more code for first method for the first Empty Classes and Interfaces 
+**Here we are using an invalid request and writing a Negative Unit Test**
+
 Now we start by writing the second unit test to test the Service Manager Class receiving an invalid Transaction in the request.   
 This will find more code for the Service Managers first method as well as our Mock Service Classes first method.   
 In order for this unit test to pass you will have written code to pass the first methods with invalid requests

@@ -32,7 +32,7 @@ We only write unit tests where we need them.
 For Classes with methods, that are data changing, or have other logic.
 
 ### 4.1 What not to Test
-  * Façades of just wrapping other frameworks or libraries
+  * Façades of just wrapping other frameworks or libraries or Classes (We make the Controller Classes Façades in this Design Pattern).  
   * If we use only Pass-Through or wrapper methods in our Controller Classes then there is no logic to test so there is no need to test them.
   * POJOs , DTOs, Entity Classes, Custom Exceptions, and Controller Classes are not Unit tested tested.
   * Constructors or properties (if they just return variables). Test them only if they contain validations.

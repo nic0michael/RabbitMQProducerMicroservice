@@ -77,7 +77,7 @@ We add overloaded Constructors to the classes we want to test so that we can inj
 
 ![MicroserviceDesignPattern](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPattern.JPG)
 
-## 5. We use "Pass-through or Wrapper Methods" Making Façades of the Controller Classes
+## 5. We use "Pass-through or Wrapper Methods" Making Façades of the Controllers
 In the Controller Classes all the methods that call the Service Manager Class do not "Modify Data".   
 What they receive in their  parameters is passed directly to the methods of the Service Manager Class.   
 We prefer to have the methods there with the same names as in the Controller Classes.   

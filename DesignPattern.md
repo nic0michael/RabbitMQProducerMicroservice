@@ -89,7 +89,7 @@ These Service Interfaces are @Autowired to the Service Manager Class.
 
 ## 8. Using Test Driven Development to find the code for this project
 We don't write the code and then do the unit tests. **This is only done when developers are forced to have high code coverage**.   
-We would rather want enough good unit tests.   
+We would rather want **enough good unit tests**.   
 
 The Purpose of the Service Manager Class is to be called by the Controllers and to call one or more Service Class.   
 This class will Orchestrate the process keeping the Service Classes small and simple Each having one primary function.

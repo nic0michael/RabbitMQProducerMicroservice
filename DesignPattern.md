@@ -116,6 +116,8 @@ Now we start by writing the second unit test to test the Service Manager Class r
 This will find more code for the Service Managers first method as well as our Mock Service Classes first method.   
 In order for this unit test to pass you will have written code to pass the first methods with invalid requests
 
+**In this project this found the Validator Class called by the Service Manager Class**
+
 **You repeat this process until you have found all the code for your project making sure you have done both Positive and negative tests and passed the all**
 
 ## 9. We mock the Service classes by implementing Mock Service classes in the Test Folder for Unit testing

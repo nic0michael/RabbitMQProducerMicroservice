@@ -92,9 +92,6 @@ We add overloaded Constructors to the classes we want to test so that we can inj
 
 ![MicroserviceDesignPatternTDDandBDD](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPatternTDDandBDD.JPG)
 
-One of the companies I worked at would have Jenkins build failures in one of the services was down.   
-**We never had that where we used this technique of using Mock Classes.**
-  
 ### 7.1 Positive Tests
 For Positive tests all the public methods of the Mock Service Classes will return the Expected values .
 
@@ -130,7 +127,9 @@ This is based on how these classes are instantiated.
   * Using Mockito produces brittle unit tests as any changes in the Requests and responses will require debugging to fix broken unit tests
   * Any changes in the Requests and responses will be easy to change in the Mock Service methods
   * We are able to do TDD and BDD tests with the infrastructure down this way Jenkins can still build and deploy   
-  * This is achieved using Mock Classes and not making network calls to resources
+  * This is achieved using Mock Classes and not making network calls to resources.   
+  One of the companies I worked at would have Jenkins build failures in one of the services was down.   
+**We never had that where we used this technique of using Mock Classes.**
   
 ## 9. We can now use the same Mock classes for also doing BDD Testing and so simplifying the testing
 

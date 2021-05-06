@@ -8,6 +8,9 @@ Cyberpunk 2077 Was Supposed to Be the Biggest Video Game of the Year.
 CD Projekt Red, the Polish studio behind the video game, announced the title in 2012.   
 [Bad Software Engineering KILLED Cyberpunk 2077’s Release](https://www.youtube.com/watch?v=E-jGEtqB4wU).   
 
+Unit testing facilitates Continuous Integration.   
+At WesBank we spent 3 years writing more than 30 Microservices using an early version of this Design Pattern.   
+We only had one production issue with one Microservice which was quickly fixed that was before we used this Design Pattern.    
 
 The approach of this Design Pattern is to simplify Unit Testing doing TDD (Test Driven Development) and BDD (Behaviour Driven Development) 
 

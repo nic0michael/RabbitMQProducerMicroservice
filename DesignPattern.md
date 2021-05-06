@@ -4,8 +4,9 @@ This design pattern has matured over four years of its use to write Microservice
 Here focus given to TDD (Test Driven Development) and BDD (Behaviour Driven Development).
 
 ## 1. Why do we want Unit testing
-Bad Software Engineering KILLED Cyberpunk 2077’s Release
-
+Cyberpunk 2077 Was Supposed to Be the Biggest Video Game of the Year.   
+CD Projekt Red, the Polish studio behind the video game, announced the title in 2012.   
+Bad Software Engineering KILLED Cyberpunk 2077’s Release.   
 https://www.youtube.com/watch?v=E-jGEtqB4wU
 
 The approach of this Design Pattern is to simplify Unit Testing doing TDD (Test Driven Development) and BDD (Behaviour Driven Development) 
@@ -83,7 +84,7 @@ As we do not have any logic and are not changing anything in the Controller Clas
 These Service Interfaces are @Autowired to the Service Manager Class.
 
 ## 7. We mock the Service classes by implementing Mock Service classes in the Test Folder for Unit testing
-By Mocking the Service classes we can control their behaviour to give us  Positive and Negative Unit tests.   
+By Mocking the Service classes we can control their behaviour to give us  Positive and NegatiCyberpunk 2077 Was Supposed to Be the Biggest Video Game of the Year. What Happened?ve Unit tests.   
 We add overloaded Constructors to the classes we want to test so that we can inject @Autowired fields and Objects as well as instances of the mocked Service classs 
 
 ![MicroserviceDesignPatternTDDandBDD](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPatternTDDandBDD.JPG)

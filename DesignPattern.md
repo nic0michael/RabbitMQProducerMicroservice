@@ -87,10 +87,13 @@ As we do not have any logic and are not changing anything in the Controller Clas
 These Service Interfaces are @Autowired to the Service Manager Class.
 
 ## 7. We mock the Service classes by implementing Mock Service classes in the Test Folder for Unit testing
-By Mocking the Service classes we can control their behaviour to give us  Positive and NegatiCyberpunk 2077 Was Supposed to Be the Biggest Video Game of the Year. What Happened?ve Unit tests.   
+By Mocking the Service classes we can control their behaviour to give us  Positive and Negative Unit tests.   
 We add overloaded Constructors to the classes we want to test so that we can inject @Autowired fields and Objects as well as instances of the mocked Service classs 
 
 ![MicroserviceDesignPatternTDDandBDD](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPatternTDDandBDD.JPG)
+
+One of the companies I worked at would have Jenkins build failures in one of the services was down.   
+**We never had that where we used this technique of using Mock Classes.**
   
 ### 7.1 Positive Tests
 For Positive tests all the public methods of the Mock Service Classes will return the Expected values .

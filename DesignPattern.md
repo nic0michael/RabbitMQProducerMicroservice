@@ -20,12 +20,14 @@ Recently the Class that decouples the  Controller Classes from the Service Class
 ## Testing Strategy
 We only write unit tests for Classes with methods, that are data changing, or have other logic.
 
+
+
+### What not to Test
 **So POJOs , DTOs, Entity Classes, Custom Exceptions, and Controller Classes are not Unit tested tested**.
 
 If we use only Pass-Through methods in our Controller Classes then there is no logic to test so we don't test them.
 (this is explained below)
 
-### What not to Test
 Constructors or properties (if they just return variables). Test them only if they contain validations.
 
 Configurations like constants, read only fields, configs, enumerations, etc.

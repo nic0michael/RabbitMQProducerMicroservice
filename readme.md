@@ -17,7 +17,7 @@ However please give the author of this project credit in your MD file
 
 [To access our documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md).   
 [To access our POC documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/POC.md).   
-[To access  Recomendations for Microservices use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice).   
+[To access  Recomendations for Microservices use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceRecomendations.md).   
 [To access our recomendations on Test Development use this link ](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/TDD.md) 
 
 

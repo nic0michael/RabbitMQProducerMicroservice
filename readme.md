@@ -5,7 +5,7 @@ This Project offers a sample SpringBoot project to send messages to a RabbitMQ s
 ## Servers supported
 This project runs with both a RabbitMQ Docker instance as well as on an Ubuntu Server with RabbitMQ server installed on it.  
   
-Instructione for both installations are provided here
+Instructions for both installations are provided here
 
  
 ## Free Open Source FOS with the License based on GPL Version 3
@@ -20,6 +20,7 @@ However please give the author of this project credit in your MD file
 [To access our Recommendations for Microservices use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceRecomendations.md).   
 [To access our Recommendations on Test Development use this link ](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/TDD.md).   
 [To Access our Postman Installation and setup instructions use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/Postman.md).   
+[To Access our RabbitMQ Server Installation and Administration instructions use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice)
 
 # Specifications
 ## REST Request and Response

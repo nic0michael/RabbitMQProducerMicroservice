@@ -17,10 +17,11 @@ However please give the author of this project credit in your MD file
 
 [To access our documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md).   
 [To access our POC documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/POC.md).   
-[To access  Recomendations for Microservices use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceRecomendations.md).   
-[To access our recomendations on Test Development use this link ](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/TDD.md).   
+[To access our Recommendations for Microservices use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceRecomendations.md).   
+[To access our Recommendations on Test Development use this link ](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/TDD.md).   
+[To Access our Postman Installation and setup instructions use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/Postman.md).   
 
-
+# Specifications
 ## REST Request and Response
 
 ### PostMan test : MyTest /NicosQueueProducer

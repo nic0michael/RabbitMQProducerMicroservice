@@ -88,37 +88,11 @@ These Service Interfaces are @Autowired to the Service Manager Class.
 
 
 ## 8. Using Test Driven Development to find the code for this project
-We don't write the code and then do the unit tests. **This is only done when developers are forced to have high code coverage**.   
+We Use the First Write a Test Methodology.   
+Here we don't write the code and then do the unit tests. **This is only done when developers are forced to have high code coverage**.   
 We would rather want **enough good unit tests**.   
 
-The Purpose of the Service Manager Class is to be called by the Controllers and to call one or more Service Class.   
-This class will Orchestrate the process **keeping the Service Classes small and simple**, each having one primary function.
-
-In our design pattern we know that Micro Services have Controller Classes  and a few Service Classes.   
-We also know that we are introducing a Service Manager Class, and one or more Interfaces as well as one or more Mock Service Classes.   
-
-### 8.1 Step One - Create Empty Classes and Interfaces
-We start by creating Empty Classes and empty Interfaces for the above.   
-We will use Test Driven Development to find the code in these empty Classes and Interfaces 
-
-### 8.2 Step Two - Find the first method for the first Empty Classes and Interfaces 
-**Here we are using a valid request in our test**
-
-As we know in this project that we are expected to receive a request from another Microservice.   
-Now we start by writing the first unit test to test the Service Manager Class receiving a valid Transaction in the request.     
-This will find the code for the Controllers first method and the Service Managers first method as well as our Mock Service Classes first method.   
-In order for this unit test to pass you will have written code to pass the first methods
-
-### 8.3 Step - Three Find more code for first method for the first Empty Classes and Interfaces 
-**Here we are using an invalid request and writing a Negative Unit Test**
-
-Now we start by writing the second unit test to test the Service Manager Class receiving an invalid Transaction in the request.   
-This will find more code for the Service Managers first method as well as our Mock Service Classes first method.   
-In order for this unit test to pass you will have written code to pass the first methods with invalid requests
-
-**In this project this found the Validator Class called by the Service Manager Class**
-
-**You repeat this process until you have found all the code for your project making sure you have done both Positive and Negative tests and passed them all**
+[For more information on how we did the TDD it has been documented here](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/TDD.md)
 
 ## 9. We mock the Service classes by implementing Mock Service classes in the Test Folder for Unit testing
 By Mocking the Service classes we can control their behaviour to give us  Positive and Negative Unit tests.   

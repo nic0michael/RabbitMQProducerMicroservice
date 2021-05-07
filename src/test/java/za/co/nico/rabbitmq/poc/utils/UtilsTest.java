@@ -15,7 +15,7 @@ import za.co.nico.rabbitmq.poc.dtos.SendToQueueRequest;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueResponse;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusCodes;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusMessages;
-import za.co.nico.rabbitmq.poc.services.impl.MockMessageQueueServiceImpl;
+import za.co.nico.rabbitmq.poc.services.impl.MockMessageQueueSendServiceImpl;
 
 @RunWith(SpringRunner.class)
 public class UtilsTest {
@@ -46,7 +46,7 @@ public class UtilsTest {
 		String expectedResponseStatusCode = ResponseStatusCodes.OK.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.OK.getResponseStatusMessage();
 
-		SendToQueueRequest request = Utils.makeSendToQueueTestRequest();
+		SendToQueueRequest request = makeSendToQueueRequest();
 		SendToQueueResponse response = Utils.makeSendToQueueResponse(request);
 
 		assertThat(response, is(notNullValue()));
@@ -63,7 +63,7 @@ public class UtilsTest {
 		String expectedResponseStatusCode = ResponseStatusCodes.MQ_FAILURE.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.MQ_FAILURE.getResponseStatusMessage();
 
-		SendToQueueRequest request = Utils.makeSendToQueueTestRequest();
+		SendToQueueRequest request = makeSendToQueueRequest();
 		SendToQueueResponse response = Utils.makeMqSendFailureResponse(request);
 
 		assertThat(response, is(notNullValue()));
@@ -81,7 +81,7 @@ public class UtilsTest {
 		String expectedResponseStatusCode = ResponseStatusCodes.SYSTEM_FAILURE.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.SYSTEM_FAILURE.getResponseStatusMessage();
 
-		SendToQueueRequest request = Utils.makeSendToQueueTestRequest();
+		SendToQueueRequest request = makeSendToQueueRequest();
 		SendToQueueResponse response = Utils.makeSystemFailureResponse(request);
 
 		assertThat(response, is(notNullValue()));
@@ -91,5 +91,17 @@ public class UtilsTest {
 		assertThat(responseStatusCode, is(expectedResponseStatusCode));
 		assertThat(responseStatusMessage, is(expectedResponseStatusMessage));
 
+	}
+	
+
+	private SendToQueueRequest makeSendToQueueRequest() {
+		SendToQueueRequest request = new SendToQueueRequest();
+		request.setMessageDescription("dummy_value");
+		request.setMessageType("dummy_value");
+		request.setTransaction("dummy_value");
+		request.setTransactionId("dummy_value");
+		request.setTransactionType("dummy_value");
+		request.setSenderSystemId("dummy_value");
+		return request;
 	}
 }

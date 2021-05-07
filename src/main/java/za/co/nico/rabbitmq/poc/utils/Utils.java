@@ -59,6 +59,16 @@ public class Utils {
 	}
 	
 
+	public static SendToQueueResponse makeSuccessResponse() {		
+
+		SendToQueueResponse response = makegTestResponse();
+		String responseStatusCode=ResponseStatusCodes.OK.getResponseStatusCode();
+		String responseStatusMessage=ResponseStatusMessages.OK.getResponseStatusMessage();
+		response.setResponseStatusCode(responseStatusCode);
+		response.setResponseStatusMessage(responseStatusMessage);
+		return response;
+	}
+	
 	public static  SendToQueueResponse makeSystemFailureResponse(SendToQueueRequest request) {
 		SendToQueueResponse response = new SendToQueueResponse();
 		String responseStatusCode=ResponseStatusCodes.SYSTEM_FAILURE.getResponseStatusCode();
@@ -97,26 +107,7 @@ public class Utils {
 		return response;
 	}
 
-	public static SendToQueueResponse makeMqFailureTestResponse() {
 
-		SendToQueueResponse response = makegTestResponse();
-		String responseStatusCode=ResponseStatusCodes.MQ_FAILURE.getResponseStatusCode();
-		String responseStatusMessage=ResponseStatusMessages.MQ_FAILURE.getResponseStatusMessage();	
-		response.setResponseStatusCode(responseStatusCode);
-		response.setResponseStatusMessage(responseStatusMessage);
-		return response;
-	}
-
-	public static SendToQueueResponse makePassingTestResponse() {		
-
-		SendToQueueResponse response = makegTestResponse();
-		String responseStatusCode=ResponseStatusCodes.OK.getResponseStatusCode();
-		String responseStatusMessage=ResponseStatusMessages.OK.getResponseStatusMessage();
-		response.setResponseStatusCode(responseStatusCode);
-		response.setResponseStatusMessage(responseStatusMessage);
-		return response;
-	}
-	
 	public static SendToQueueResponse makegTestResponse() {		
 
 		SendToQueueResponse response = new SendToQueueResponse();
@@ -128,39 +119,10 @@ public class Utils {
 		response.setSenderSystemId("dummy_value");
 		return response;
 	}
-	
-	public static SendToQueueRequest makeSendToQueueTestRequest() {		
 
-		SendToQueueRequest request = new SendToQueueRequest();
-		request.setMessageDescription("dummy_value");
-		request.setMessageType("dummy_value");
-		request.setSenderId("dummy_value");
-		request.setTransactionId("dummy_value");
-		request.setTransactionType("dummy_value");
-		request.setSenderSystemId("dummy_value");
-		return request;
-	}
-	
 	public static String generateUUID() {
 		return UUID.randomUUID().toString();
 	}
 	
 }
 
-/* EXTRA METHODS
- 
-	
-	public static String dateNowString() {
-		String pattern = "yyyy-MM-dd HH:mm:ss";
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-		return simpleDateFormat.format(new Date());
-	}
-
-
-	public static String timestampNowString() {
-		String pattern = "yyyy-MM-dd HH:mm:ss.SSS";
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-		return simpleDateFormat.format(new Date());
-	}
-
-*/

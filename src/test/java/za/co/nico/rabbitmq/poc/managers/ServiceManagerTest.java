@@ -13,15 +13,15 @@ import za.co.nico.rabbitmq.poc.dtos.SendToQueueResponse;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusCodes;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusMessages;
 import za.co.nico.rabbitmq.poc.enums.TestType;
-import za.co.nico.rabbitmq.poc.services.MessageQueueService;
-import za.co.nico.rabbitmq.poc.services.impl.MockMessageQueueServiceImpl;
+import za.co.nico.rabbitmq.poc.services.MessageQueueSendService;
+import za.co.nico.rabbitmq.poc.services.impl.MockMessageQueueSendServiceImpl;
 
 @RunWith(SpringRunner.class)
 public class ServiceManagerTest {
 
 	@Test
 	public void passingTest() {
-		MessageQueueService messageQueueService = new MockMessageQueueServiceImpl(TestType.PASSING_TEST);
+		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
 		String expectedResponseStatusCode = ResponseStatusCodes.OK.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.OK.getResponseStatusMessage();
 
@@ -40,7 +40,7 @@ public class ServiceManagerTest {
 	
 	@Test
 	public void failingTest() {
-		MessageQueueService messageQueueService = new MockMessageQueueServiceImpl(TestType.FAILING_TEST);
+		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.FAILING_TEST);
 		String expectedResponseStatusCode = ResponseStatusCodes.MQ_FAILURE.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.MQ_FAILURE.getResponseStatusMessage();
 
@@ -60,7 +60,7 @@ public class ServiceManagerTest {
 	
 	@Test
 	public void exceptionThrowingTest() {
-		MessageQueueService messageQueueService = new MockMessageQueueServiceImpl(TestType.THROWS_EXCEPTION);
+		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.THROWS_EXCEPTION);
 		String expectedResponseStatusCode = ResponseStatusCodes.SYSTEM_FAILURE.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.SYSTEM_FAILURE.getResponseStatusMessage();
 

@@ -18,7 +18,7 @@ However please give the author of this project credit in your MD file
 [To access our documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md).   
 [To access our POC documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/POC.md).   
 [To access  Recomendations for Microservices use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceRecomendations.md).   
-[To access our recomendations on Test Development use this link ](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/TDD.md) 
+[To access our recomendations on Test Development use this link ](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/TDD.md).   
 
 
 ## REST Request and Response
@@ -132,6 +132,8 @@ sudo docker run -d --hostname RabbitMQSvr --name rabbit-mq-mgr2 -p 15672:15672 -
 ```
 
 ### Open Browser
+
+You should receive the following response after a few seconds
 
 [http://localhost:15672/](http://localhost:15672/)
 

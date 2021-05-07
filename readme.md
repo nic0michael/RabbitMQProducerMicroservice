@@ -10,12 +10,13 @@ Instructione for both installations are provided here
  
 ## Free Open Source FOS with the License based on GPL Version 3
 
-This project is Free Open Source code FOS
-
-It is provided free of charge and subject to the terms and license of this project
-
-As this project is Free Opensource you are welcome to make a fork of this project for comercial use   
+This project is Free Open Source code FOS.   
+We provide this Project as free of charge and subject to the terms and license of this project is GPL Version 3.   
+As this project is Free Opensource you are welcome to make a fork of this project for comercial use.   
 However please give the author of this project credit in your MD file
+
+[For Recomendations about Microservices use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice).   
+[To access our documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md)
 
 ## REST Request and Response
 

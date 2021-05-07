@@ -1,7 +1,10 @@
 # Test Driven Development
 
 ## We Use the First Write a Test Methodology
-[For Recomendations about Microservices use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice)
+
+[To access our documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md).   
+[To access our POC documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/POC.md).   
+[To access  Recomendations for Microservices use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice).   
 
 The Purpose of the Service Manager Class is to be called by the Controllers and to call one or more Service Class.   
 This class will Orchestrate the process **keeping the Service Classes small and simple**, each having one primary function.

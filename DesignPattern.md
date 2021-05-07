@@ -3,6 +3,10 @@ This design pattern has matured over four years of its use to write Microservice
 
 Here focus given to TDD (Test Driven Development) and BDD (Behaviour Driven Development).
 
+[To access our POC documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/POC.md).   
+[To access  Recomendations for Microservices use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice).   
+![MicroserviceDesignPatternTDDandBDD](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPatternTDDandBDD.JPG).   
+
 ## 1. Why do we want Unit testing
 Cyberpunk 2077 Was Supposed to Be the Biggest Video Game of the Year.   
 CD Projekt Red, the Polish studio behind the video game, announced the title in 2012.   

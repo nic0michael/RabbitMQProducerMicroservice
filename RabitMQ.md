@@ -43,8 +43,12 @@ sudo rabbitmqctl clear_permissions -p /myvhost user
 sudo docker run -d --hostname RabbitMQSvr --name rabbit-mq-mgr2 -p 15672:15672 -p 5672:5672 rabbitmq:3-management
 
 ```
+## Open the Docker instance in Portainer
 
-You May need to open this Docker Container in Portainer and open the Portainer Terrminal for this Docker Container and run these commands
+[http://localhost:9000](http://localhost:9000)
+
+### Adminnistrate the Docker Instance
+**You May need to open this Docker Container in Portainer and open the Portainer Terrminal for this Docker Container and run these commands:**
 ```
 sudo rabbitmqctl add_vhost /nico_vhost
 sudo rabbitmqctl add_user admin YourPassword   
@@ -61,6 +65,18 @@ This will will create the Virtual Host and the admin user giving it access right
 You should receive the following response after a few seconds
 
 [http://localhost:15672/](http://localhost:15672/)
+
+### Login credentials:
+## Creating Exchange the Queues and Bindings using Exchange and Routing keys
+
+```
+Delete Default GUEST Credentials  and use the admin credentials that were set in the above instructions 
+User Id : guest
+Password : guest
+```
+
+## Creating Exchange the Queues and Bindings using Exchange and Routing keys
+
 
 ## You create The Exchange/s here
 Click on the Exchanges Tab.   

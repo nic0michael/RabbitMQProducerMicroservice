@@ -21,7 +21,7 @@ However please give the author of this project credit in your MD file
 [To access our Recommendations for Microservices use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceRecomendations.md).   
 [To access our Recommendations on Test Development use this link ](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/TDD.md).   
 [To Access our Postman Installation and setup instructions use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/Postman.md).   
-[To Access our RabbitMQ Server Installation and Administration instructions use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice)
+[To Access our RabbitMQ Server Installation and Administration instructions use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice).  
 
 # Specifications
 ## REST Request and Response
@@ -128,59 +128,9 @@ Content-Type    application/json
 ^C2021-04-05 15:05:32.639  INFO 33349 --- [      Thread-50] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
 ```
 # Installing RabbitMQ as a Docker Container
-
-### Run the following commands in a Terminal
-```
-sudo docker run -d --hostname RabbitMQSvr --name rabbit-mq-mgr2 -p 15672:15672 -p 5672:5672 rabbitmq:3-management
-```
-
-### Open Browser
-
-You should receive the following response after a few seconds
-
-[http://localhost:15672/](http://localhost:15672/)
-
-### Login credentials:
-
-User Id : guest
-
-Password : guest
-
-### In order to administrate this create a admin user
-
-In Portainer open the rabbit-mq-mgr Docker container in the terminal and run these commands:
-
-```
-rabbitmqctl add_user admin YourPassword
-
-rabbitmqctl set_user_tags admin administrator
-
-rabbitmqctl change_password user strongpassword
-
-rabbitmqctl add_vhost /nico_vhost
-
-rabbitmqctl set_permissions -p /nico_vhost admin ".*" ".*" ".*"
-
-rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
-```
+[To Access our RabbitMQ Server Installation and Administration instructions use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice).  
 
 
-
-
-This user is an Administrator with Unsecure credentials
-Create another Administrator user and delete this user
-
-### Open the Docker instance in Portainer
-
-[http://localhost:9000](http://localhost:9000)
-
-## Installing RabbitMQ on Ubuntu Server
-For Enterprise or business applications you way want install RabbitMQ server in a Ubuntu Server
-
-[https://computingforgeeks.com/how-to-install-latest-erlang-on-ubuntu-linux/](https://computingforgeeks.com/how-to-install-latest-erlang-on-ubuntu-linux/)
-
-
-[https://computingforgeeks.com/how-to-install-latest-rabbitmq-server-on-ubuntu-linux/](https://computingforgeeks.com/how-to-install-latest-rabbitmq-server-on-ubuntu-linux/)
 
 ## Creating Exchange the Queues and Bindings using Exchange and Routing keys
 ```

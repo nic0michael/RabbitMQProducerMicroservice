@@ -169,7 +169,16 @@ This is based on how these classes are instantiated.
   
 ## 11. We can now reuse the same Mock classes for simplifying BDD Testing
 
-### 11.1 Negative Test
+### 11.1 Positive Test
+```
+    Scenario    : Trying to send a valid Transaction successfully to the Message Queue for processing
+
+    Given       : A valid transaction message is sent which is successfully sent to the Message Queue
+    Then        : A response is received with a Success Message
+    And         : The response has a corresponding Success code
+```
+
+### 11.2 Negative Test
 ```
     Scenario    : Trying to send a invalid Transaction to the Message Queue for processing
 
@@ -178,7 +187,7 @@ This is based on how these classes are instantiated.
     And         : The response has a corresponding Error code
 ```
 
-### 11.2 Destructive Negative Test
+### 11.3 Destructive Negative Test
 ```
     Scenario    : Trying to send a valid Transaction unsuccessfully to the Message Queue for processing
 
@@ -187,12 +196,4 @@ This is based on how these classes are instantiated.
     And         : The response has a corresponding Error code
 ```
 
-### 11.3 Positive Test
-```
-    Scenario    : Trying to send a valid Transaction successfully to the Message Queue for processing
-
-    Given       : A valid transaction message is sent which is successfully sent to the Message Queue
-    Then        : A response is received with a Success Message
-    And         : The response has a corresponding Success code
-```
 **All these Scenarios can be tested with the same Mock classes used for UNIT Testing**

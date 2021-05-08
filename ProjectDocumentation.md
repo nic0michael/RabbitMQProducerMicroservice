@@ -19,6 +19,8 @@
 ## 6. Installation Instructions
 [To Access our Postman Installation and setup instructions use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/Postman.md).   
 
+To Access our Portainer Server Installation instructions use this link
+
 [To Access our RabbitMQ Server Installation and Administration instructions use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice).  
 
 [To Access our SonarQube installation and testing Procedures use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/SonarQubeInstallationAndTesting.md).  

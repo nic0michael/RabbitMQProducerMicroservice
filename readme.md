@@ -39,7 +39,7 @@ Explanations on how Our design pattern decouples this Microservice internally.
 How it facilitates doing Test Driven Development(TDD) and Behaviour Driven Development(BDD) using Mock Service classes.
 Installation instructions for all servers and Docker containers are provided here
 
-##[To access the Project Documentation use this link.](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/ProjectDocumentation.md)
+**[To access the Project Documentation use this link.](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/ProjectDocumentation.md)**
  
 ## 4. Free Open Source FOS with the License based on GPL Version 3
 

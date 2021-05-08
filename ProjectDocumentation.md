@@ -13,7 +13,7 @@
 [To access our POC documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/POC.md).   
 
 ## 5 Running SonarQube Tests
-To Access our SonarQube installation and testing Procedures use this link
+[To Access our SonarQube installation and testing Procedures use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/SonarQubeInstallationAndTesting.md).  
 
 
 ## 6. Installation Instructions
@@ -21,7 +21,7 @@ To Access our SonarQube installation and testing Procedures use this link
 
 [To Access our RabbitMQ Server Installation and Administration instructions use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice).  
 
-To Access our SonarQube installation and testing Procedures use this link
+[To Access our SonarQube installation and testing Procedures use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/SonarQubeInstallationAndTesting.md).  
 
 # Specifications
 ## 1. REST Request and Response

@@ -64,7 +64,7 @@ public class UtilsTest {
 		String expectedResponseStatusMessage = ResponseStatusMessages.MQ_FAILURE.getResponseStatusMessage();
 
 		SendToQueueRequest request = makeSendToQueueRequest();
-		SendToQueueResponse response = Utils.makeMqSendFailureResponse(request);
+		SendToQueueResponse response = Utils.makeMqSendFailureResponse();
 
 		assertThat(response, is(notNullValue()));
 
@@ -77,12 +77,12 @@ public class UtilsTest {
 
 	
 	@Test
-	public void makeSystemFailureResponseTest() {
-		String expectedResponseStatusCode = ResponseStatusCodes.SYSTEM_FAILURE.getResponseStatusCode();
-		String expectedResponseStatusMessage = ResponseStatusMessages.SYSTEM_FAILURE.getResponseStatusMessage();
+	public void makeValidationFailureResponseTest() {
+		String expectedResponseStatusCode = ResponseStatusCodes.BAD_REQUEST.getResponseStatusCode();
+		String expectedResponseStatusMessage = ResponseStatusMessages.BAD_REQUEST.getResponseStatusMessage();
 
 		SendToQueueRequest request = makeSendToQueueRequest();
-		SendToQueueResponse response = Utils.makeSystemFailureResponse(request);
+		SendToQueueResponse response = Utils.makeValidationFailureResponse();
 
 		assertThat(response, is(notNullValue()));
 

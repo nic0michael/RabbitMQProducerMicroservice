@@ -6,6 +6,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class SendToQueueResponse {
 	String responseStatusCode;
 	String responseStatusMessage;
+	String databaseResponseStatusCode;
+	String databaseResponseStatusMessage;
 	String messageId;
 	String messageType;
 	String messageDescription;
@@ -18,14 +20,26 @@ public class SendToQueueResponse {
 	public String getResponseStatusCode() {
 		return responseStatusCode;
 	}
-	public void setResponseStatusCode(String responseCode) {
-		this.responseStatusCode = responseCode;
+	public void setResponseStatusCode(String responseStatusCode) {
+		this.responseStatusCode = responseStatusCode;
 	}
 	public String getResponseStatusMessage() {
 		return responseStatusMessage;
 	}
-	public void setResponseStatusMessage(String responseMessage) {
-		this.responseStatusMessage = responseMessage;
+	public void setResponseStatusMessage(String responseStatusMessage) {
+		this.responseStatusMessage = responseStatusMessage;
+	}
+	public String getDatabaseResponseStatusCode() {
+		return databaseResponseStatusCode;
+	}
+	public void setDatabaseResponseStatusCode(String databaseResponseStatusCode) {
+		this.databaseResponseStatusCode = databaseResponseStatusCode;
+	}
+	public String getDatabaseResponseStatusMessage() {
+		return databaseResponseStatusMessage;
+	}
+	public void setDatabaseResponseStatusMessage(String databaseResponseStatusMessage) {
+		this.databaseResponseStatusMessage = databaseResponseStatusMessage;
 	}
 	public String getMessageId() {
 		return messageId;
@@ -78,11 +92,14 @@ public class SendToQueueResponse {
 	
 	@Override
 	public String toString() {
-		return "SendToQueueResponse [responseStatusCode=" + responseStatusCode + ", responseStatusMessage=" + responseStatusMessage
-				+ ", messageId=" + messageId + ", messageType=" + messageType + ", messageDescription="
-				+ messageDescription + ", transactionId=" + transactionId + ", transactionType=" + transactionType
-				+ ", targetSystemId=" + targetSystemId + ", senderSystemId=" + senderSystemId + ", senderId=" + senderId
-				+ "]";
+		return "SendToQueueResponse [responseStatusCode=" + responseStatusCode + ", responseStatusMessage="
+				+ responseStatusMessage + ", databaseResponseStatusCode=" + databaseResponseStatusCode
+				+ ", databaseResponseStatusMessage=" + databaseResponseStatusMessage + ", messageId=" + messageId
+				+ ", messageType=" + messageType + ", messageDescription=" + messageDescription + ", transactionId="
+				+ transactionId + ", transactionType=" + transactionType + ", targetSystemId=" + targetSystemId
+				+ ", senderSystemId=" + senderSystemId + ", senderId=" + senderId + "]";
 	}
+	
+	
 
 }

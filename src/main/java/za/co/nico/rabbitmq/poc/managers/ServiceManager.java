@@ -14,6 +14,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueDto;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueRequest;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueResponse;
+import za.co.nico.rabbitmq.poc.exceptions.FailedToSendToQueueException;
+import za.co.nico.rabbitmq.poc.exceptions.FailedToWriteToDatabaseException;
+import za.co.nico.rabbitmq.poc.exceptions.failedToMakeJsonStringExeption;
+import za.co.nico.rabbitmq.poc.services.DatabaseService;
 import za.co.nico.rabbitmq.poc.services.MessageQueueSendService;
 import za.co.nico.rabbitmq.poc.utils.Utils;
 import za.co.nico.rabbitmq.poc.validators.RequestValidator;
@@ -22,66 +26,68 @@ import za.co.nico.rabbitmq.poc.validators.RequestValidator;
 public class ServiceManager {
 	private static final Logger log = LoggerFactory.getLogger(ServiceManager.class);
 	SendToQueueResponse response = null;
-	
+
 	@Autowired
 	RequestValidator validator;
-	
+
 	@Autowired
 	MessageQueueSendService messageQueueService;
-	
-	
+
+	@Autowired
+	DatabaseService databaseService;
+
 	public ServiceManager() {}
-	
-	public ServiceManager(MessageQueueSendService messageQueueService) {
+
+
+	/**
+	 * Overloaded constructor used for unit testing
+	 */
+	public ServiceManager(MessageQueueSendService messageQueueService,DatabaseService databaseService) {
 		log.info("Overridden constructor called");
-		validator=new RequestValidator();
-		this.messageQueueService=messageQueueService;
+		validator = new RequestValidator();
+		this.messageQueueService = messageQueueService;
+		this.databaseService=databaseService;
 	}
 
 	public SendToQueueResponse sendToMessageQueue(SendToQueueRequest request) {
-		log.info("sendToMessageQueue called");		
-		
+		log.info("sendToMessageQueue called");
+
 		request.setMessageId(Utils.generateMessageId("yyyy-MM-dd_HH:mm:ss"));
 		response = validator.validateSendToQueueRequest(request);
-		if(Utils.validationFailed(response)) {
-			return response;
+		if (!Utils.validationFailed(response)) {
+
+			try {
+				response = null;
+				String json = Utils.makeJsonString(request);
+				writeToDatabase( request, response) ;
+				response = messageQueueService.sendToMessageQueue(json);
+				writeToDatabase( request, response) ;
+				
+			} catch (FailedToSendToQueueException ea) {
+				log.error("sendToMessageQueue | Error calling MessageQueueService", ea);
+				response = Utils.makeMqSendFailureResponse();
+			} catch (failedToMakeJsonStringExeption e) {
+				log.error("sendToMessageQueue | Error calling MessageQueueService", e);
+				response = Utils.makeJsonCoversionFailureResponse();
+			}catch (FailedToWriteToDatabaseException e) {
+				log.error("saveToDatabase | Error saving to database", e);
+				response=Utils.makeDatabaseSaveFailureResponse(response);
+			}
 		}
 		
-		try {
-			String json=makeJsonString(request);
-			response = messageQueueService.sendToMessageQueue(json);
-		} catch (AmqpConnectException ea) {
-			log.error("sendToMessageQueue | Error calling MessageQueueService",ea);
-			response = Utils.makeMqSendFailureResponse(request); 
-		} catch (ConnectException ec) {
-			log.error("sendToMessageQueue | Error calling MessageQueueService",ec);
-			response = Utils.makeMqSendFailureResponse(request); 
-		} catch (Exception e) {
-			log.error("sendToMessageQueue | Error calling MessageQueueService",e);
-			response = Utils.makeSystemFailureResponse(request); 
-		}
 		return response;
 	}
 	
-	public String makeJsonString(SendToQueueRequest request) {
-		log.info("sendToMessageQueueService called");
-		SendToQueueResponse response=null;
-		ObjectMapper objectMapper = new ObjectMapper();
-		SendToQueueDto dto=new SendToQueueDto(request);
-		String json=null;
+	public void writeToDatabase(SendToQueueRequest request,SendToQueueResponse response) 
+			throws FailedToWriteToDatabaseException{
 		
-		try {
-			json = objectMapper.writeValueAsString(dto);
-		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}	
-		
-		return json;
+		log.info("writeToDatabase called");
+		if(response!=null) {
+			databaseService.updateRecord(request, response);
+		} else {
+			databaseService.insertRecord(request);
+		}
 		
 	}
-	
-	
-	
 
 }

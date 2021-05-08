@@ -1,5 +1,5 @@
 # RabbitMQ Queue Producer SpringBoot Microservice
-,
+
 This Project offers a sample SpringBoot project to send messages to a RabbitMQ servers Queue using code built using best practices
 
 Here a Cloud Ready project is provided to run on Amazon (AWS),Microsoft Azure, Google Cloud Platform (GCP).  

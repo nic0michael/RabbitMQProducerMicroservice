@@ -21,7 +21,7 @@
 
 [To Access our Portainer Server Installation instructions use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/Portainer.md)
 
-[To Access our RabbitMQ Server Installation and Administration instructions use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice).  
+[To Access our RabbitMQ Server Installation and Administration instructions use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/RabitMQ.md).  
 
 [To Access our SonarQube installation and testing Procedures use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/SonarQubeInstallationAndTesting.md).  
 
@@ -130,7 +130,7 @@ Content-Type    application/json
 ^C2021-04-05 15:05:32.639  INFO 33349 --- [      Thread-50] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
 ```
 # 4. Installing RabbitMQ as a Docker Container
-[To Access our RabbitMQ Server Installation and Administration instructions use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice).  
+[To Access our RabbitMQ Server Installation and Administration instructions use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/RabitMQ.md).  
 
 
 

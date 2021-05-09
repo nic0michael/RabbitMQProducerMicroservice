@@ -9,7 +9,7 @@ mvn clean package
 ## 2. Create a folder called Docker
 Create a folder called Docker in your project.   
 
-## 3. Create a file called  Dockerfile with this content
+## 3. Create a file called  Dockerfile in this folder with this content
 
 ```
 FROM alpine:latest

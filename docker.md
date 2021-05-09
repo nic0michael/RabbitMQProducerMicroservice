@@ -7,7 +7,7 @@ Run the following command.
 mvn clean package
 ```
 ## 2. Create a folder called Docker
-in your project 
+Create a folder called Docker in your project 
 
 ## 3. Create a file called  Dockerfile with this content
 
@@ -20,23 +20,28 @@ RUN apk --update add openjdk11-jre
 EXPOSE 9080
 CMD java -Xmx500M -jar RabbitMqPoc.jar
 ```
-## 4. copy the WAR file RabbitMqPoc.war from the Target Folder
-RabbitMqPoc.war
+## 4. copy the WAR file RabbitMqPoc.war from the Target Folder to the docker folder
+```
+cp -p target/RabbitMqPoc.war docker/
+```
 
 ## 5. Pull down the Alpine Docker Container
+Open your docker folder in a terminal and run this command
+
 ```
 sudo docker pull alpine:latest
 
 ```
 
 ## 6. build a docker image from the Docker File
-
+Now run this command in the terminal
 ```
 sudo docker build -t rabbitmq-poc-docker:v1 .
 
 ```
 
 ## 7. Start the docker image 
+Run this command in the terminal
 ```
 sudo docker run -d --hostname RabbitMQPoc --name rabbitmq-poc-docker -p 9080:9080 rabbitmq-poc-docker:v1
 

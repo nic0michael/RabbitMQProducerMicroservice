@@ -26,7 +26,7 @@
 [To Access our SonarQube installation and testing Procedures use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/SonarQubeInstallationAndTesting.md).  
 
 ## 7. Creating a Docker Instance
-To Access our procedures on how to make a Docker Instance of this project use this link
+[To Access our procedures on how to make a Docker Instance of this project use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/docker.md)
 
 
 # Specifications

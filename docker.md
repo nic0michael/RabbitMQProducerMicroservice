@@ -1,8 +1,8 @@
 # Making a docker Image of this project
 
 ## 1. Build the WAR file
-Open the project folder in the terminal
-Run the following command
+Open the project folder in the terminal. 
+Run the following command. 
 ```
 mvn clean package
 ```
@@ -42,5 +42,7 @@ sudo docker run -d --hostname RabbitMQPoc --name rabbitmq-poc-docker -p 9080:908
 
 ```
 ## 8. Open Portainer and stop your Docker instance
-Now Portainer will have your Docker Instance ready for starting in the future
+[Portainer instance](http://localhost:9000/)
+Now Portainer will have your Docker Instance ready for starting in the future. 
+
 

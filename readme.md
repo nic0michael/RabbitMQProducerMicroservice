@@ -26,7 +26,9 @@ We provide installation instructions to install:
 This project uses Maven to generate a WAR file that can be deployed on tomcat.
 
 ### 2.3 Docker
-A script is provided to "Dockerize" this Microservice.
+A set of scripts are  provided to "Dockerize" this Microservice. 
+As well as [instructions accessible from the Project Documentation is provided
+](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/ProjectDocumentation.md)
 
 ### 2.4 Portainer
 Portainer is used to Start the Docker instances for this project if you are using Docker.

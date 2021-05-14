@@ -3,7 +3,7 @@
 This Project offers a sample SpringBoot project to send messages to a RabbitMQ servers Queue using code built using best practices
 
 Here a Cloud Ready project is provided to run on Amazon (AWS),Microsoft Azure, Google Cloud Platform (GCP).  
-This project is delivered so that it can also be run on Tomcat
+This project is delivered as a WAR file, so that it can also be run on Tomcat
 
 ## 1. Features 
   * This Project is built using a Design Pattern developed for better Microservices

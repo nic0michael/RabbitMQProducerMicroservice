@@ -51,4 +51,5 @@ sudo docker run -d --hostname RabbitMQPoc --name rabbitmq-poc-docker -p 9080:908
 [Portainer instance](http://localhost:9000/)
 Now Portainer will have your Docker Instance ready for starting in the future.   
 
-
+## 9. Creating an Image using Docker-Compose and the above Dockerfile
+[This information is published in a separate document use this link to access it](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/%20Creating%20an%20Image%20using%20Docker-Compose%20and%20a%20Dockerfile.md)

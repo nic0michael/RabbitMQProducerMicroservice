@@ -1,0 +1,10 @@
+version: '2'
+services:
+  prod:
+    build: 
+      context: prod
+      dockerfile: Dockerfile
+    ports:
+      - 9080:9080     
+    restart: on-failure
+

@@ -1,6 +1,7 @@
 version: '2'
 services:
   prod:
+    image: rabbitmqq-producer
     build: 
       context: prod
       dockerfile: Dockerfile

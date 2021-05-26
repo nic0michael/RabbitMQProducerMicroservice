@@ -1,5 +1,11 @@
 # RabbitMQ Queue Producer SpringBoot Microservice Documentation
 
+## Tech Stack needed to build and run this project
+ 1. Apache Maven version 3.5.2 
+ 2. Java version 11.0.11 (java-11-openjdk-amd64)
+ 3. RabbitMQ version 3.8.14  (IN Docker Container)
+ 4. SonarQube version 8.8 (Community Edition IN Docker Container)
+
 ## 1. The Design Pattern used by the Project to build Better Microservices
 [To access our documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md).   
 

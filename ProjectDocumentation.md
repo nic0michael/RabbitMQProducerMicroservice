@@ -145,7 +145,7 @@ Content-Type    application/json
 
 
 
-## 5. Creating Exchange the Queues and Bindings using Exchange and Routing keys
+## 5. Creating the Exchange, Queues, and the Bindings (using Exchange and Routing key)
 ```
 Exchange : rabbitmq.in.x
 

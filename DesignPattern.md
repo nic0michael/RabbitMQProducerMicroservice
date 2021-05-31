@@ -83,16 +83,16 @@ We also made the Service Classes implement Interfaces this decouples the Service
 ### 5.3 Overloading Constructors of classes assists in testing
 We add overloaded Constructors to the classes we want to test so that we can inject @Autowired fields and Objects as well as mock instances
 
-![MicroserviceDesignPattern](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPattern.JPG)
+![MicroserviceDesignPattern](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPattern.png)
 
 ## 6. We use "Pass-through or Wrapper Methods" Making Façades of the Controllers
-In the Controller Classes all the methods that call the Service Manager Class do not "Modify Data".   
-What they receive in their  parameters is passed directly to the methods of the Service Manager Class.   
+In the Controller Classes all the methods that call the Service Processor Class do not "Modify Data".   
+What they receive in their  parameters is passed directly to the methods of the Service Processor Class.   
 We prefer to have the methods there with the same names as in the Controller Classes.   
 As we do not have any logic and are not changing anything in the Controller Classes we don’t need to write unit tests for the Controller Classes.
 
 ## 7. We decouple the Service Processor Class from the Service Classes by making the Service Classes implement an Interface
-These Service Interfaces are @Autowired to the Service Manager Class.
+These Service Interfaces are @Autowired to the Service Processor Class.
 
 
 ## 8. Using Test Driven Development to find the code for this project
@@ -106,7 +106,7 @@ We would rather want **enough good unit tests**.
 By Mocking the Service classes we can control their behaviour to give us  Positive and Negative Unit tests.   
 We add overloaded Constructors to the classes we want to test so that we can inject @Autowired fields and Objects as well as instances of the mocked Service classs 
 
-![MicroserviceDesignPatternTDDandBDD](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPatternTDDandBDD.JPG)
+![MicroserviceDesignPatternTDDandBDD](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPatternTDDandBDD.png)
 
 ### 9.1 Positive Tests
 For Positive tests all the public methods of the Mock Service Classes will return the Expected values .

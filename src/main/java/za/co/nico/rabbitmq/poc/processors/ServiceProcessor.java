@@ -1,4 +1,4 @@
-package za.co.nico.rabbitmq.poc.managers;
+package za.co.nico.rabbitmq.poc.processors;
 
 import java.net.ConnectException;
 
@@ -23,8 +23,8 @@ import za.co.nico.rabbitmq.poc.utils.Utils;
 import za.co.nico.rabbitmq.poc.validators.RequestValidator;
 
 @Component
-public class ServiceManager {
-	private static final Logger log = LoggerFactory.getLogger(ServiceManager.class);
+public class ServiceProcessor {
+	private static final Logger log = LoggerFactory.getLogger(ServiceProcessor.class);
 	SendToQueueResponse response = null;
 
 	@Autowired
@@ -36,13 +36,13 @@ public class ServiceManager {
 	@Autowired
 	DatabaseService databaseService;
 
-	public ServiceManager() {}
+	public ServiceProcessor() {}
 
 
 	/**
 	 * Overloaded constructor used for unit testing
 	 */
-	public ServiceManager(MessageQueueSendService messageQueueService,DatabaseService databaseService) {
+	public ServiceProcessor(MessageQueueSendService messageQueueService,DatabaseService databaseService) {
 		log.info("Overridden constructor called");
 		validator = new RequestValidator();
 		this.messageQueueService = messageQueueService;

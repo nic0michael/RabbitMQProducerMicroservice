@@ -1,4 +1,4 @@
-package za.co.nico.rabbitmq.poc.managers;
+package za.co.nico.rabbitmq.poc.processors;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -14,13 +14,14 @@ import za.co.nico.rabbitmq.poc.enums.ResponseStatusCodes;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusMessages;
 import za.co.nico.rabbitmq.poc.enums.TestType;
 import za.co.nico.rabbitmq.poc.exceptions.FailedToWriteToDatabaseException;
+import za.co.nico.rabbitmq.poc.processors.ServiceProcessor;
 import za.co.nico.rabbitmq.poc.services.DatabaseService;
 import za.co.nico.rabbitmq.poc.services.MessageQueueSendService;
 import za.co.nico.rabbitmq.poc.services.impl.MockDatabaseServiceImpl;
 import za.co.nico.rabbitmq.poc.services.impl.MockMessageQueueSendServiceImpl;
 
 @RunWith(SpringRunner.class)
-public class ServiceManagerTest {
+public class ServiceProcessorTest {
 
 	@Test
 	public void sendToMessageQueuePassingTest() {
@@ -29,7 +30,7 @@ public class ServiceManagerTest {
 		String expectedResponseStatusCode = ResponseStatusCodes.OK.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.OK.getResponseStatusMessage();
 
-		ServiceManager manager = new ServiceManager(messageQueueService, databaseService);
+		ServiceProcessor manager = new ServiceProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
 		SendToQueueResponse response = manager.sendToMessageQueue(request);
 
@@ -49,7 +50,7 @@ public class ServiceManagerTest {
 		String expectedResponseStatusCode = ResponseStatusCodes.BAD_REQUEST.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.BAD_REQUEST.getResponseStatusMessage();
 
-		ServiceManager manager = new ServiceManager(messageQueueService, databaseService);
+		ServiceProcessor manager = new ServiceProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
 		SendToQueueResponse response = manager.sendToMessageQueue(request);
 
@@ -69,7 +70,7 @@ public class ServiceManagerTest {
 		String expectedResponseStatusCode = ResponseStatusCodes.MQ_FAILURE.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.MQ_FAILURE.getResponseStatusMessage();
 
-		ServiceManager manager = new ServiceManager(messageQueueService, databaseService);
+		ServiceProcessor manager = new ServiceProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
 		SendToQueueResponse response = manager.sendToMessageQueue(request);
 
@@ -87,7 +88,7 @@ public class ServiceManagerTest {
 		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.PASSING_TEST);
 		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
 
-		ServiceManager manager = new ServiceManager(messageQueueService, databaseService);
+		ServiceProcessor manager = new ServiceProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
 
 		boolean testPasses = false;
@@ -105,7 +106,7 @@ public class ServiceManagerTest {
 		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.PASSING_TEST);
 		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
 
-		ServiceManager manager = new ServiceManager(messageQueueService, databaseService);
+		ServiceProcessor manager = new ServiceProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
 
 		boolean testPasses = false;
@@ -130,7 +131,7 @@ public class ServiceManagerTest {
 		String expectedResponseStatusCode = ResponseStatusCodes.DATABASE_FAILURE.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.DATABASE_FAILURE.getResponseStatusMessage();
 
-		ServiceManager manager = new ServiceManager(messageQueueService, databaseService);
+		ServiceProcessor manager = new ServiceProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
 		SendToQueueResponse response = manager.sendToMessageQueue(request);
 
@@ -148,7 +149,7 @@ public class ServiceManagerTest {
 		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.THROWS_EXCEPTION);
 		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
 
-		ServiceManager manager = new ServiceManager(messageQueueService, databaseService);
+		ServiceProcessor manager = new ServiceProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
 		SendToQueueResponse response = null;
 		
@@ -163,7 +164,7 @@ public class ServiceManagerTest {
 		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.THROWS_EXCEPTION);
 		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
 
-		ServiceManager manager = new ServiceManager(messageQueueService, databaseService);
+		ServiceProcessor manager = new ServiceProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
 
 		SendToQueueResponse response = new SendToQueueResponse();
@@ -176,7 +177,7 @@ public class ServiceManagerTest {
 		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.THROWS_EXCEPTION);
 		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
 
-		ServiceManager manager = new ServiceManager(messageQueueService, databaseService);
+		ServiceProcessor manager = new ServiceProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
 
 		SendToQueueResponse response = new SendToQueueResponse();

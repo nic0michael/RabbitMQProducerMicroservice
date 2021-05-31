@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueRequest;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueResponse;
-import za.co.nico.rabbitmq.poc.managers.ServiceManager;
+import za.co.nico.rabbitmq.poc.processors.ServiceProcessor;
 
 @RestController
 public class MessageQueueController {
 	private static final Logger log = LoggerFactory.getLogger(MessageQueueController.class);
 	
 	@Autowired
-	ServiceManager manager;
+	ServiceProcessor manager;
 	
 	@PostMapping(value = "/send", 
 			produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE }, 

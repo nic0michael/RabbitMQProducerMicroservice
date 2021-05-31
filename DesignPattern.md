@@ -74,7 +74,7 @@ This is done in the projects POM file (pom.xml) by adding the SonarQube Exclusio
 ## 5. This Design Pattern Decouples the Controller Classes from the Service Classes
 It is not uncommon to find the Controller Classes tightly coupled to the Service Classes this makes unit testing a challenge.
 
-### 5.1 We introduced a Service Manager Class to decouple the Controller Classes from the Service Classes
+### 5.1 We introduced a Service Facade Class to decouple the Controller Classes from the Service Classes
 This decouples the Controller Classes from the Service Classes.   
 We also made the Service Classes implement Interfaces this decouples the ServiceManager Class from the Service Classes.   
 We add overloaded Constructors to the classes we want to test so that we can inject @Autowired fields and Objects as well as mock instances

@@ -6,6 +6,7 @@
  3. RabbitMQ version 3.8.14  (IN Docker Container)
  4. SonarQube version 8.8 (Community Edition IN Docker Container)
  5. JBehave version 5.0-SNAPSHOT (This was built from a git clone of [the jbehave project in GitHub](https://github.com/jbehave))
+    If you are using Java 8 then use version : 4.8.3
 
 ## 1. The Design Pattern used by the Project to build Better Microservices
 [To access our documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md).   

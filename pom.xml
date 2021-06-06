@@ -67,14 +67,7 @@
 		</dependency>
 
 		
-		<!-- BDD -->
-		<!-- https://mvnrepository.com/artifact/org.jbehave/jbehave-core -->
-		<dependency>
-			<groupId>org.jbehave</groupId>
-			<artifactId>jbehave-core</artifactId>
-			<version>4.8.3</version>
-			<scope>test</scope>
-		</dependency>
+
 		
 		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 		<dependency>
@@ -117,14 +110,24 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+		
 		<!-- BDD -->		
+		<dependency>
+			<groupId>org.jbehave</groupId>
+			<artifactId>jbehave-core</artifactId>
+			<version>4.8.3</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Java 9- use this dependency and build JBehave from Github		
+		https://github.com/jbehave/jbehave-core
 		<dependency>
 			<groupId>org.jbehave</groupId>
 			<artifactId>jbehave-core</artifactId>
 			<version>5.0-SNAPSHOT</version>
 			<scope>test</scope>
 		</dependency>
+		-->
 
 
 		<dependency>

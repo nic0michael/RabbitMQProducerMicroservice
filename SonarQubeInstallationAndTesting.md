@@ -59,6 +59,10 @@ Use Portainer To Start the SonarQube Instance.
 ### Open SonarQube in Browser
 http://localhost:9001
 
+Default userId : admin.   
+password : admin
+You will be prompted to change that
+
 ## Creating an Admin Token 
 [Open SonarQube in Browser.](http://localhost:9001)   
 ```
@@ -71,7 +75,7 @@ Select    -> Generate (button).
 Select        -> done (button).   
 ```
 
-This generates token : 63ff9f6e91cb99a16598ffc52050ebc4d533a4ec   
+This generates token : 2ce06b3585c34141beeeb4005235337ba2bd135d   
 Save this token for future use.   
 
 ## To run the Sonar Test
@@ -79,7 +83,7 @@ Open the Java Project folder in terminal.
 Run this command.   
 
 ```
-mvn sonar:sonar -Dsonar.host.url=http://localhost:9001 -Dsonar.login=63ff9f6e91cb99a16598ffc52050ebc4d533a4ec
+mvn sonar:sonar -Dsonar.host.url=http://localhost:9001 -Dsonar.login=2ce06b3585c34141beeeb4005235337ba2bd135d
 ```
 
 

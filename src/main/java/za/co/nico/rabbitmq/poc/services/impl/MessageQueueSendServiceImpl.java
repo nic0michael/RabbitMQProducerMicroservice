@@ -71,6 +71,7 @@ public class MessageQueueSendServiceImpl implements MessageQueueSendService {
 	 */
 	private void sendToInputQueueUsingRoutingKey(String exchange2, String routingKey2, String json) throws FailedToSendToQueueException { 
 		try {
+			log.info("sendToInputQueueUsingRoutingKey | Sending message to Queue | exchange : "+exchange2+" routingKey : "+routingKey2);
 			amqpTemplate.convertAndSend(exchange2, routingKey2, json);
 			log.info("sendToInputQueueUsingRoutingKey | Sent message to Queue");
 		} catch (AmqpConnectException e) {

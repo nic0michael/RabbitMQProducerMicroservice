@@ -15,7 +15,7 @@ This includes TDD, BDD, and Unique Design Pattern for Microservices, as well as 
 [To access our documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md).   
 
 ## 2. How we meet Dave Farley's Microservice Recommendations 
-The many presentations that Dave has made in his Channel, inspired the architect of this project 
+The many presentations that Dave has made in his Channel, inspired the architect of this project.    
 [To access our Recommendations for Microservices use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceRecomendations.md).   
 
 ## 3. Test Driven Development TDD

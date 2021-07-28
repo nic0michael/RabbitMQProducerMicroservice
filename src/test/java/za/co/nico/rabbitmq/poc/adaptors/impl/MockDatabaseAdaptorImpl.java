@@ -3,7 +3,9 @@ package za.co.nico.rabbitmq.poc.adaptors.impl;
 import java.util.HashMap;
 import java.util.Map;
 
-import za.co.nico.rabbitmq.poc.adaptors.Database;
+import org.apache.commons.lang3.StringUtils;
+
+import za.co.nico.rabbitmq.poc.adaptors.DatabaseAdaptor;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueRequest;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueResponse;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusCodes;
@@ -24,10 +26,10 @@ import za.co.nico.rabbitmq.poc.utils.Utils;
  *         https://www.youtube.com/watch?v=ESHn53myB88&pp=sAQA
  * 
  */
-public class MockDatabaseAdaptorImpl implements Database {
+public class MockDatabaseAdaptorImpl implements DatabaseAdaptor {
 
 	private static Map<Integer, String> mockDatabase = new HashMap<>();
-	private static int recodrNumber = 0;
+	private static int recordNumber = 0;
 	private TestType testType;
 
 	private MockDatabaseAdaptorImpl() {
@@ -38,28 +40,18 @@ public class MockDatabaseAdaptorImpl implements Database {
 	}
 
 	@Override
-	public SendToQueueResponse send(SendToQueueRequest request) throws FailedToWriteToDatabaseException {
+	public void insertRecord(SendToQueueRequest request) throws FailedToWriteToDatabaseException {
 
-		SendToQueueResponse response = new SendToQueueResponse();
 		String operationType = testType.name();
-
-		String databaseResponseStatusCode = null;
-		String responseStatusMessage = null;
 
 		switch (operationType) {
 		case "PASSING_TEST":
-			mockDatabase.put(recodrNumber, request.toString());
-			databaseResponseStatusCode = ResponseStatusCodes.OK.getResponseStatusCode();
-			responseStatusMessage = ResponseStatusMessages.OK.getResponseStatusMessage();
-			response.setDatabaseResponseStatusCode(databaseResponseStatusCode);
-			response.setDatabaseResponseStatusMessage(responseStatusMessage);
+			mockDatabase.put(recordNumber, request.toString());
+			recordNumber++;
 			break;
 
 		case "FAILING_TEST":
-			databaseResponseStatusCode = ResponseStatusCodes.DATABASE_FAILURE.getResponseStatusCode();
-			responseStatusMessage = ResponseStatusMessages.DATABASE_FAILURE.getResponseStatusMessage();
-			response.setDatabaseResponseStatusCode(databaseResponseStatusCode);
-			response.setDatabaseResponseStatusMessage(responseStatusMessage);
+			// DO NOTHING
 			break;
 
 		case "THROWS_EXCEPTION":
@@ -68,47 +60,34 @@ public class MockDatabaseAdaptorImpl implements Database {
 		default:
 			// DO NOTHING
 		}
-		return response;
 	}
 
+
 	@Override
-	public SendToQueueResponse receive() throws FailedToReadFromDatabaseException {
+	public void updateRecord(SendToQueueRequest request, SendToQueueResponse response) throws FailedToWriteToDatabaseException {
 
-		SendToQueueResponse response = new SendToQueueResponse();
 		String operationType = testType.name();
-
-		String databaseResponseStatusCode = null;
-		String responseStatusMessage = null;
 
 		switch (operationType) {
 		case "PASSING_TEST":
-			String request = mockDatabase.get(recodrNumber);
-			databaseResponseStatusCode = "";
-			responseStatusMessage = "";
-			response.setDatabaseResponseStatusCode(databaseResponseStatusCode);
-			response.setDatabaseResponseStatusMessage(responseStatusMessage);
-			response.setMessageDescription(request);
+			mockDatabase.put(recordNumber, request.toString());
+			recordNumber++;
 			break;
 
 		case "FAILING_TEST":
-			databaseResponseStatusCode = ResponseStatusCodes.DATABASE_FAILURE.getResponseStatusCode();
-			responseStatusMessage = ResponseStatusMessages.DATABASE_FAILURE.getResponseStatusMessage();
-			response.setDatabaseResponseStatusCode(databaseResponseStatusCode);
-			response.setDatabaseResponseStatusMessage(responseStatusMessage);
+			// DO NOTHING
 			break;
 
 		case "THROWS_EXCEPTION":
-			throw new FailedToReadFromDatabaseException();
+			throw new FailedToWriteToDatabaseException();
 
 		default:
 			// DO NOTHING
 		}
-
-		return response;
 	}
 
 	@Override
-	public SendToQueueResponse receive(String searchValue) throws FailedToReadFromDatabaseException {
+	public SendToQueueResponse retrieveRecord(String searchValue) throws FailedToReadFromDatabaseException {
 
 		SendToQueueResponse response = new SendToQueueResponse();
 		String operationType = testType.name();
@@ -118,9 +97,9 @@ public class MockDatabaseAdaptorImpl implements Database {
 
 		switch (operationType) {
 		case "PASSING_TEST":
-			if (searchValue != null && Utils.isNumeric(searchValue)) {
+			if (searchValue != null && StringUtils.isNumeric(searchValue)) {
 				int theRecodrNumber = Integer.parseInt(searchValue);
-				String request = mockDatabase.get(recodrNumber);
+				String request = mockDatabase.get(recordNumber);
 				databaseResponseStatusCode = ResponseStatusCodes.OK.getResponseStatusCode();
 				responseStatusMessage = ResponseStatusMessages.OK.getResponseStatusMessage();
 				response.setDatabaseResponseStatusCode(databaseResponseStatusCode);

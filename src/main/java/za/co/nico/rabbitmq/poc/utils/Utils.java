@@ -150,14 +150,5 @@ public class Utils {
 		return json;
 	}
 
-	public static boolean isNumeric(String number) {
-		boolean isNumeric = false;
-		try {
-			int theRecodrNumber = Integer.parseInt(number);
-			isNumeric = true;
-		} catch (Exception e) {
-		}
-		return isNumeric;
-	}
 
 }

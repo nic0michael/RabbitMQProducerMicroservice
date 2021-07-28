@@ -19,6 +19,7 @@ import za.co.nico.rabbitmq.poc.exceptions.FailedToWriteToDatabaseException;
 import za.co.nico.rabbitmq.poc.exceptions.failedToMakeJsonStringExeption;
 import za.co.nico.rabbitmq.poc.services.DatabaseService;
 import za.co.nico.rabbitmq.poc.services.MessageQueueSendService;
+import za.co.nico.rabbitmq.poc.services.ServiceInterface;
 import za.co.nico.rabbitmq.poc.utils.Utils;
 import za.co.nico.rabbitmq.poc.validators.RequestValidator;
 
@@ -29,6 +30,9 @@ public class BusinessLogicProcessor {
 
 	@Autowired
 	RequestValidator validator;
+	
+	@Autowired
+	ServiceInterface service;
 
 	@Autowired
 	MessageQueueSendService messageQueueService;
@@ -39,6 +43,15 @@ public class BusinessLogicProcessor {
 	public BusinessLogicProcessor() {}
 
 
+	/**
+	 * Overloaded constructor used for unit testing
+	 */
+	public BusinessLogicProcessor(ServiceInterface service) {
+		log.info("Overridden constructor called");
+		validator = new RequestValidator();
+		this.service = service;
+	}
+	
 	/**
 	 * Overloaded constructor used for unit testing
 	 */
@@ -61,6 +74,7 @@ public class BusinessLogicProcessor {
 				String json = Utils.makeJsonString(request);
 				writeToDatabase( request, response) ;
 				response = messageQueueService.sendToMessageQueue(json);
+//				response = service.sendToMessageQueue(json);
 				writeToDatabase( request, response) ;
 				
 			} catch (FailedToSendToQueueException ea) {
@@ -84,8 +98,10 @@ public class BusinessLogicProcessor {
 		log.info("writeToDatabase called");
 		if(response!=null) {
 			databaseService.updateRecord(request, response);
+//			service.updateRecord(request, response);
 		} else {
 			databaseService.insertRecord(request);
+//			service.insertRecord(request);
 		}
 		
 	}

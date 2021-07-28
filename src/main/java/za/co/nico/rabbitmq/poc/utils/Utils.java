@@ -27,33 +27,34 @@ public class Utils {
 	 * @return
 	 */
 	public static String generateMessageId(String pattern) {
-		return dateTodayString(pattern)+"_"+generateUUID();
+		return dateTodayString(pattern) + "_" + generateUUID();
 	}
 
 	public static String dateTodayString(String pattern) {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 		return simpleDateFormat.format(new Date());
 	}
-	
+
 	public static boolean validationFailed(SendToQueueResponse response) {
-		if(response==null) {
+		if (response == null) {
 			response = makeValidationFailureResponse();
 			return true;
 		}
 		String responseStatusCode = response.getResponseStatusCode();
-		if(StringUtils.isNotBlank(responseStatusCode) && responseStatusCode.equalsIgnoreCase(ResponseStatusCodes.OK.getResponseStatusCode())) {
+		if (StringUtils.isNotBlank(responseStatusCode)
+				&& responseStatusCode.equalsIgnoreCase(ResponseStatusCodes.OK.getResponseStatusCode())) {
 			return false;
 		}
 		return true;
 	}
-	
+
 	public static SendToQueueResponse makeSendToQueueResponse(SendToQueueRequest request) {
 		SendToQueueResponse response = new SendToQueueResponse();
-		String responseStatusCode=ResponseStatusCodes.OK.getResponseStatusCode();
-		String responseStatusMessage=ResponseStatusMessages.OK.getResponseStatusMessage();
+		String responseStatusCode = ResponseStatusCodes.OK.getResponseStatusCode();
+		String responseStatusMessage = ResponseStatusMessages.OK.getResponseStatusMessage();
 		response.setResponseStatusCode(responseStatusCode);
 		response.setResponseStatusMessage(responseStatusMessage);
-		
+
 		response.setMessageDescription(request.getMessageDescription());
 		response.setMessageId(request.getMessageId());
 		response.setMessageType(request.getMessageType());
@@ -62,11 +63,11 @@ public class Utils {
 		response.setTargetSystemId(request.getTargetSystemId());
 		response.setSenderSystemId(request.getSenderSystemId());
 		response.setSenderId(request.getSenderId());
-		
-		return response;
-	}	
 
-	public static SendToQueueResponse makeSuccessResponse() {		
+		return response;
+	}
+
+	public static SendToQueueResponse makeSuccessResponse() {
 
 		SendToQueueResponse response = new SendToQueueResponse();
 		response.setMessageDescription("dummy_value");
@@ -75,35 +76,35 @@ public class Utils {
 		response.setTransactionId("dummy_value");
 		response.setTransactionType("dummy_value");
 		response.setSenderSystemId("dummy_value");
-		String responseStatusCode=ResponseStatusCodes.OK.getResponseStatusCode();
-		String responseStatusMessage=ResponseStatusMessages.OK.getResponseStatusMessage();
-		response.setResponseStatusCode(responseStatusCode);
-		response.setResponseStatusMessage(responseStatusMessage);
-		return response;
-	}
-	
-	public static  SendToQueueResponse makeValidationFailureResponse() {
-		SendToQueueResponse response = new SendToQueueResponse();
-		String responseStatusCode=ResponseStatusCodes.BAD_REQUEST.getResponseStatusCode();
-		String responseStatusMessage=ResponseStatusMessages.BAD_REQUEST.getResponseStatusMessage();
+		String responseStatusCode = ResponseStatusCodes.OK.getResponseStatusCode();
+		String responseStatusMessage = ResponseStatusMessages.OK.getResponseStatusMessage();
 		response.setResponseStatusCode(responseStatusCode);
 		response.setResponseStatusMessage(responseStatusMessage);
 		return response;
 	}
 
-	public static  SendToQueueResponse makeMqSendFailureResponse() {
+	public static SendToQueueResponse makeValidationFailureResponse() {
 		SendToQueueResponse response = new SendToQueueResponse();
-		String responseStatusCode=ResponseStatusCodes.MQ_FAILURE.getResponseStatusCode();
-		String responseStatusMessage=ResponseStatusMessages.MQ_FAILURE.getResponseStatusMessage();
+		String responseStatusCode = ResponseStatusCodes.BAD_REQUEST.getResponseStatusCode();
+		String responseStatusMessage = ResponseStatusMessages.BAD_REQUEST.getResponseStatusMessage();
 		response.setResponseStatusCode(responseStatusCode);
 		response.setResponseStatusMessage(responseStatusMessage);
 		return response;
 	}
 
-	public static  SendToQueueResponse makeJsonCoversionFailureResponse() {
+	public static SendToQueueResponse makeMqSendFailureResponse() {
 		SendToQueueResponse response = new SendToQueueResponse();
-		String responseStatusCode=ResponseStatusCodes.JSON_FAILURE.getResponseStatusCode();
-		String responseStatusMessage=ResponseStatusMessages.JSON_FAILURE.getResponseStatusMessage();
+		String responseStatusCode = ResponseStatusCodes.MQ_FAILURE.getResponseStatusCode();
+		String responseStatusMessage = ResponseStatusMessages.MQ_FAILURE.getResponseStatusMessage();
+		response.setResponseStatusCode(responseStatusCode);
+		response.setResponseStatusMessage(responseStatusMessage);
+		return response;
+	}
+
+	public static SendToQueueResponse makeJsonCoversionFailureResponse() {
+		SendToQueueResponse response = new SendToQueueResponse();
+		String responseStatusCode = ResponseStatusCodes.JSON_FAILURE.getResponseStatusCode();
+		String responseStatusMessage = ResponseStatusMessages.JSON_FAILURE.getResponseStatusMessage();
 		response.setResponseStatusCode(responseStatusCode);
 		response.setResponseStatusMessage(responseStatusMessage);
 		return response;
@@ -111,24 +112,23 @@ public class Utils {
 
 	private static SendToQueueResponse makeDatabaseSaveFailureResponse() {
 		SendToQueueResponse response = new SendToQueueResponse();
-		String responseStatusCode=ResponseStatusCodes.DATABASE_FAILURE.getResponseStatusCode();
-		String responseStatusMessage=ResponseStatusMessages.DATABASE_FAILURE.getResponseStatusMessage();
+		String responseStatusCode = ResponseStatusCodes.DATABASE_FAILURE.getResponseStatusCode();
+		String responseStatusMessage = ResponseStatusMessages.DATABASE_FAILURE.getResponseStatusMessage();
 		response.setResponseStatusCode(responseStatusCode);
 		response.setResponseStatusMessage(responseStatusMessage);
 		return response;
 	}
 
 	public static SendToQueueResponse makeDatabaseSaveFailureResponse(SendToQueueResponse response) {
-		if(response==null) {
+		if (response == null) {
 			return makeDatabaseSaveFailureResponse();
 		}
-		String responseStatusCode=ResponseStatusCodes.DATABASE_FAILURE.getResponseStatusCode();
-		String responseStatusMessage=ResponseStatusMessages.DATABASE_FAILURE.getResponseStatusMessage();
+		String responseStatusCode = ResponseStatusCodes.DATABASE_FAILURE.getResponseStatusCode();
+		String responseStatusMessage = ResponseStatusMessages.DATABASE_FAILURE.getResponseStatusMessage();
 		response.setDatabaseResponseStatusCode(responseStatusCode);
 		response.setDatabaseResponseStatusMessage(responseStatusMessage);
 		return response;
 	}
-
 
 	public static String generateUUID() {
 		return UUID.randomUUID().toString();
@@ -137,19 +137,27 @@ public class Utils {
 	public static String makeJsonString(SendToQueueRequest request) throws failedToMakeJsonStringExeption {
 		log.error("makeJsonString called");
 		ObjectMapper objectMapper = new ObjectMapper();
-		SendToQueueDto dto=new SendToQueueDto(request);
-		String json=null;
-		
+		SendToQueueDto dto = new SendToQueueDto(request);
+		String json = null;
+
 		try {
 			json = objectMapper.writeValueAsString(dto);
 		} catch (JsonProcessingException e) {
-			log.error("makeJsonString | failed to create JSON String",e);
+			log.error("makeJsonString | failed to create JSON String", e);
 			throw new failedToMakeJsonStringExeption(e);
-		}	
-		
-		return json;		
+		}
+
+		return json;
 	}
 
-	
-}
+	public static boolean isNumeric(String number) {
+		boolean isNumeric = false;
+		try {
+			int theRecodrNumber = Integer.parseInt(number);
+			isNumeric = true;
+		} catch (Exception e) {
+		}
+		return isNumeric;
+	}
 
+}

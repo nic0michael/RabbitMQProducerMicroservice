@@ -36,3 +36,5 @@ Please refer to our [Microservice Design Pattern](https://github.com/nic0michael
 [Dave Farley's Continuous Delivery YouTube Channel](https://www.youtube.com/channel/UCCfqyGl3nq_V0bo64CjZh8g)
 
 [Dave Farley's Blog](https://www.davefarley.net/)
+
+[Dave Farley's : When TDD is Difficult - Try This! ](https://www.youtube.com/watch?v=ESHn53myB88&pp=sAQA)

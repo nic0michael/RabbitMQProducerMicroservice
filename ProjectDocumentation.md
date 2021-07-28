@@ -11,7 +11,7 @@ This includes TDD, BDD, and Unique Design Pattern for Microservices, as well as 
  5. JBehave version 5.0-SNAPSHOT for Java >8 (This is to be built from a git clone of [the jbehave project in GitHub](https://github.com/jbehave/jbehave-core)).   
     If you are using Java 8 then use version : 4.8.3 in the POM file.   
 
-## 1. The Design Pattern used in this Project facilitates building Better Microservices optmized for TDD and BDD
+## 1. The Design Pattern used in this Project facilitates the building Better Microservices optmized for TDD and BDD
 [To access our documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md).   
 
 ## 2. How we meet Dave Farley's Microservice Recommendations 

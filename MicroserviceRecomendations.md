@@ -13,7 +13,7 @@ This Microservice only delivers on task and that is to publish messages to a Rab
 ## 3. Aligned to a bounded context (Domain Driven Design)
   * This Microservice provides a boundary for sending Transactions (Our Domain Object) to be transmitted to a Queue.
   * Our Port is the Controller Class : MessageQueueController.
-  * Our Adapter is the QueueAdaptorImpl class : QueueAdaptorImpl which converts the SendToQueueRequest to JSON for sending to the Queue.
+  * Our Adapter is the QueueAdaptorImpl class : QueueAdaptorImpl which converts the SendToQueueRequest to JSON and sends it to the Queue.
   * Our second Adapter is the DatabaseAdaptorImpl class : DatabaseAdaptorImpl which persists the SendToQueueRequest to the Database.
   * You could introduce Encryption in the QueueProducerManagerImpl class.
 

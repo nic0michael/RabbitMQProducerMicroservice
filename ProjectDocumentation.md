@@ -1,6 +1,7 @@
 # RabbitMQ Queue Producer SpringBoot Microservice Documentation
 
-## This project is an example of a Microservice built from the Indistry Best Practices TDD BDD and Unique Design Pattern
+## This project is an example of a Microservice built from the Industry Best Practices.   
+TDD, BDD, and Unique Design Pattern for Microservices
 
 ## Tech Stack needed to build and run this project
  1. Apache Maven version 3.5.2 

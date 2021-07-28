@@ -9,12 +9,12 @@ import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.jbehave.core.steps.Steps;
 
+import za.co.nico.rabbitmq.poc.business.logic.BusinessLogicProcessor;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueRequest;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueResponse;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusCodes;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusMessages;
 import za.co.nico.rabbitmq.poc.enums.TestType;
-import za.co.nico.rabbitmq.poc.processors.ServiceProcessor;
 import za.co.nico.rabbitmq.poc.services.DatabaseService;
 import za.co.nico.rabbitmq.poc.services.MessageQueueSendService;
 import za.co.nico.rabbitmq.poc.services.impl.MockDatabaseServiceImpl;
@@ -33,7 +33,7 @@ public class SendMessageSteps extends Steps {
 	
 	RequestValidator validator=null;
 	DatabaseService databaseService = null;
-	ServiceProcessor manager = null;
+	BusinessLogicProcessor manager = null;
 
 
 
@@ -172,7 +172,7 @@ public class SendMessageSteps extends Steps {
 		
 		databaseService = new MockDatabaseServiceImpl(TestType.PASSING_TEST);
 		messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
-		manager = new ServiceProcessor(messageQueueService, databaseService);		
+		manager = new BusinessLogicProcessor(messageQueueService, databaseService);		
 		request =makeSendToQueueRequest();
 	}
 
@@ -182,7 +182,7 @@ public class SendMessageSteps extends Steps {
 		
 		databaseService = new MockDatabaseServiceImpl(TestType.PASSING_TEST);
 		messageQueueService = new MockMessageQueueSendServiceImpl(TestType.FAILING_TEST);
-		manager = new ServiceProcessor(messageQueueService, databaseService);	
+		manager = new BusinessLogicProcessor(messageQueueService, databaseService);	
 		request =makeSendToQueueRequest();
 	}
 
@@ -192,7 +192,7 @@ public class SendMessageSteps extends Steps {
 		
 		databaseService = new MockDatabaseServiceImpl(TestType.PASSING_TEST);
 		messageQueueService = new MockMessageQueueSendServiceImpl(TestType.THROWS_EXCEPTION);
-		manager = new ServiceProcessor(messageQueueService, databaseService);	
+		manager = new BusinessLogicProcessor(messageQueueService, databaseService);	
 	}
 	
 	private SendToQueueRequest makeSendToQueueRequest() {

@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import za.co.nico.rabbitmq.poc.business.logic.BusinessLogicProcessor;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueRequest;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueResponse;
-import za.co.nico.rabbitmq.poc.processors.ServiceProcessor;
 
 @RestController
 public class MessageQueueController {
 	private static final Logger log = LoggerFactory.getLogger(MessageQueueController.class);
 	
 	@Autowired
-	ServiceProcessor manager;
+	BusinessLogicProcessor manager;
 	
 	@PostMapping(value = "/send", 
 			produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE }, 

@@ -1,4 +1,4 @@
-package za.co.nico.rabbitmq.poc.processors;
+package za.co.nico.rabbitmq.poc.business.logic;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
@@ -8,20 +8,20 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import za.co.nico.rabbitmq.poc.business.logic.BusinessLogicProcessor;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueRequest;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueResponse;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusCodes;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusMessages;
 import za.co.nico.rabbitmq.poc.enums.TestType;
 import za.co.nico.rabbitmq.poc.exceptions.FailedToWriteToDatabaseException;
-import za.co.nico.rabbitmq.poc.processors.ServiceProcessor;
 import za.co.nico.rabbitmq.poc.services.DatabaseService;
 import za.co.nico.rabbitmq.poc.services.MessageQueueSendService;
 import za.co.nico.rabbitmq.poc.services.impl.MockDatabaseServiceImpl;
 import za.co.nico.rabbitmq.poc.services.impl.MockMessageQueueSendServiceImpl;
 
 @RunWith(SpringRunner.class)
-public class ServiceProcessorTest {
+public class BusinessLogicProcessorTest {
 
 	@Test
 	public void sendToMessageQueuePassingTest() {
@@ -30,7 +30,7 @@ public class ServiceProcessorTest {
 		String expectedResponseStatusCode = ResponseStatusCodes.OK.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.OK.getResponseStatusMessage();
 
-		ServiceProcessor manager = new ServiceProcessor(messageQueueService, databaseService);
+		BusinessLogicProcessor manager = new BusinessLogicProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
 		SendToQueueResponse response = manager.sendToMessageQueue(request);
 
@@ -50,7 +50,7 @@ public class ServiceProcessorTest {
 		String expectedResponseStatusCode = ResponseStatusCodes.BAD_REQUEST.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.BAD_REQUEST.getResponseStatusMessage();
 
-		ServiceProcessor manager = new ServiceProcessor(messageQueueService, databaseService);
+		BusinessLogicProcessor manager = new BusinessLogicProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
 		SendToQueueResponse response = manager.sendToMessageQueue(request);
 
@@ -70,7 +70,7 @@ public class ServiceProcessorTest {
 		String expectedResponseStatusCode = ResponseStatusCodes.MQ_FAILURE.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.MQ_FAILURE.getResponseStatusMessage();
 
-		ServiceProcessor manager = new ServiceProcessor(messageQueueService, databaseService);
+		BusinessLogicProcessor manager = new BusinessLogicProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
 		SendToQueueResponse response = manager.sendToMessageQueue(request);
 
@@ -88,7 +88,7 @@ public class ServiceProcessorTest {
 		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.PASSING_TEST);
 		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
 
-		ServiceProcessor manager = new ServiceProcessor(messageQueueService, databaseService);
+		BusinessLogicProcessor manager = new BusinessLogicProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
 
 		boolean testPasses = false;
@@ -106,7 +106,7 @@ public class ServiceProcessorTest {
 		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.PASSING_TEST);
 		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
 
-		ServiceProcessor manager = new ServiceProcessor(messageQueueService, databaseService);
+		BusinessLogicProcessor manager = new BusinessLogicProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
 
 		boolean testPasses = false;
@@ -131,7 +131,7 @@ public class ServiceProcessorTest {
 		String expectedResponseStatusCode = ResponseStatusCodes.DATABASE_FAILURE.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.DATABASE_FAILURE.getResponseStatusMessage();
 
-		ServiceProcessor manager = new ServiceProcessor(messageQueueService, databaseService);
+		BusinessLogicProcessor manager = new BusinessLogicProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
 		SendToQueueResponse response = manager.sendToMessageQueue(request);
 
@@ -149,7 +149,7 @@ public class ServiceProcessorTest {
 		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.THROWS_EXCEPTION);
 		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
 
-		ServiceProcessor manager = new ServiceProcessor(messageQueueService, databaseService);
+		BusinessLogicProcessor manager = new BusinessLogicProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
 		SendToQueueResponse response = null;
 		
@@ -164,7 +164,7 @@ public class ServiceProcessorTest {
 		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.THROWS_EXCEPTION);
 		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
 
-		ServiceProcessor manager = new ServiceProcessor(messageQueueService, databaseService);
+		BusinessLogicProcessor manager = new BusinessLogicProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
 
 		SendToQueueResponse response = new SendToQueueResponse();
@@ -177,7 +177,7 @@ public class ServiceProcessorTest {
 		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.THROWS_EXCEPTION);
 		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
 
-		ServiceProcessor manager = new ServiceProcessor(messageQueueService, databaseService);
+		BusinessLogicProcessor manager = new BusinessLogicProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
 
 		SendToQueueResponse response = new SendToQueueResponse();

@@ -119,7 +119,7 @@ One improvement we had in our design was the use of an Enum to be passed to the 
 For Positive tests all the public methods of the Mock Service Classes will return the Expected values .
 
 ### 8.2 Negative Tests
-It is sad that many developers do not write negative tests for see how their code works in adverse conditions expecially when Exceptions are deliberatly thrown to test how the code survives in extreem conditions.    
+It is sad that many developers do not write negative tests to test how their code works in adverse conditions expecially when Exceptions are deliberatly thrown to test how the code survives in extreem conditions.    
 For Negative tests all the public methods of the Mock Service Classes will return values representing failure  
   
 Now we can see that our code behaves with failures.

@@ -12,7 +12,7 @@ This includes TDD, BDD, and Unique Design Pattern for Microservices, as well as 
     If you are using Java 8 then use version : 4.8.3 in the POM file.   
 
 ## 1. The Design Pattern used in this Project facilitates the building better Microservices optmized for TDD and BDD
-[To access our documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md).   
+[To access our design pattern documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md).   
 
 ## 2. How we meet Dave Farley's Microservice Recommendations 
 The many presentations that Dave has made in his Channel, inspired the architect of this project.    

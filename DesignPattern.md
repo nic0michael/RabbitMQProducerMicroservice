@@ -5,7 +5,7 @@ Here focus given to TDD (Test Driven Development) and BDD (Behaviour Driven Deve
 
 [To access our POC documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/POC.md).   
 [To access  Recomendations for Microservices use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice).   
-![MicroserviceDesignPatternTDDandBDD](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPatternTDDandBDD.JPG).   
+![MicroserviceDesignPatternTDDandBDD](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPatternTDDandBDD.png?raw=true).   
 
 ## 1. Why do we want Unit testing
 Cyberpunk 2077 Was Supposed to Be the Biggest Video Game of the Year.   

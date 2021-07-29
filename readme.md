@@ -11,7 +11,7 @@ This project is delivered as a WAR file, so that it can also be run on Tomcat
 After reading this page have a look at the project documentation page in section 3 below
 
 ## 1. Features 
-  * This Project is built using a Design Pattern developed for better Microservices
+  * This Project is built using a unique Design Pattern optimized for better Microservices
   * Support is given to Tomcat by project is delivered As a WAR file.
   * Support for Docker is provided by this project.   
   * This Microservice can be Customized to support the Database of your choice

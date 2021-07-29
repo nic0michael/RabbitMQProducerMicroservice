@@ -74,14 +74,17 @@ This is done in the projects POM file (pom.xml) by adding the SonarQube Exclusio
 ## 5. This Design Pattern Decouples the Controller Classes from the Service Classes
 It is not uncommon to find the Controller Classes tightly coupled to the Service Classes this makes unit testing a challenge.
 
-### 5.1 We introduced a Service Processor Class to decouple the Controller Classes from the Service Classes
-This decouples the Controller Classes from the Service Classes.  
+### 5.1 We introduced a BusinessLogicProcessor Class to decouple the Controller Classes from the Service Classes
+This decouples the Controller Classes from the Service Class.  
 
-### 5.2 We decouple the Service Processor Class from the Service Classes
-We also made the Service Classes implement Interfaces this decouples the ServiceManager Class from the Service Classes.   
+### 5.2 We decouple the BusinessLogicProcessor Class from the Service Class using an Interface
+We also made the Service Classes implement Interfaces this decouples the BusinessLogicProcessor Class from the Service Class.   
 
-### 5.3 Overloading Constructors of classes assists in testing
-We add overloaded Constructors to the classes we want to test so that we can inject @Autowired fields and Objects as well as mock instances
+### 5.3 We also decouple the Service Class from the Adaptor Classes using Interfaces
+We also made the Adaptor Classes implement Interfaces that decouples them from the Service Class.   
+
+### 5.4 Overloading Constructors of classes assists in testing
+We add overloaded Constructors to the classes we want to test so that we can inject what was @Autowired fields and Objects as well as mock instances
 
 ![MicroserviceDesignPattern](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPattern.png)
 
@@ -91,37 +94,34 @@ What they receive in their  parameters is passed directly to the methods of the 
 We prefer to have the methods there with the same names as in the Controller Classes.   
 As we do not have any logic and are not changing anything in the Controller Classes we don’t need to write unit tests for the Controller Classes.
 
-## 7. We decouple the Service Processor Class from the Service Classes by making the Service Classes implement an Interface
-These Service Interfaces are @Autowired to the Service Processor Class.
 
-
-## 8. Using Test Driven Development to find the code for this project
+## 7. Using Test Driven Development to find the code for this project
 We Use the First Write a Test Methodology.   
 Here we don't write the code and then do the unit tests. **This is only done when developers are forced to have high code coverage**.   
 We would rather want **enough good unit tests**.   
 
 [For more information on how we did the TDD it has been documented here](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/TDD.md)
 
-## 9. We mock the Service classes by implementing Mock Service classes in the Test Folder for Unit testing
+## 8. We mock the Service classes by implementing Mock Service classes in the Test Folder for Unit testing
 By Mocking the Service classes we can control their behaviour to give us  Positive and Negative Unit tests.   
 We add overloaded Constructors to the classes we want to test so that we can inject @Autowired fields and Objects as well as instances of the mocked Service classs 
 
 ![MicroserviceDesignPatternTDDandBDD](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPatternTDDandBDD.png)
 
-### 9.1 Positive Tests
+### 8.1 Positive Tests
 For Positive tests all the public methods of the Mock Service Classes will return the Expected values .
 
-### 9.2 Negative Tests
+### 8.2 Negative Tests
 For Negative tests all the public methods of the Mock Service Classes will return values representing failure  
   
 Now we can see that our code behaves with failures.
 
-### 9.3 Destructive Negative Tests
+### 8.3 Destructive Negative Tests
 For Destructive Negative Tests we make all the methods in the Mock Classes throw the expected Exceptions for serious  failure.
 
 This way we can test how our code handles crashing conditions.
 
-### 9.4 Giving our Mock Classes multiple behaviours (Schizophrenic Classes)
+### 8.4 Giving our Mock Classes multiple behaviours (Schizophrenic Classes)
 In Order to give our Mock Classes multiple behaviours this is done by :
 
   * Making the default constructor private.  
@@ -139,7 +139,7 @@ We write all our Mock Class methods in such a way that they have three behaviour
 This is based on how these classes are instantiated.
 
 
-## 10. The benefits of using Mock Service Implementation classes
+## 9. The benefits of using Mock Service Implementation classes
   * We write unit tests that are not fragile 
   * Using Mockito produces brittle unit tests as any changes in the Requests and responses will require debugging to fix broken unit tests
   * Any changes in the Requests and responses will be easy to change in the Mock Service methods
@@ -149,9 +149,9 @@ This is based on how these classes are instantiated.
   One of the companies I worked at would have Jenkins build failures in one of the services was down.   
 **We never had that where we used this technique of using Mock Classes.**
   
-## 11. We can now reuse the same Mock classes for simplifying BDD Testing
+## 10. We can now reuse the same Mock classes for simplifying BDD Testing
 
-### 11.1 Positive Test
+### 10.1 Positive Test
 ```
     Scenario    : Trying to send a valid Transaction successfully to the Message Queue for processing
 
@@ -160,7 +160,7 @@ This is based on how these classes are instantiated.
     And         : The response has a corresponding Success code
 ```
 
-### 11.2 Negative Test
+### 10.2 Negative Test
 ```
     Scenario    : Trying to send a invalid Transaction to the Message Queue for processing
 
@@ -169,7 +169,7 @@ This is based on how these classes are instantiated.
     And         : The response has a corresponding Error code
 ```
 
-### 11.3 Destructive Negative Test
+### 10.3 Destructive Negative Test
 ```
     Scenario    : Trying to send a valid Transaction unsuccessfully to the Message Queue for processing
 

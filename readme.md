@@ -1,9 +1,14 @@
 # RabbitMQ Queue Producer SpringBoot Microservice
 
+## This project is an example of a Microservice built from the Industry Best Practices.   
+This includes TDD, BDD, and Unique Design Pattern for Microservices, as well as the installation of various Dockerized servers used to work with this project.
+
 This Project offers a sample SpringBoot project to send messages to a RabbitMQ servers Queue using code built using best practices
 
 Here a Cloud Ready project is provided to run on Amazon (AWS),Microsoft Azure, Google Cloud Platform (GCP).  
 This project is delivered as a WAR file, so that it can also be run on Tomcat
+
+After reading this page have a look at the project documentation page in section 3 below
 
 ## 1. Features 
   * This Project is built using a Design Pattern developed for better Microservices

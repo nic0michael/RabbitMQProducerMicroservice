@@ -87,6 +87,7 @@ We also made the Adaptor Classes implement Interfaces that decouples them from t
 We add overloaded Constructors to the classes we want to test so that we can inject what was @Autowired fields and Objects as well as mock instances
 
 ![MicroserviceDesignPattern](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPattern.png)
+Fig 1 : The design Pattern Class Diagram.   
 
 ## 6. We use "Pass-through or Wrapper Methods" Making Façades of the Controllers
 We moved asll ther logic from the Controller classes to the Business Logic Processor Class so that we don't need to test them.   
@@ -114,6 +115,7 @@ We add overloaded Constructors to the classes we want to test so that we can inj
 One improvement we had in our design was the use of an Enum to be passed to the overridden constructors of the Mocked Adapror classes to make the mocked instance of the Adaptor Pass for fail a test or throw exceptions thus facilitating Negative tests
 
 ![MicroserviceDesignPatternTDDandBDD](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/MicroserviceDesignPatternTDDandBDD.png)
+Fig 2 : The Class diagram showing the Mock Classes used for Unit Testing.   
 
 ### 8.1 Positive Tests
 For Positive tests all the public methods of the Mock Service Classes will return the Expected values .

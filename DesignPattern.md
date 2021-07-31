@@ -10,7 +10,7 @@ Here focus given to TDD (Test Driven Development) and BDD (Behaviour Driven Deve
 ## 1. Why do we want Unit testing
 Cyberpunk 2077 Was Supposed to Be the Biggest Video Game of the Year.   
 CD Projekt Red, the Polish studio behind the video game, announced the title in 2012.   
-[Bad Software Engineering KILLED Cyberpunk 2077’s Release](https://www.youtube.com/watch?v=E-jGEtqB4wU).   
+**[Bad Software Engineering KILLED Cyberpunk 2077’s Release](https://www.youtube.com/watch?v=E-jGEtqB4wU).**   
 
 Unit testing facilitates Continuous Integration.   
 At WesBank we spent 3 years writing more than 30 Microservices using an early version of this Design Pattern.   

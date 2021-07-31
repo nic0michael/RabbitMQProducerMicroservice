@@ -15,7 +15,7 @@ import za.co.nico.rabbitmq.poc.dtos.SendToQueueRequest;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueResponse;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusCodes;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusMessages;
-import za.co.nico.rabbitmq.poc.services.impl.MockMessageQueueSendServiceImpl;
+import za.co.nico.rabbitmq.poc.services.impl.MockMessageQueueAdaptorServiceImpl;
 
 @RunWith(SpringRunner.class)
 public class UtilsTest {

@@ -9,16 +9,16 @@ import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.jbehave.core.steps.Steps;
 
+import za.co.nico.rabbitmq.poc.adaptors.DatabaseAdaptor;
+import za.co.nico.rabbitmq.poc.adaptors.MessageQueueAdaptor;
 import za.co.nico.rabbitmq.poc.business.logic.BusinessLogicProcessor;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueRequest;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueResponse;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusCodes;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusMessages;
 import za.co.nico.rabbitmq.poc.enums.TestType;
-import za.co.nico.rabbitmq.poc.services.DatabaseService;
-import za.co.nico.rabbitmq.poc.services.MessageQueueSendService;
-import za.co.nico.rabbitmq.poc.services.impl.MockDatabaseServiceImpl;
-import za.co.nico.rabbitmq.poc.services.impl.MockMessageQueueSendServiceImpl;
+import za.co.nico.rabbitmq.poc.services.impl.MockDatabaseAdaptorServiceImpl;
+import za.co.nico.rabbitmq.poc.services.impl.MockMessageQueueAdaptorServiceImpl;
 import za.co.nico.rabbitmq.poc.validators.RequestValidator;
 
 public class SendMessageSteps extends Steps {
@@ -29,10 +29,10 @@ public class SendMessageSteps extends Steps {
 	
 	SendToQueueRequest request =null;
 	SendToQueueResponse response = null;
-	MessageQueueSendService messageQueueService = null;
+	MessageQueueAdaptor messageQueueService = null;
 	
 	RequestValidator validator=null;
-	DatabaseService databaseService = null;
+	DatabaseAdaptor databaseService = null;
 	BusinessLogicProcessor manager = null;
 
 
@@ -170,8 +170,8 @@ public class SendMessageSteps extends Steps {
 		expectedResponseStatusCode = ResponseStatusCodes.OK.getResponseStatusCode();
 		expectedResponseStatusMessage = ResponseStatusMessages.OK.getResponseStatusMessage();
 		
-		databaseService = new MockDatabaseServiceImpl(TestType.PASSING_TEST);
-		messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
+		databaseService = new MockDatabaseAdaptorServiceImpl(TestType.PASSING_TEST);
+		messageQueueService = new MockMessageQueueAdaptorServiceImpl(TestType.PASSING_TEST);
 		manager = new BusinessLogicProcessor(messageQueueService, databaseService);		
 		request =makeSendToQueueRequest();
 	}
@@ -180,8 +180,8 @@ public class SendMessageSteps extends Steps {
 		expectedResponseStatusCode = ResponseStatusCodes.BAD_REQUEST.getResponseStatusCode();
 		expectedResponseStatusMessage = ResponseStatusMessages.BAD_REQUEST.getResponseStatusMessage();
 		
-		databaseService = new MockDatabaseServiceImpl(TestType.PASSING_TEST);
-		messageQueueService = new MockMessageQueueSendServiceImpl(TestType.FAILING_TEST);
+		databaseService = new MockDatabaseAdaptorServiceImpl(TestType.PASSING_TEST);
+		messageQueueService = new MockMessageQueueAdaptorServiceImpl(TestType.FAILING_TEST);
 		manager = new BusinessLogicProcessor(messageQueueService, databaseService);	
 		request =makeSendToQueueRequest();
 	}
@@ -190,8 +190,8 @@ public class SendMessageSteps extends Steps {
 		expectedResponseStatusCode = ResponseStatusCodes.MQ_FAILURE.getResponseStatusCode();
 		expectedResponseStatusMessage = ResponseStatusMessages.MQ_FAILURE.getResponseStatusMessage();
 		
-		databaseService = new MockDatabaseServiceImpl(TestType.PASSING_TEST);
-		messageQueueService = new MockMessageQueueSendServiceImpl(TestType.THROWS_EXCEPTION);
+		databaseService = new MockDatabaseAdaptorServiceImpl(TestType.PASSING_TEST);
+		messageQueueService = new MockMessageQueueAdaptorServiceImpl(TestType.THROWS_EXCEPTION);
 		manager = new BusinessLogicProcessor(messageQueueService, databaseService);	
 	}
 	

@@ -1,18 +1,18 @@
 package za.co.nico.rabbitmq.poc.services.impl;
 
+import za.co.nico.rabbitmq.poc.adaptors.MessageQueueAdaptor;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueResponse;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusCodes;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusMessages;
 import za.co.nico.rabbitmq.poc.enums.TestType;
 import za.co.nico.rabbitmq.poc.exceptions.FailedToSendToQueueException;
-import za.co.nico.rabbitmq.poc.services.MessageQueueSendService;
 
-public class MockMessageQueueSendServiceImpl implements MessageQueueSendService{
+public class MockMessageQueueAdaptorServiceImpl implements MessageQueueAdaptor{
 	private TestType testType;
 
-	private MockMessageQueueSendServiceImpl() {}
+	private MockMessageQueueAdaptorServiceImpl() {}
 	
-	public MockMessageQueueSendServiceImpl(TestType testType) {
+	public MockMessageQueueAdaptorServiceImpl(TestType testType) {
 		this.testType=testType;
 	}
 	

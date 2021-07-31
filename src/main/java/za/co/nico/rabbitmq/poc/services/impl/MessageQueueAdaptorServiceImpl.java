@@ -16,14 +16,14 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
+import za.co.nico.rabbitmq.poc.adaptors.MessageQueueAdaptor;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueResponse;
 import za.co.nico.rabbitmq.poc.exceptions.FailedToSendToQueueException;
-import za.co.nico.rabbitmq.poc.services.MessageQueueSendService;
 import za.co.nico.rabbitmq.poc.utils.Utils;
 
 @Service
-public class MessageQueueSendServiceImpl implements MessageQueueSendService {
-	private static final Logger log = LoggerFactory.getLogger(MessageQueueSendServiceImpl.class);
+public class MessageQueueAdaptorServiceImpl implements MessageQueueAdaptor {
+	private static final Logger log = LoggerFactory.getLogger(MessageQueueAdaptorServiceImpl.class);
 	SendToQueueResponse response = null;
 
 	@Value("${spring.rabbitmq.username}")

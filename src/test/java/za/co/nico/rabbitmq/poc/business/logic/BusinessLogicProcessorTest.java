@@ -8,6 +8,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import za.co.nico.rabbitmq.poc.adaptors.DatabaseAdaptor;
+import za.co.nico.rabbitmq.poc.adaptors.MessageQueueAdaptor;
 import za.co.nico.rabbitmq.poc.business.logic.BusinessLogicProcessor;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueRequest;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueResponse;
@@ -15,18 +17,16 @@ import za.co.nico.rabbitmq.poc.enums.ResponseStatusCodes;
 import za.co.nico.rabbitmq.poc.enums.ResponseStatusMessages;
 import za.co.nico.rabbitmq.poc.enums.TestType;
 import za.co.nico.rabbitmq.poc.exceptions.FailedToWriteToDatabaseException;
-import za.co.nico.rabbitmq.poc.services.DatabaseService;
-import za.co.nico.rabbitmq.poc.services.MessageQueueSendService;
-import za.co.nico.rabbitmq.poc.services.impl.MockDatabaseServiceImpl;
-import za.co.nico.rabbitmq.poc.services.impl.MockMessageQueueSendServiceImpl;
+import za.co.nico.rabbitmq.poc.services.impl.MockDatabaseAdaptorServiceImpl;
+import za.co.nico.rabbitmq.poc.services.impl.MockMessageQueueAdaptorServiceImpl;
 
 @RunWith(SpringRunner.class)
 public class BusinessLogicProcessorTest {
 
 	@Test
 	public void sendToMessageQueuePassingTest() {
-		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.PASSING_TEST);
-		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
+		DatabaseAdaptor databaseService = new MockDatabaseAdaptorServiceImpl(TestType.PASSING_TEST);
+		MessageQueueAdaptor messageQueueService = new MockMessageQueueAdaptorServiceImpl(TestType.PASSING_TEST);
 		String expectedResponseStatusCode = ResponseStatusCodes.OK.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.OK.getResponseStatusMessage();
 
@@ -45,8 +45,8 @@ public class BusinessLogicProcessorTest {
 
 	@Test
 	public void sendToMessageQueueFailingTest() {
-		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.PASSING_TEST);
-		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.FAILING_TEST);
+		DatabaseAdaptor databaseService = new MockDatabaseAdaptorServiceImpl(TestType.PASSING_TEST);
+		MessageQueueAdaptor messageQueueService = new MockMessageQueueAdaptorServiceImpl(TestType.FAILING_TEST);
 		String expectedResponseStatusCode = ResponseStatusCodes.BAD_REQUEST.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.BAD_REQUEST.getResponseStatusMessage();
 
@@ -65,8 +65,8 @@ public class BusinessLogicProcessorTest {
 
 	@Test
 	public void sendToMessageQueueExceptionThrowingTest() {
-		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.PASSING_TEST);
-		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.THROWS_EXCEPTION);
+		DatabaseAdaptor databaseService = new MockDatabaseAdaptorServiceImpl(TestType.PASSING_TEST);
+		MessageQueueAdaptor messageQueueService = new MockMessageQueueAdaptorServiceImpl(TestType.THROWS_EXCEPTION);
 		String expectedResponseStatusCode = ResponseStatusCodes.MQ_FAILURE.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.MQ_FAILURE.getResponseStatusMessage();
 
@@ -85,8 +85,8 @@ public class BusinessLogicProcessorTest {
 
 	@Test
 	public void InsertToDatabasePassingTest() throws FailedToWriteToDatabaseException {
-		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.PASSING_TEST);
-		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
+		DatabaseAdaptor databaseService = new MockDatabaseAdaptorServiceImpl(TestType.PASSING_TEST);
+		MessageQueueAdaptor messageQueueService = new MockMessageQueueAdaptorServiceImpl(TestType.PASSING_TEST);
 
 		BusinessLogicProcessor manager = new BusinessLogicProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
@@ -103,8 +103,8 @@ public class BusinessLogicProcessorTest {
 
 	@Test
 	public void updateToDatabasePassingTest() throws FailedToWriteToDatabaseException {
-		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.PASSING_TEST);
-		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
+		DatabaseAdaptor databaseService = new MockDatabaseAdaptorServiceImpl(TestType.PASSING_TEST);
+		MessageQueueAdaptor messageQueueService = new MockMessageQueueAdaptorServiceImpl(TestType.PASSING_TEST);
 
 		BusinessLogicProcessor manager = new BusinessLogicProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
@@ -126,8 +126,8 @@ public class BusinessLogicProcessorTest {
 
 	@Test
 	public void sendToMessageQueueWithDatabaseExceptionThrowingTest() {
-		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.THROWS_EXCEPTION);
-		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
+		DatabaseAdaptor databaseService = new MockDatabaseAdaptorServiceImpl(TestType.THROWS_EXCEPTION);
+		MessageQueueAdaptor messageQueueService = new MockMessageQueueAdaptorServiceImpl(TestType.PASSING_TEST);
 		String expectedResponseStatusCode = ResponseStatusCodes.DATABASE_FAILURE.getResponseStatusCode();
 		String expectedResponseStatusMessage = ResponseStatusMessages.DATABASE_FAILURE.getResponseStatusMessage();
 
@@ -146,8 +146,8 @@ public class BusinessLogicProcessorTest {
 
 	@Test(expected = FailedToWriteToDatabaseException.class)
 	public void InsertToDatabaseExceptionThrowingTest() throws FailedToWriteToDatabaseException {
-		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.THROWS_EXCEPTION);
-		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
+		DatabaseAdaptor databaseService = new MockDatabaseAdaptorServiceImpl(TestType.THROWS_EXCEPTION);
+		MessageQueueAdaptor messageQueueService = new MockMessageQueueAdaptorServiceImpl(TestType.PASSING_TEST);
 
 		BusinessLogicProcessor manager = new BusinessLogicProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
@@ -161,8 +161,8 @@ public class BusinessLogicProcessorTest {
 
 	@Test(expected = FailedToWriteToDatabaseException.class)
 	public void x() throws FailedToWriteToDatabaseException {
-		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.THROWS_EXCEPTION);
-		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
+		DatabaseAdaptor databaseService = new MockDatabaseAdaptorServiceImpl(TestType.THROWS_EXCEPTION);
+		MessageQueueAdaptor messageQueueService = new MockMessageQueueAdaptorServiceImpl(TestType.PASSING_TEST);
 
 		BusinessLogicProcessor manager = new BusinessLogicProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();
@@ -174,8 +174,8 @@ public class BusinessLogicProcessorTest {
 
 	@Test(expected = FailedToWriteToDatabaseException.class)
 	public void updateToDatabaseExceptionThrowingTest() throws FailedToWriteToDatabaseException {
-		DatabaseService databaseService = new MockDatabaseServiceImpl(TestType.THROWS_EXCEPTION);
-		MessageQueueSendService messageQueueService = new MockMessageQueueSendServiceImpl(TestType.PASSING_TEST);
+		DatabaseAdaptor databaseService = new MockDatabaseAdaptorServiceImpl(TestType.THROWS_EXCEPTION);
+		MessageQueueAdaptor messageQueueService = new MockMessageQueueAdaptorServiceImpl(TestType.PASSING_TEST);
 
 		BusinessLogicProcessor manager = new BusinessLogicProcessor(messageQueueService, databaseService);
 		SendToQueueRequest request = makeSendToQueueRequest();

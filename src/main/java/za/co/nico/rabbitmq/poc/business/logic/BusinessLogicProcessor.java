@@ -1,25 +1,17 @@
 package za.co.nico.rabbitmq.poc.business.logic;
 
-import java.net.ConnectException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.amqp.AmqpConnectException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import za.co.nico.rabbitmq.poc.dtos.SendToQueueDto;
+import za.co.nico.rabbitmq.poc.adaptors.DatabaseAdaptor;
+import za.co.nico.rabbitmq.poc.adaptors.MessageQueueAdaptor;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueRequest;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueResponse;
 import za.co.nico.rabbitmq.poc.exceptions.FailedToSendToQueueException;
 import za.co.nico.rabbitmq.poc.exceptions.FailedToWriteToDatabaseException;
 import za.co.nico.rabbitmq.poc.exceptions.failedToMakeJsonStringExeption;
-import za.co.nico.rabbitmq.poc.services.DatabaseService;
-import za.co.nico.rabbitmq.poc.services.MessageQueueSendService;
-import za.co.nico.rabbitmq.poc.services.ServiceInterface;
 import za.co.nico.rabbitmq.poc.utils.Utils;
 import za.co.nico.rabbitmq.poc.validators.RequestValidator;
 
@@ -32,30 +24,20 @@ public class BusinessLogicProcessor {
 	RequestValidator validator;
 	
 	@Autowired
-	ServiceInterface service;
+	MessageQueueAdaptor messageQueueService;
 
 	@Autowired
-	MessageQueueSendService messageQueueService;
-
-	@Autowired
-	DatabaseService databaseService;
+	DatabaseAdaptor databaseService;
 
 	public BusinessLogicProcessor() {}
 
 
-	/**
-	 * Overloaded constructor used for unit testing
-	 */
-	public BusinessLogicProcessor(ServiceInterface service) {
-		log.info("Overridden constructor called");
-		validator = new RequestValidator();
-		this.service = service;
-	}
+
 	
 	/**
 	 * Overloaded constructor used for unit testing
 	 */
-	public BusinessLogicProcessor(MessageQueueSendService messageQueueService,DatabaseService databaseService) {
+	public BusinessLogicProcessor(MessageQueueAdaptor messageQueueService,DatabaseAdaptor databaseService) {
 		log.info("Overridden constructor called");
 		validator = new RequestValidator();
 		this.messageQueueService = messageQueueService;
@@ -74,7 +56,6 @@ public class BusinessLogicProcessor {
 				String json = Utils.makeJsonString(request);
 				writeToDatabase( request, response) ;
 				response = messageQueueService.sendToMessageQueue(json);
-//				response = service.sendToMessageQueue(json);
 				writeToDatabase( request, response) ;
 				
 			} catch (FailedToSendToQueueException ea) {
@@ -98,10 +79,8 @@ public class BusinessLogicProcessor {
 		log.info("writeToDatabase called");
 		if(response!=null) {
 			databaseService.updateRecord(request, response);
-//			service.updateRecord(request, response);
 		} else {
 			databaseService.insertRecord(request);
-//			service.insertRecord(request);
 		}
 		
 	}

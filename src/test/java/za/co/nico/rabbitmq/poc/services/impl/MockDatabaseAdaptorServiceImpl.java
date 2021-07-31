@@ -1,18 +1,18 @@
 package za.co.nico.rabbitmq.poc.services.impl;
 
+import za.co.nico.rabbitmq.poc.adaptors.DatabaseAdaptor;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueRequest;
 import za.co.nico.rabbitmq.poc.dtos.SendToQueueResponse;
 import za.co.nico.rabbitmq.poc.enums.TestType;
 import za.co.nico.rabbitmq.poc.exceptions.FailedToWriteToDatabaseException;
-import za.co.nico.rabbitmq.poc.services.DatabaseService;
 
-public class MockDatabaseServiceImpl implements DatabaseService {
+public class MockDatabaseAdaptorServiceImpl implements DatabaseAdaptor {
 	private TestType testType;
 
-	private MockDatabaseServiceImpl() {
+	private MockDatabaseAdaptorServiceImpl() {
 	}
 
-	public MockDatabaseServiceImpl(TestType testType) {
+	public MockDatabaseAdaptorServiceImpl(TestType testType) {
 		this.testType = testType;
 	}
 

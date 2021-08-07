@@ -4,7 +4,63 @@ This design pattern has matured over four years of its use to write Microservice
 Here focus given to TDD (Test Driven Development) and BDD (Behaviour Driven Development).
 
 [To access our POC documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/POC.md).   
-[To access  Recomendations for Microservices use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice).   
+[To access  Recommendations for Microservices use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice).   
+
+## The Metamorphosis of this design pattern for building better Microservices
+### 2018 
+Perceive Chuchu and Nico Michael were working in the Best Practices Team at Wesbank writing Spring Boot Microservices.  
+As many developers of Spring Boot Microservices we had tightly coupled or Controller classes from the Service classes.  
+This introduces disadvantages to your code like, the effort needed for testing, and time to maintain the code. 
+
+**Decoupling the Controller Classes from the Service Classes**   
+Our Practice Lead (Open Source Technologies, Java & Cloud Solutions) at DVT Saurabh Agrawal recommended that we decouple the Controller Classes from the Service Classes.  This is in-line with the Microservice Codeing Best Practices.   
+Saurabh named the class we would use for decoupling the **"Module class"**.   
+ 
+**Using Nico's "Schizophrenic" Mock Classes to simplify Unit testing**       
+The concept of using Stubs and Drivers cam from the Mainframe developers and from that we got the Mock class. However Nico wanted something more.     
+
+Nico came up with a variation that he named the "Schizophrenic" Mock Class that we would use to Mock the behaviour of the Service Class. This class would have multiple personalities or in our case behaviours.     
+He wanted, Unit Tests to use these classes, to simplify their code.  
+Instead of using many lines of complicated, Mockito code, that would make the unit tests "Brittle", theses Mock classes would be used instead, as Nico had learned not to write Brittle Unit Tests.    
+He also figured out that he could not only use these Mock Classes for TDD (Test Driven Development), but that he could also reuse the same Mock classes for BDD (Behaviour Driven Development).       
+Thus simplifying all his tests.
+
+**"Schizophrenic behaviour achieved by Overloading the Constructors of the Mock classes**.       
+By making the Service classes Implement Interfaces, Nico could make his Mock classes implement the same Interfaces, thus making them pluggable into his unit tests.       
+By overloading the Constructors and passing an ENUM as a parameter he could make the Mock Class behave like the Service class but with programmable behaviour.       
+
+When the value of the ENUM was "GOOD" these Mock classes would return the expected responses from all their public methods.   
+But when the ENUM value was "FAILING" they would return the expected failure response.       
+When the value of the ENUM was "THROW_EXCEPTIONS" this would make all its public methods in the Mock class throw the expected exceptions.       
+
+### Dec 2020       
+**Renaming the Decoupling class or Module Class**      
+John Daratos an ex Senior Architect from IBM advised Nico to rename the **Module Class** used for Decoupling the Controller Classes from the Service classes to be called the **ServiceManager class** as it better described its purpose.    
+
+### 2021     
+**Renaming the Decoupling class or ServiceManager class**      
+Nico had figured out that if you move all the Business Logic to the decoupling class and adding the same public methods of the Controller classes that he would not need to test the Controller classes as all the data-changing logic and business logic would be in the **ServiceManager classes**.   
+He realized that the Service Manager class was now processing the Business Logic and that its name was now not descriptive of its purpose so he renamed the ServiceManager class to the **BusinessProcessor class**. This is his first project using this name
+
+**Renaming the service Classes and "Schizophrenic" Mock Classess**      
+After Nico have viewed this video from Dave Farley of "Continuous Delivery" fame, ["When TDD is Difficult - Try This!"](https://www.youtube.com/watch?v=ESHn53myB88&list=WL&index=10&t=7s) , Nico liked Dave's use of adaptors he decided that the Service classes would implement interfaces named Adaptors.       
+
+**For this project the interfaces would be named :**
+
+  * DatabaseAdaptor 
+  * MessageQueueAdaptor.       
+
+**The service classes implementing these interfaces in this project would be named :**
+
+  * DatabaseServiceAdaptorImpl
+  * MessageQueueServiceAdaptorImpl.   
+
+Now Nico's "Schitzophrenic" Mock Classes would implement the interfaces above and be mocking the above Service classes
+   
+____________________________________________________________________________________________________________________________   
+   
+   
+
 
 
 ## 1. Why do we want Unit testing
@@ -27,7 +83,7 @@ The approach of this Design Pattern is to simplify Unit Testing doing TDD (Test 
   * They do not facilitate the use of Mock Service classes for TDD and BDD testing. 
 
 ## 3. How this design pattern evolved to solve the above problems
-In 2017 Saurabh Agrawal(DVT) had recommended that one should decouple the Controller Classes from the Service Classes.   
+In 2018 Saurabh Agrawal(DVT) had recommended that one should decouple the Controller Classes from the Service Classes.   
 Later Nico Michael(DVT) introduced the use of Mock Classes for Unit Testing to facilitate TDD and BDD.   
 Recently the Class that decouples the  Controller Classes from the Service Classes was given the name the "BusinessLogicProcessor" class.
 

@@ -145,7 +145,7 @@ We add overloaded Constructors to the classes we want to test so that we can inj
 Fig 1 : The design Pattern Class Diagram.   
 
 ## 6. We use "Pass-through or Wrapper Methods" Making Façades of the Controllers
-We moved asll ther logic from the Controller classes to the Business Logic Processor Class so that we don't need to test them.   
+We moved all the logic from the Controller classes to the Business Logic Processor Class so that we don't need to test them.   
 In the Controller Classes all the methods that call the Business Logic Processor Class direct and do not "Modify Data".   
 What they receive in their  parameters is passed directly to the methods of the Service Processor Class.   
 We prefer to have the methods there with the same names as in the Controller Classes.   

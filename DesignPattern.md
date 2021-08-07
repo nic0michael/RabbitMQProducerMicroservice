@@ -56,8 +56,7 @@ After Nico have viewed this video from Dave Farley of "Continuous Delivery" fame
   * MessageQueueServiceAdaptorImpl.   
 
 Now Nico's "Schitzophrenic" Mock Classes would implement the interfaces above and be mocking the above Service classes
-   
-____________________________________________________________________________________________________________________________   
+
    
    
 

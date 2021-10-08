@@ -60,6 +60,14 @@ Now Portainer will have your Docker Instance ready for starting in the future.
 ### Installing Docker Engine on Ubuntu
 [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 
+sudo apt-get install \
+apt-transport-https \
+ca-certificates \
+curl \
+software-properties-common
+
+[Install WSL - Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install)
+
 ###  Installing Docker on windows 10
 [1. How to install Cygwin on Windows 10](https://www.youtube.com/watch?v=QonIPpKodCw)
 

@@ -69,7 +69,11 @@ software-properties-common
 [Install WSL - Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install)
 
 ###  Installing Docker on windows 10
-[1. How to install Cygwin on Windows 10](https://www.youtube.com/watch?v=QonIPpKodCw)
+It is much easier to install WSL (Windows Subsystem for Linux).   
+open browser :   
+[WSL (Windows Subsystem for Linux)](https://www.microsoft.com/en-za/windows/windows-10-apps).   
+
+[1. How to install Cygwin on Windows 10](https://www.youtube.com/watch?v=QonIPpKodCw).   
 
 [Download Cygwin here](https://cygwin.com/install.html)
 

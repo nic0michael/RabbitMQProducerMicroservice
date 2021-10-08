@@ -59,6 +59,12 @@ Now Portainer will have your Docker Instance ready for starting in the future.
 
 ### Installing Docker Engine on Ubuntu
 [Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+
+Chech waht version of Ubuntu you have installed:
+```
+lsb_release -a
+```
+
 ```
 sudo apt-get install \
 apt-transport-https \

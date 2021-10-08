@@ -110,6 +110,9 @@ C:\Users\YourWindowsName\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWi
 Your Home folder is located here: 
 C:\Users\YourWindowsName\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\LinuxUserId  
 
+#### To create a Desktop Shortcut the Executable Binary is located here:
+C:\Windows\System32\wsl.exe 
+right click thia file and select : Send to Desktop (create shortcut)
 
 
 ## 12. Installing Docker-Compose

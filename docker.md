@@ -58,21 +58,15 @@ Now Portainer will have your Docker Instance ready for starting in the future.
 ## 10. Installing Docker
 
 ### Installing Docker Engine on Ubuntu
-[Install Docker Engine on Ubuntu](https://docs.docker.com/engine/install/ubuntu/). 
 [How To Install and Use Docker on Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04). 
+This instalation can be used on a Ubuntu Machine as wellas on WSL(Windows Subsystem for Linux). 
 
-Check what version of Ubuntu you have installed:
+Check what version of Ubuntu you have installed: 
 ```
 lsb_release -a
 ```
 
 ```
-sudo apt-get install \
-apt-transport-https \
-ca-certificates \
-curl \
-software-properties-common
-
 sudo apt update
 
 sudo apt install apt-transport-https ca-certificates curl software-properties-common
@@ -82,17 +76,22 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 apt-cache policy docker-ce
 
 sudo apt install docker-ce
-# if the above fails
+# if the above fails (in WSL)
 sudo apt install docker.io
 sudo apt install docker-compose
 
+sudo apt update
 
+sudo apt upgrade
+
+docker --version
+docker-compose --version
  
 ```
 
 [Install WSL - Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install)
 
-###  Installing Docker on windows 10
+###  Installing Docker on windows 10 in WSL
 It is much easier to install WSL (Windows Subsystem for Linux).   
 open browser : [WSL (Windows Subsystem for Linux)](https://www.microsoft.com/en-za/windows/windows-10-apps). 
 [Search for Ubuntu ](https://www.microsoft.com/en-za/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab). 
@@ -104,19 +103,14 @@ Check what version of Ubuntu you have installed:
 ```
 lsb_release -a
 ```
+Now proceed with the Docker on Linux installation as described above. 
+
 #### The WSL file System is located here :
 C:\Users\YourWindowsName\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs  
 Your Home folder is located here: 
 C:\Users\YourWindowsName\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\LinuxUserId  
 
 
-[1. How to install Cygwin on Windows 10](https://www.youtube.com/watch?v=QonIPpKodCw).   
-
-[Download Cygwin here](https://cygwin.com/install.html)
-
-[2. Install docker on Ubuntu 16.04 and Windows with Cygwin command line working](https://www.youtube.com/watch?v=L1fwHM9agIw)
-
-[3. Docker Tutorial for Beginners 2 - Install Docker on Windows 10](https://www.youtube.com/watch?v=_9AWYlt86B8)
 
 ## 12. Installing Docker-Compose
 [Download and Install Docker-compose here:](https://github.com/docker/compose/releases/)

@@ -63,7 +63,7 @@ Now Portainer will have your Docker Instance ready for starting in the future.
 ###  Installing Docker on windows 10
 [1. How to install Cygwin on Windows 10](https://www.youtube.com/watch?v=QonIPpKodCw)
 
-(2. Docker Tutorial for Beginners 2 - Install Docker on Windows 10)[https://www.youtube.com/watch?v=_9AWYlt86B8]
+[2. Docker Tutorial for Beginners 2 - Install Docker on Windows 10](https://www.youtube.com/watch?v=_9AWYlt86B8)
 
 ## 12. Installing Docker-Compose
 [Download and Install Docker-compose here:](https://github.com/docker/compose/releases/)

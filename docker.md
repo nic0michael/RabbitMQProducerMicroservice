@@ -91,17 +91,9 @@ docker-compose --version
 
 [Install WSL - Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install)
 
-###  Installing Docker on windows 10 (Dont use WSL)
+###  Installing Docker on windows 10 (Dont use or enable WSL)
 [https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly) . 
 
-#### The WSL file System is located here :
-C:\Users\YourWindowsName\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs  
-Your Home folder is located here: 
-C:\Users\YourWindowsName\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\home\LinuxUserId  
-
-#### To create a Desktop Shortcut the Executable Binary is located here:
-C:\Windows\System32\wsl.exe 
-right click thia file and select : Send to Desktop (create shortcut)
 
 
 ## 12. Installing Docker-Compose

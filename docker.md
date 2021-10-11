@@ -91,19 +91,8 @@ docker-compose --version
 
 [Install WSL - Windows Subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install)
 
-###  Installing Docker on windows 10 in WSL
-It is much easier to install WSL (Windows Subsystem for Linux).   
-open browser : [WSL (Windows Subsystem for Linux)](https://www.microsoft.com/en-za/windows/windows-10-apps). 
-[Search for Ubuntu ](https://www.microsoft.com/en-za/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab). 
-After installing WSL you need to reboot Windows 10. 
-Search and Start Ubuntu. 
-You will need to set the Linux UserId and password make a note of this. 
-
-Check what version of Ubuntu you have installed:
-```
-lsb_release -a
-```
-Now proceed with the Docker on Linux installation as described above. 
+###  Installing Docker on windows 10 (Dont use WSL)
+[https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly](https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly) . 
 
 #### The WSL file System is located here :
 C:\Users\YourWindowsName\AppData\Local\Packages\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs  

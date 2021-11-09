@@ -1,0 +1,892 @@
+{
+	"info": {
+		"_postman_id": "5e40c535-a7ff-402c-a1df-193983cf6701",
+		"name": "Afrigis-API-MicroserviceCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET: AuthToken Received Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Test 1 :Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"console.log(response);\r",
+							"console.log(\"Messag : \"+response.message);\r",
+							"console.log(\"Code : \"+ response.code);\r",
+							"\r",
+							"\r",
+							"pm.test(\"TEST 2 :response message not be Null\",() => {\r",
+							"    pm.expect(response.message).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 3 :response Status to be a String\",() => {\r",
+							"\r",
+							"    pm.expect(response.message).to.be.a(\"string\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response message should be correct\",() => {\r",
+							"   pm.expect(response.message).to.eql(\"OK : Received OAuth Access Token\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/authtoken",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"authtoken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: Positive Test  autocomplete searchString provided",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Test 1 :Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"console.log(response);\r",
+							"console.log(\"Messag : \"+response.message);\r",
+							"console.log(\"Code : \"+ response.code);\r",
+							"\r",
+							"\r",
+							"pm.test(\"TEST 2 :response message not be Null\",() => {\r",
+							"    pm.expect(response.code).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 3 :response message not be Null\",() => {\r",
+							"    pm.expect(response.message).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 6 :response Status to be a String\",() => {\r",
+							"\r",
+							"    pm.expect(response.message).to.be.a(\"string\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 5 :response message not be correct\",() => {\r",
+							"   pm.expect(response.message).to.eql(\"OK : Received AutoComplete response\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response code not be : 202 \",() => {\r",
+							"   pm.expect(response.code).to.eql(\"202\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"searchString\":\"milner\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/autocomplete",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"autocomplete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: Positive Test autocomplete with address fields provided",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Test 1 :Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"console.log(response);\r",
+							"console.log(\"Messag : \"+response.message);\r",
+							"console.log(\"Code : \"+ response.code);\r",
+							"\r",
+							"\r",
+							"pm.test(\"TEST 2 :response message not be Null\",() => {\r",
+							"    pm.expect(response.code).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 3 :response message not be Null\",() => {\r",
+							"    pm.expect(response.message).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response Status to be a String\",() => {\r",
+							"\r",
+							"    pm.expect(response.message).to.be.a(\"string\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 5 :response message should  be correct\",() => {\r",
+							"   pm.expect(response.message).to.eql(\"OK : Received AutoComplete response\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response code should be : 202\",() => {\r",
+							"   pm.expect(response.code).to.eql(\"202\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"searchString\":\"\",\r\n    \"street\":\"Fourie Avenue\",\r\n    \"suburb\":\"Burgersdorp\",\r\n    \"city\":\"Lichtenburg\",\r\n    \"province\":\"North West\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/autocomplete",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"autocomplete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Positive Test /autocomplete street and suburb",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/autocomplete",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"autocomplete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: Negative Test autocomplete Missing Suburb",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Test 1 :Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"console.log(response);\r",
+							"console.log(\"Messag : \"+response.message);\r",
+							"console.log(\"Code : \"+ response.code);\r",
+							"\r",
+							"\r",
+							"pm.test(\"TEST 2 :response message not be Null\",() => {\r",
+							"    pm.expect(response.code).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 3 :response message not be Null\",() => {\r",
+							"    pm.expect(response.message).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response Status to be a String\",() => {\r",
+							"\r",
+							"    pm.expect(response.message).to.be.a(\"string\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 5 :response message not be correct\",() => {\r",
+							"   pm.expect(response.message).to.eql(\"The Request is Invalid the suburb field is null  or not set for AUTO_COMPLETE_REQUEST\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response code not be : 423\",() => {\r",
+							"   pm.expect(response.code).to.eql(\"423\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"seoid\":\"\",\r\n    \"searchString\":\"\",\r\n    \"street\":\"street\",\r\n    \"suburb\":\"\",\r\n    \"city\":\"cc\",\r\n    \"province\":\"pp\",\r\n    \"postalCode\":\"pp\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/autocomplete",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"autocomplete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: Negative Test autocomplete Missing SearchString and Street fields",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Test 1 :Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"console.log(response);\r",
+							"console.log(\"Messag : \"+response.message);\r",
+							"console.log(\"Code : \"+ response.code);\r",
+							"\r",
+							"\r",
+							"pm.test(\"TEST 2 :response message not be Null\",() => {\r",
+							"    pm.expect(response.code).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 3 :response message not be Null\",() => {\r",
+							"    pm.expect(response.message).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response Status to be a String\",() => {\r",
+							"\r",
+							"    pm.expect(response.message).to.be.a(\"string\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 5 :response message not be correct\",() => {\r",
+							"   pm.expect(response.message).to.eql(\"The Request is Invalid the street or SearchString fields arenull or is not set for AUTO_COMPLETE_REQUEST\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response code not be : 421\",() => {\r",
+							"   pm.expect(response.code).to.eql(\"421\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"seoid\":\"\",\r\n    \"searchString\":\"\",\r\n    \"street\":\"\",\r\n    \"suburb\":\"\",\r\n    \"city\":\"\",\r\n    \"province\":\"\",\r\n    \"postalCode\":\"\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/autocomplete",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"autocomplete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: Positive Test   details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Test 1 :Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"console.log(response);\r",
+							"console.log(\"Messag : \"+response.message);\r",
+							"console.log(\"Code : \"+ response.code);\r",
+							"\r",
+							"\r",
+							"pm.test(\"TEST 2 :response message not be Null\",() => {\r",
+							"    pm.expect(response.code).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 3 :response message not be Null\",() => {\r",
+							"    pm.expect(response.message).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response Status to be a String\",() => {\r",
+							"\r",
+							"    pm.expect(response.message).to.be.a(\"string\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 5 :response message should be correct\",() => {\r",
+							"   pm.expect(response.message).to.eql(\"OK : Received Details response\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response code should be : 203\",() => {\r",
+							"   pm.expect(response.code).to.eql(\"203\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"seoid\": \"6zOF41VPtd_SvEboRDR-uiG406134a5d\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/details",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: Negative Test   details missing seoid value",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Test 1 :Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"console.log(response);\r",
+							"console.log(\"Messag : \"+response.message);\r",
+							"console.log(\"Code : \"+ response.code);\r",
+							"\r",
+							"\r",
+							"pm.test(\"TEST 2 :response message not be Null\",() => {\r",
+							"    pm.expect(response.code).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 3 :response message not be Null\",() => {\r",
+							"    pm.expect(response.message).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response Status to be a String\",() => {\r",
+							"\r",
+							"    pm.expect(response.message).to.be.a(\"string\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 5 :response message not be correct\",() => {\r",
+							"   pm.expect(response.message).to.eql(\"The Request is Invalid the SEOID field is null or not set for DETAILS_REQUEST\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response code not be : 421\",() => {\r",
+							"   pm.expect(response.code).to.eql(\"421\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"seoid\": \"\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/details",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: Negative Test   details invalid seoid value",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Test 1 :Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"console.log(response);\r",
+							"console.log(\"Messag : \"+response.message);\r",
+							"console.log(\"Code : \"+ response.code);\r",
+							"\r",
+							"\r",
+							"pm.test(\"TEST 2 :response message not be Null\",() => {\r",
+							"    pm.expect(response.code).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 3 :response message not be Null\",() => {\r",
+							"    pm.expect(response.message).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response Status to be a String\",() => {\r",
+							"\r",
+							"    pm.expect(response.message).to.be.a(\"string\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 5 :response message not be correct\",() => {\r",
+							"   pm.expect(response.message).to.eql(\"Failure : failed to receive Details response (Check if SEOID field is invalid) \");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response code not be : 430\",() => {\r",
+							"   pm.expect(response.code).to.eql(\"430\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"seoid\": \"6zOF41VPtd_SvEboRDR-uiG406134a5dXXX\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/details",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Positive Test /FindStreetsStartingWith",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/FindStreetsStartingWith/{{street}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"FindStreetsStartingWith",
+						"{{street}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Positive Test /FindWithStreetAndSuburb",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/FindWithStreetAndSuburb/{{street}}/{{suburb}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"FindWithStreetAndSuburb",
+						"{{street}}",
+						"{{suburb}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Positive Test /FindWithStreetAndSuburbAndCityAndProvince",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/FindWithStreetAndSuburbAndCityAndProvince/{{street}}/{{suburb}}/{{city}}/{{province}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"FindWithStreetAndSuburbAndCityAndProvince",
+						"{{street}}",
+						"{{suburb}}",
+						"{{city}}",
+						"{{province}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Negative Test /FindStreetsStartingWith",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/FindStreetsStartingWith/{{street}}xx",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"FindStreetsStartingWith",
+						"{{street}}xx"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Negative Test /FindStreetsStartingWith/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/FindStreetsStartingWith/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"FindStreetsStartingWith",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: Positive Test Curro Details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"TEST 1 :Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"console.log(response);\r",
+							"console.log(\"Messag : \"+response.message);\r",
+							"console.log(\"Code : \"+ response.code);\r",
+							"\r",
+							"pm.test(\"TEST 2 :response message not be Null\",() => {\r",
+							"    pm.expect(response.message).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 3 :response code not be Null\",() => {\r",
+							"    pm.expect(response.code).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response message should be correct\",() => {\r",
+							"   pm.expect(response.message).to.eql(\"OK : Received Details response\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 5 :response code should be : 203\",() => {\r",
+							"   pm.expect(response.code).to.eql(\"203\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/currodetails/{{seoid}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"currodetails",
+						"{{seoid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: Negative Test Curro Details invalid seoid",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"TEST 1 :Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"console.log(response);\r",
+							"console.log(\"Messag : \"+response.message);\r",
+							"console.log(\"Code : \"+ response.code);\r",
+							"\r",
+							"pm.test(\"TEST 2 :response message not be Null\",() => {\r",
+							"    pm.expect(response.message).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 3 :response code not be Null\",() => {\r",
+							"    pm.expect(response.code).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response message should be correct\",() => {\r",
+							"   pm.expect(response.message).to.eql(\"Failure : failed to receive Details response (Check if SEOID field is invalid) \");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 5 :response code should be : 430\",() => {\r",
+							"   pm.expect(response.code).to.eql(\"430\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/currodetails/{{seoid}}XXX",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"currodetails",
+						"{{seoid}}XXX"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Negative Test {{baseURL}}/currodetails/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/currodetails/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"currodetails",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Positive Preprod {{baseURL}}/currodetails/{{seoid}}",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/currodetails/{{seoid}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"currodetails",
+						"{{seoid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Test /FindStreetsStartingWith/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/afri/v1/FindStreetsStartingWith/36,Zinkwaze,pretoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"afri",
+						"v1",
+						"FindStreetsStartingWith",
+						"36,Zinkwaze,pretoria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Test /FindSearchStringStartingWith/{{street}}",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/afri/v1/FindSearchStringStartingWith/36,Zinkwaze,pretoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"afri",
+						"v1",
+						"FindSearchStringStartingWith",
+						"36,Zinkwaze,pretoria"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+
+	]
+}

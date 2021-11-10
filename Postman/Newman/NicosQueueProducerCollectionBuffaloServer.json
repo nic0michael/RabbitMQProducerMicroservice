@@ -7,6 +7,40 @@
 	"item": [
 		{
 			"name": "POST Negative Test  NicosQueueProducer@localhost  ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"console.log(response);\r",
+							"console.log(\"Messag : \"+response.message);\r",
+							"console.log(\"Code : \"+ response.code);\r",
+							"\r",
+							"\r",
+							"pm.test(\"TEST 2 :response message not be Null\",() => {\r",
+							"    pm.expect(response.responseStatusMessage).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 3 :response Status to be a String\",() => {\r",
+							"\r",
+							"    pm.expect(response.responseStatusMessage).to.be.a(\"string\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response message should be correct\",() => {\r",
+							"   pm.expect(response.responseStatusMessage).to.eql(\"The Request is invalid : Transaction is missing\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [

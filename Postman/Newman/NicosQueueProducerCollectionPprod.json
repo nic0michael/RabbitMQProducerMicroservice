@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "790aa3c5-b11f-4f29-9927-05a7a37e6088",
+		"name": "NicosQueueProducerCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST Negative Test  NicosQueueProducer@localhost  ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"console.log(response);\r",
+							"console.log(\"Messag : \"+response.message);\r",
+							"console.log(\"Code : \"+ response.code);\r",
+							"\r",
+							"\r",
+							"pm.test(\"TEST 2 :response message not be Null\",() => {\r",
+							"    pm.expect(response.responseStatusMessage).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 3 :response Status to be a String\",() => {\r",
+							"\r",
+							"    pm.expect(response.responseStatusMessage).to.be.a(\"string\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response message should be correct\",() => {\r",
+							"   pm.expect(response.responseStatusMessage).to.eql(\"The Request is invalid : Transaction is missing\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"messageId\":\"NOT REQUIRED\",\r\n    \"messageType\":\"dummy_messageType\",\r\n    \"messageDescription\":\"dummy_messageDescription\",\r\n    \"transactionId\":\"dummy_transactionId\",\r\n    \"transactionType\":\"dummy_transactionType\",\r\n    \"transaction\":\"\",\r\n    \"targetSystemId\":\"dummy_targetSystemId\",\r\n    \"senderSystemId\":\"dummy_senderSystemId\",\r\n    \"senderId\":\"dummy_senderId\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/send",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Negative Test  http://10.154.2.88:9080/rabbitmq/rlpty/qproducer/send",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"messageId\":\"NOT REQUIRED\",\r\n    \"messageType\":\"dummy_messageType\",\r\n    \"messageDescription\":\"dummy_messageDescription\",\r\n    \"transactionId\":\"dummy_transactionId\",\r\n    \"transactionType\":\"dummy_transactionType\",\r\n    \"transaction\":\"\",\r\n    \"targetSystemId\":\"dummy_targetSystemId\",\r\n    \"senderSystemId\":\"dummy_senderSystemId\",\r\n    \"senderId\":\"dummy_senderId\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/send",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST Positive Test http://10.154.2.88:9080/rabbitmq/rlpty/qproducer/send",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"messageId\":\"NOT REQUIRED\",\r\n    \"messageType\":\"dummy_messageType\",\r\n    \"messageDescription\":\"dummy_messageDescription\",\r\n    \"transactionId\":\"dummy_transactionId\",\r\n    \"transactionType\":\"dummy_transactionType\",\r\n    \"transaction\":\"dummy_transaction\",\r\n    \"targetSystemId\":\"dummy_targetSystemId\",\r\n    \"senderSystemId\":\"dummy_senderSystemId\",\r\n    \"senderId\":\"dummy_senderId\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/send",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"send"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://10.154.2.88:9080/rabbitmq/rlpty/qproducer"
+		},
+		{
+			"key": "localUrl",
+			"value": "http://localhost:9080/rabbitmq/rlpty/qproducer"
+		},
+		{
+			"key": "buffaloServerUrl",
+			"value": "http://10.154.2.88:9080/rabbitmq/rlpty/qproducer"
+		},
+		{
+			"key": "pprodUrl",
+			"value": ""
+		}
+	]
+}

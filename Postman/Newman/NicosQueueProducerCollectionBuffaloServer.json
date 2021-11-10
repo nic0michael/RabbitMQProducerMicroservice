@@ -12,7 +12,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
+							"pm.test(\"TEST 1 : Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
 							"\r",
@@ -78,6 +78,40 @@
 		},
 		{
 			"name": "POST Negative Test  http://10.154.2.88:9080/rabbitmq/rlpty/qproducer/send",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"TEST 1 Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"console.log(response);\r",
+							"console.log(\"Messag : \"+response.message);\r",
+							"console.log(\"Code : \"+ response.code);\r",
+							"\r",
+							"\r",
+							"pm.test(\"TEST 2 :response message not be Null\",() => {\r",
+							"    pm.expect(response.responseStatusMessage).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 3 :response Status to be a String\",() => {\r",
+							"\r",
+							"    pm.expect(response.responseStatusMessage).to.be.a(\"string\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response message should be correct\",() => {\r",
+							"   pm.expect(response.responseStatusMessage).to.eql(\"The Request is invalid : MessageType is missing\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [
@@ -94,7 +128,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"messageId\":\"NOT REQUIRED\",\r\n    \"messageType\":\"dummy_messageType\",\r\n    \"messageDescription\":\"dummy_messageDescription\",\r\n    \"transactionId\":\"dummy_transactionId\",\r\n    \"transactionType\":\"dummy_transactionType\",\r\n    \"transaction\":\"\",\r\n    \"targetSystemId\":\"dummy_targetSystemId\",\r\n    \"senderSystemId\":\"dummy_senderSystemId\",\r\n    \"senderId\":\"dummy_senderId\"\r\n}\r\n",
+					"raw": "{\r\n    \"messageId\":\"NOT REQUIRED\",\r\n    \"messageType\":\"\",\r\n    \"messageDescription\":\"dummy_messageDescription\",\r\n    \"transactionId\":\"dummy_transactionId\",\r\n    \"transactionType\":\"dummy_transactionType\",\r\n    \"transaction\":\"Dummy_Transaction\",\r\n    \"targetSystemId\":\"dummy_targetSystemId\",\r\n    \"senderSystemId\":\"dummy_senderSystemId\",\r\n    \"senderId\":\"dummy_senderId\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -115,6 +149,40 @@
 		},
 		{
 			"name": "POST Positive Test http://10.154.2.88:9080/rabbitmq/rlpty/qproducer/send",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"TEST 1 : Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"const response = pm.response.json();\r",
+							"\r",
+							"console.log(response);\r",
+							"console.log(\"Messag : \"+response.message);\r",
+							"console.log(\"Code : \"+ response.code);\r",
+							"\r",
+							"\r",
+							"pm.test(\"TEST 2 :response message not be Null\",() => {\r",
+							"    pm.expect(response.responseStatusMessage).not.equal(null);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 3 :response Status to be a String\",() => {\r",
+							"\r",
+							"    pm.expect(response.responseStatusMessage).to.be.a(\"string\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"TEST 4 :response message should be correct\",() => {\r",
+							"   pm.expect(response.responseStatusMessage).to.eql(\"OK : Message delivered to RabbitMQ\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [

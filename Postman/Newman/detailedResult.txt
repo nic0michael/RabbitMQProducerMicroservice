@@ -4,7 +4,7 @@ NicosQueueProducerCollection
 
 → POST Negative Test  NicosQueueProducer@localhost  
   POST http://10.154.2.88:9080/rabbitmq/rlpty/qproducer/send  
-  200 OK ★ 34ms time ★ 695B↑ 469B↓ size ★ 9↑ 3↓ headers ★ 0 cookies
+  200 OK ★ 32ms time ★ 695B↑ 469B↓ size ★ 9↑ 3↓ headers ★ 0 cookies
   ┌ ↑ raw ★ 371B
   │ {
   │     "messageId":"NOT REQUIRED",
@@ -28,9 +28,9 @@ NicosQueueProducerCollection
   │ senderId":null}
   └
   prepare   wait   dns-lookup   tcp-handshake   transfer-start   download   process   total 
-  57ms      10ms   (cache)      2ms             10ms             10ms       894µs     91ms  
+  44ms      5ms    (cache)      1ms             16ms             7ms        475µs     76ms  
 
-  √  Status code is 200
+  √  TEST 1 : Status code is 200
   ┌
   │ {
   │   responseStatusCode: '408',
@@ -56,36 +56,59 @@ NicosQueueProducerCollection
 
 → POST Negative Test  http://10.154.2.88:9080/rabbitmq/rlpty/qproducer/send
   POST http://10.154.2.88:9080/rabbitmq/rlpty/qproducer/send  
-  200 OK ★ 13ms time ★ 697B↑ 469B↓ size ★ 9↑ 3↓ headers ★ 0 cookies
+  200 OK ★ 10ms time ★ 697B↑ 469B↓ size ★ 9↑ 3↓ headers ★ 0 cookies
   ┌ ↑ raw ★ 373B
   │ {
   │     "messageId":"NOT REQUIRED",
-  │     "messageType":"dummy_messageType",
+  │     "messageType":"",
   │     "messageDescription":"dummy_messageDescription",
   │     "transactionId":"dummy_transactionId",
   │     "transactionType":"dummy_transactionType",
-  │     "transaction":"",
+  │     "transaction":"Dummy_Transaction",
   │     "targetSystemId":"dummy_targetSystemId",
   │     "senderSystemId":"dummy_senderSystemId",
   │     "senderId":"dummy_senderId"
   │ }
   └ 
   ┌ ↓ application/json ★ text ★ json ★ utf8 ★ 339B
-  │ {"responseStatusCode":"408","responseStatusMessage":"T
-  │ he Request is invalid : Transaction is missing","datab
+  │ {"responseStatusCode":"405","responseStatusMessage":"T
+  │ he Request is invalid : MessageType is missing","datab
   │ aseResponseStatusCode":null,"databaseResponseStatusMes
   │ sage":null,"messageId":null,"messageType":null,"messag
   │ eDescription":null,"transactionId":null,"transactionTy
   │ pe":null,"targetSystemId":null,"senderSystemId":null,"
   │ senderId":null}
   └
-  prepare   wait    dns-lookup   tcp-handshake   transfer-start   download   process   total 
-  2ms       827µs   (cache)      (cache)         8ms              2ms        89µs      14ms  
+  prepare   wait   dns-lookup   tcp-handshake   transfer-start   download   process   total 
+  1ms       1ms    (cache)      (cache)         6ms              2ms        70µs      11ms  
 
+  √  TEST 1 Status code is 200
+  ┌
+  │ {
+  │   responseStatusCode: '405',
+  │   responseStatusMessage: 'The Request is invalid : Mes
+  │ sageType is missing',
+  │   databaseResponseStatusCode: null,
+  │   databaseResponseStatusMessage: null,
+  │   messageId: null,
+  │   messageType: null,
+  │   messageDescription: null,
+  │   transactionId: null,
+  │   transactionType: null,
+  │   targetSystemId: null,
+  │   senderSystemId: null,
+  │   senderId: null
+  │ }
+  │ 'Messag : undefined'
+  │ 'Code : undefined'
+  └
+  √  TEST 2 :response message not be Null
+  √  TEST 3 :response Status to be a String
+  √  TEST 4 :response message should be correct
 
 → POST Positive Test http://10.154.2.88:9080/rabbitmq/rlpty/qproducer/send
   POST http://10.154.2.88:9080/rabbitmq/rlpty/qproducer/send  
-  200 OK ★ 210ms time ★ 714B↑ 510B↓ size ★ 9↑ 3↓ headers ★ 0 cookies
+  200 OK ★ 26ms time ★ 714B↑ 510B↓ size ★ 9↑ 3↓ headers ★ 0 cookies
   ┌ ↑ raw ★ 390B
   │ {
   │     "messageId":"NOT REQUIRED",
@@ -110,27 +133,50 @@ NicosQueueProducerCollection
   │ "}
   └
   prepare   wait    dns-lookup   tcp-handshake   transfer-start   download   process   total 
-  2ms       409µs   (cache)      (cache)         206ms            2ms        82µs      212ms 
+  1ms       272µs   (cache)      (cache)         23ms             1ms        64µs      27ms  
 
+  √  TEST 1 : Status code is 200
+  ┌
+  │ {
+  │   responseStatusCode: '200',
+  │   responseStatusMessage: 'OK : Message delivered to Ra
+  │ bbitMQ',
+  │   databaseResponseStatusCode: null,
+  │   databaseResponseStatusMessage: null,
+  │   messageId: null,
+  │   messageType: 'dummy_value',
+  │   messageDescription: 'dummy_value',
+  │   transactionId: 'dummy_value',
+  │   transactionType: 'dummy_value',
+  │   targetSystemId: null,
+  │   senderSystemId: 'dummy_value',
+  │   senderId: 'dummy_value'
+  │ }
+  │ 'Messag : undefined'
+  │ 'Code : undefined'
+  └
+  √  TEST 2 :response message not be Null
+  √  TEST 3 :response Status to be a String
+  √  TEST 4 :response message should be correct
 
-┌─────────────────────────┬────────────────────┬───────────────────┐
-│                         │           executed │            failed │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│              iterations │                  1 │                 0 │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│                requests │                  3 │                 0 │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│            test-scripts │                  4 │                 0 │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│      prerequest-scripts │                  3 │                 0 │
-├─────────────────────────┼────────────────────┼───────────────────┤
-│              assertions │                  4 │                 0 │
-├─────────────────────────┴────────────────────┴───────────────────┤
-│ total run duration: 572ms                                        │
-├──────────────────────────────────────────────────────────────────┤
-│ total data received: 1.06kB (approx)                             │
-├──────────────────────────────────────────────────────────────────┤
-│ average response time: 85ms [min: 13ms, max: 210ms, s.d.: 88ms]  │
-├──────────────────────────────────────────────────────────────────┤
-│ average first byte time: 75ms [min: 8ms, max: 206ms, s.d.: 92ms] │
-└──────────────────────────────────────────────────────────────────┘
+┌─────────────────────────┬───────────────────┬──────────────────┐
+│                         │          executed │           failed │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              iterations │                 1 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│                requests │                 3 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│            test-scripts │                 6 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│      prerequest-scripts │                 3 │                0 │
+├─────────────────────────┼───────────────────┼──────────────────┤
+│              assertions │                12 │                0 │
+├─────────────────────────┴───────────────────┴──────────────────┤
+│ total run duration: 338ms                                      │
+├────────────────────────────────────────────────────────────────┤
+│ total data received: 1.06kB (approx)                           │
+├────────────────────────────────────────────────────────────────┤
+│ average response time: 22ms [min: 10ms, max: 32ms, s.d.: 9ms]  │
+├────────────────────────────────────────────────────────────────┤
+│ average first byte time: 15ms [min: 6ms, max: 23ms, s.d.: 7ms] │
+└────────────────────────────────────────────────────────────────┘

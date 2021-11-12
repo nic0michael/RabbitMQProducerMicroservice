@@ -50,7 +50,11 @@ Installation instructions for all servers and Docker containers are provided her
 
 **[To access the Project Documentation use this link.](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/ProjectDocumentation.md)**
  
-## 4. Free Open Source FOS with the License based on GPL Version 3
+## 4. Building cloud ready microservices using industry best practices White Paper 
+To Download this white paper  click the link below
+[white-paper-building-cloud-ready-microservices-using-industry-best-practices](https://www.dvt.co.za/white-paper-building-cloud-ready-microservices-using-industry-best-practices)  
+ 
+## 5. Free Open Source FOS with the License based on GPL Version 3
 
 This project is Free Open Source code FOS.   
 We provide this Project as free of charge and subject to the terms and license of this project is GPL Version 3.   
@@ -58,6 +62,6 @@ We provide this Project as free of charge and subject to the terms and license o
 In return for that please give the author of this project credit in your MD keeping the next line:   
 [The Source of this project if Forked from GitHub and is Free for Commercial use.](https://github.com/nic0michael/RabbitMQProducerMicroservice)
 
-## 5. No Warranty is provided or implied
+## 6. No Warranty is provided or implied
 This software is provided in terms of South African law as : "VOETS TOETS" "AS IS" (in English) with no warranty and no Guarantee provided or implied That the user shall agree to comply with these terms when using this software.
 

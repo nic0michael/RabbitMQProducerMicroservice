@@ -43,7 +43,7 @@ Portainer is used to Start the Docker instances for this project if you are usin
 ### 2.5 Database Support
 This project is customizable for you to chose your own database technology.   
 An Interface is provided and an empty Database Service class for you to customize for your requirements. 
-## 3 Project Documentation
+## 3. Project Documentation
 Explanations on how Our design pattern decouples this Microservice internally. 
 How it facilitates doing Test Driven Development(TDD) and Behaviour Driven Development(BDD) using Mock Service classes.
 Installation instructions for all servers and Docker containers are provided here
@@ -51,7 +51,7 @@ Installation instructions for all servers and Docker containers are provided her
 **[To access the Project Documentation use this link.](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/ProjectDocumentation.md)**
  
 ## 4. Building cloud ready microservices using industry best practices White Paper 
-To Download this white paper  click the link below
+To Download this white paper click this link : 
 [white-paper-building-cloud-ready-microservices-using-industry-best-practices](https://www.dvt.co.za/white-paper-building-cloud-ready-microservices-using-industry-best-practices)  
  
 ## 5. Free Open Source FOS with the License based on GPL Version 3

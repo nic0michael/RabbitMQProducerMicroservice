@@ -26,7 +26,7 @@ The many presentations that Dave has made in his Channel, inspired the architect
 
 
 ## 5. Automated Integration testing using Postman Test suites and calling the Newman API from shell sctipts
-[To access our POC documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/POC.md).   
+[To access our Postman documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/Postman.md).   
 
 ## 5. The Proof Of Concept (POC)
 [To access our POC documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/POC.md).   

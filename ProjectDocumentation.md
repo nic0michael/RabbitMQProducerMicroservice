@@ -28,14 +28,14 @@ The many presentations that Dave has made in his Channel, inspired the architect
 ## 5. Automated Integration testing using Postman Test suites and calling the Newman API from shell sctipts
 [To access our Postman documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/Postman.md).   
 
-## 5. The Proof Of Concept (POC)
+## 6. The Proof Of Concept (POC)
 [To access our POC documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/POC.md).   
 
-## 6 Running SonarQube Tests
+## 7. Running SonarQube Tests
 [To Access our SonarQube installation and testing Procedures use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/SonarQubeInstallationAndTesting.md).  
 
 
-## 7. Installation Instructions
+## 8. Installation Instructions
 [To Access our Postman Installation and setup instructions use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/Postman.md).   
 
 [To Access our Portainer Server Installation instructions use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/Portainer.md)
@@ -44,7 +44,7 @@ The many presentations that Dave has made in his Channel, inspired the architect
 
 [To Access our SonarQube installation and testing Procedures use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/SonarQubeInstallationAndTesting.md).  
 
-## 8. Creating a Docker Instance
+## 9. Creating a Docker Instance
 [To Access our procedures on how to make a Docker Instance of this project use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/docker.md)
 
 

@@ -3,6 +3,8 @@
 ## This project is an example of a Microservice built from the Industry Best Practices.   
 This includes TDD, BDD, and Unique Design Pattern for Microservices, as well as the installation of various Dockerized servers used to work with this project.
 
+What makes this Microservice unique is the Design Pattern we developed for Spring Boot microservices is used here. For more information please read the documentation.
+
 This Project offers a sample SpringBoot project to send messages to a RabbitMQ servers Queue using code built using best practices
 
 Here a Cloud Ready project is provided to run on Amazon (AWS),Microsoft Azure, Google Cloud Platform (GCP).  

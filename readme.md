@@ -50,8 +50,8 @@ Installation instructions for all servers and Docker containers are provided her
 
 **[To access the Project Documentation use this link.](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/ProjectDocumentation.md)**
  
-## 4. Building cloud ready microservices using industry best practices White Paper 
-To Download my white paper click on this link : 
+## 4. Building cloud ready microservices using industry best practices DVT White Paper 
+I have published this white paper : 
 [white-paper-building-cloud-ready-microservices-using-industry-best-practices](https://www.dvt.co.za/white-paper-building-cloud-ready-microservices-using-industry-best-practices)  
  
 ## 5. Free Open Source FOS with the License based on GPL Version 3

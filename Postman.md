@@ -1,4 +1,4 @@
-# Postman Installation And Use
+# Postman Installation And Use of Newman
 
 ## Download Postman
 

@@ -187,7 +187,7 @@ For Destructive Negative Tests we make all the methods in the Mock Classes throw
 
 This way we can test how our code handles crashing conditions.
 
-### 8.4 Giving our Mock Classes multiple behaviours (Schizophrenic Classes)
+### 8.4 Giving our Mock Classes multiple behaviours (Schizophrenic like Classes)
 In Order to give our Mock Classes multiple behaviours this is done by :
 
   * Making the default constructor private.  

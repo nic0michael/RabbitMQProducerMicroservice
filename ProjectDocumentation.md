@@ -24,6 +24,10 @@ The many presentations that Dave has made in his Channel, inspired the architect
 ## 4. Behaviour Driven  Development BDD
 [To access our Recommendations on Test Development use this link ](https://github.com/nic0michael/RabbitMQProducerMicroservice/tree/master/jbehave-report/readme.md).
 
+
+## 5. Automated Integration testing using Postman Test suites and calling the Newman API from shell sctipts
+[To access our POC documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/POC.md).   
+
 ## 5. The Proof Of Concept (POC)
 [To access our POC documentation use this link](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/POC.md).   
 

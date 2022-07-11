@@ -49,6 +49,7 @@ How it facilitates doing Test Driven Development(TDD) and Behaviour Driven Devel
 Installation instructions for all servers and Docker containers are provided here
 
 **[To access the Project Documentation use this link.](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/ProjectDocumentation.md)**
+**[To learn more about our Design Pattern n use this link.](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md)**
  
 ## 4. Building cloud ready microservices using industry best practices DVT White Paper 
 I have published this white paper : 

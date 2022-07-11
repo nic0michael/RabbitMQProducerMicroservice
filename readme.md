@@ -19,7 +19,7 @@ After reading this page have a look at the project documentation page in section
   * This Microservice can be Customized to support the Database of your choice
   * We created a Design Pattern for the Optimal way to Unit test a Microservice (TDD and BDD)
    
-**[To learn more about our Design Pattern n use this link.](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md)**
+**[To learn more about our Design Pattern use this link.](https://github.com/nic0michael/RabbitMQProducerMicroservice/blob/master/DesignPattern.md)**
 
 
 ## 2. Servers and Technologies supported
